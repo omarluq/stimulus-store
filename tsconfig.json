@@ -1,26 +1,26 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",
+    "module": "ESNext", 
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "declaration": true, // Generates declaration files
-    "declarationDir": "./dist", // Output directory for declaration files
-    "outDir": "./dist", // Output directory for JavaScript files
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
-    "noEmit": false, // Set to false to allow emitting JavaScript files
+    "noEmit": false,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "isolatedModules": false, // Set to false for project compilation
-    "moduleResolution": "node", // Use Node.js-style module resolution
-    "baseUrl": ".", // Set the base URL for module resolution
+    "isolatedModules": false,
+    "moduleResolution": "node",
+    "baseUrl": ".",
     "paths": {
-      // Add any custom paths or module mappings here if needed
+      // your custom paths
     },
     "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["src", "global-types.d.ts"]
+  "include": ["src", "test", "global-types.d.ts"]
 }

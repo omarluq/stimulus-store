@@ -43,7 +43,7 @@ export function useStore<T>(controller: any, stores: Store<T>[]) {
   const unsubscribeFunctions: UnsubscribeFunction[] = [];
   
   stores.forEach((store) => {
-    const storeName = store.constructor.name;
+    const storeName = store.name;
     const onStoreUpdateMethodName = `on${storeName}Update`;
     const onStoreUpdateMethod: UpdateMethod = controller[onStoreUpdateMethodName];
 
