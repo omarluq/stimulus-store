@@ -16,7 +16,7 @@ With Stimulus Store, you can:
 
 ## Installation
 
-You can install Stimulus Store via npm or include it directly in your HTML:
+You can install Stimulus Store via npm or yarn:
 
 ### npm
 
@@ -64,8 +64,8 @@ export default class extends Controller {
   }
 
   increment() {
-    const newValue = this.counterStore.value + 1;
-    this.counterStore.set(newValue);
+    const newValue = counterStore.value + 1;
+    counterStore.set(newValue);
   }
 }
 ```
