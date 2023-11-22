@@ -1,3 +1,5 @@
+<img src="./public/stimulus_store_logo.png" alt="Stimulus Store Logo" width="100"/> 
+
 # Stimulus Store
 
 Stimulus Store is a lightweight JavaScript library that simplifies state management in your Stimulus-powered web applications. It provides a simple and intuitive way to create, manage, and share stateful data across different controllers using a common `Store` class.
