@@ -67,6 +67,12 @@ export default class extends Controller {
     const newValue = counterStore.value + 1;
     counterStore.set(newValue);
   }
+
+  decrement() {
+    // set will also receive a callback
+    // and will only notify on condition
+    counterStore.set((value)=>value-1, { filter: (value)=>value == 0 })
+  }
 }
 ```
 

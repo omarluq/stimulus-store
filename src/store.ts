@@ -28,13 +28,17 @@ export class Store<T> {
   private subscribers: Set<UpdateMethod>;
 
   constructor(initialValue: T) {
+    if (typeof initialValue === "undefined") {
+      throw new Error("Store must be initialized with a value");
+    }
     this.value = initialValue;
     this.subscribers = new Set();
   }
 
-  set(newValue: T) {
-    this.value = newValue;
-    this.notifySubscribers();
+  set(newValue: T, options: SetOptions = { filter: () => true }) {
+    if (newValue === this.value) return;
+    this.value = typeof newValue === "function" ? newValue(this.value) : newValue;
+    this.notifySubscribers(options);
   }
 
   subscribe(callback: UpdateMethod): UnsubscribeFunction {
@@ -47,7 +51,9 @@ export class Store<T> {
     this.subscribers.delete(callback);
   }
 
-  private notifySubscribers() {
-    this.subscribers.forEach(callback => callback(this.value));
+  private notifySubscribers(options: NotifySubscriberOptions) {
+    Array.from(this.subscribers)
+    .filter(_ => options.filter(this.value))
+    .forEach(callback => callback(this.value))
   }
 }
