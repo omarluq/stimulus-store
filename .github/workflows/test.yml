@@ -12,4 +12,14 @@ jobs:
         with:
           node-version: 21
       - run: yarn install --frozen-lockfile
-      - run: yarn test
+      - name: Build
+        run: yarn build
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: ./.jest-stare/*

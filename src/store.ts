@@ -65,7 +65,7 @@ export class Store<T> {
 
   private notifySubscribers(options: NotifySubscriberOptions) {
     Array.from(this.subscribers)
-    .filter(_ => options.filter(this.value))
+    .filter(() => options.filter(this.value))
     .forEach(callback => callback(this.value))
   }
 }
