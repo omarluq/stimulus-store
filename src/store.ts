@@ -26,13 +26,13 @@
 export class Store<T> {
   private value: T;
   private subscribers: Set<UpdateMethod>;
-  name: String;
+  name: string;
 
-  constructor(name: String, initialValue: T) {
+  constructor(name: string, initialValue: T) {
     if (typeof initialValue === "undefined") {
       throw new Error("Store must be initialized with a value");
     } else if (typeof name !== "string") {
-      throw new Error("Store name must be of Type String");
+      throw new Error("Store name must be of Type string");
     }
     this.name = name;
     this.value = initialValue;
