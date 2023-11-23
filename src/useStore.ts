@@ -2,19 +2,20 @@
  * useStore Function
  *
  * The useStore function simplifies the process of subscribing to and handling updates from multiple store instances
- * within a Stimulus controller.
+ * within a Stimulus controller. It also allows direct access to store values on the controller.
  *
  * @param {Object} controller - The Stimulus controller instance that wants to subscribe to the stores.
- * @param {Array<Store<T>>} stores - An array of store instances that the controller wants to subscribe to.
  * @template T - The type of data stored in the stores.
  *
  * How It Works:
- * 1. Iterates over the stores.
- * 2. Identifies the type of each store and constructs an update method name.
- * 3. Creates update methods for stores if corresponding onStoreUpdate methods exist on the controller.
- * 4. Dynamically assigns update methods to the controller with specific names based on store types.
- * 5. Subscribes update methods to stores to handle updates.
- * 6. Enhances the controller's disconnect method to include cleanup for all subscriptions.
+ * 1. Retrieves the stores from the controller's constructor.
+ * 2. Iterates over the stores.
+ * 3. Identifies the type of each store and constructs an update method name.
+ * 4. Creates update methods for stores if corresponding onStoreUpdate methods exist on the controller.
+ * 5. Dynamically assigns update methods to the controller with specific names based on store types.
+ * 6. Subscribes update methods to stores to handle updates.
+ * 7. Allows direct access to store values on the controller.
+ * 8. Enhances the controller's disconnect method to include cleanup for all subscriptions.
  *
  * Usage Example:
  * ```javascript
@@ -23,9 +24,10 @@
  * import { myStore } from "./stores/myStore"; // Import your store class
  *
  * export default class extends Controller {
+ *  static stores = [myStore];
  *   connect() {
  *     // Use the useStore function to subscribe to specific stores
- *     useStore(this, [myStore]);
+ *     useStore(this);
  *   }
  *
  *   // Implement specific update methods for each store
@@ -36,33 +38,44 @@
  * }
  * ```
  */
-
 import type { Store } from './store';
+import type { StoreController } from './storeController'; // Adjust the path as needed
+import { camelize } from './utils/camelize';
 
-export function useStore<T>(controller: any, stores: Store<T>[]) {
-  const unsubscribeFunctions: UnsubscribeFunction[] = [];
-  
+export function useStore(controller: StoreController) {
+  const stores: Store<any>[] = controller.constructor.stores || [];
+  const unsubscribeFunctions: (() => void)[] = [];
+
   stores.forEach((store) => {
-    const storeName = store.name;
-    const onStoreUpdateMethodName = `on${storeName}Update`;
-    const onStoreUpdateMethod: UpdateMethod = controller[onStoreUpdateMethodName];
+    const storeName: string = store.name;
+    const camelizedName = camelize(storeName);
+    const onStoreUpdateMethodName = `on${camelize(storeName, true)}Update`;
+    const onStoreUpdateMethod: (value: any) => void = controller[onStoreUpdateMethodName];
 
     if (onStoreUpdateMethod) {
-      // Create a specific update method for this store
-      const updateMethod: UpdateMethod = value => {
+      const updateMethod: (value: any) => void = value => {
         onStoreUpdateMethod.call(controller, value);
       };
 
-      // Set the update method on the controller with a specific name based on the store type
-      const methodName = `update${storeName}`;
+      const methodName = `update${camelize(storeName, true)}`;
       controller[methodName] = updateMethod;
 
-      // Subscribe to the store using the specific update method
       unsubscribeFunctions.push(store.subscribe(updateMethod));
     }
+
+    Object.defineProperty(controller, `${camelizedName}Value`, {
+      get: () => store.get(),
+      enumerable: true,
+      configurable: true,
+    });
+
+    Object.defineProperty(controller, camelizedName, {
+      get: () => store,
+      enumerable: true,
+      configurable: true,
+    });
   });
 
-  // Enhance the controller's disconnect method to include cleanup for all subscriptions
   const originalDisconnect = controller.disconnect.bind(controller);
   controller.disconnect = () => {
     unsubscribeFunctions.forEach(unsubscribe => {
