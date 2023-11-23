@@ -1,4 +1,5 @@
 /**
+ * @template T The type of the value that the store holds.
  * Store Class Explanation:
  *
  * The `Store` class is a versatile class for managing and subscribing to data updates in JavaScript applications.
@@ -24,50 +25,80 @@
  */
 
 export class Store<T> {
-  private value: T;
+  name: symbol;
+  private value!: T;
   private subscribers: Set<UpdateMethod>;
-  name: string;
+  private type: new (...args: unknown[]) => unknown;
 
-  constructor(name: string, initialValue: T) {
-    if (typeof initialValue === "undefined") {
-      throw new Error("Store must be initialized with a value");
-    } else if (typeof name !== "string") {
-      throw new Error("Store name must be of Type string");
-    }
+  /**
+   * Creates a new store.
+   *
+   * @param {symbol} name - The name of the store.
+   * @param {T} initialValue - The initial value of the store.
+   * @param {new (...args: unknown[]) => unknown} type - The type of the store's value.
+   */
+  constructor(name: symbol, initialValue: T, type: new (...args: unknown[]) => unknown) {
     this.name = name;
-    this.value = initialValue;
     this.subscribers = new Set();
+    this.type = type;
+    this.set(initialValue);
   }
 
+  /**
+   * Sets the value of the store and notifies subscribers.
+   *
+   * @param {T | CurrentValueCallback | Promise<T | CurrentValueCallback>} newValue - The new value.
+   * @param {SetOptions} [options={ filter: () => true }] - The options for setting the value.
+   */
   async set(newValue: T | CurrentValueCallback | Promise<T | CurrentValueCallback>, options: SetOptions = { filter: () => true }) {
-  // Consider enriching the store value with some kind of typing similar to Stimulus values typing.
-  // This would provide type safety and autocompletion benefits when working with the store value.
-  // It would also make the code more self-documenting, as the types would provide information about what kind of values are expected.
-  // This could be achieved by using TypeScript generics or by defining specific types for different kinds of store values.
     if (newValue instanceof Promise) return this.resolvePromise(newValue, options);
     if (newValue === this.get()) return;
-    this.value = typeof newValue === "function" ? (newValue as CurrentValueCallback)(this.value) : newValue;
+    const finalValue: T = typeof newValue === "function" ? (newValue as CurrentValueCallback)(this.get()) : newValue;
+    if (Object.getPrototypeOf(finalValue).constructor !== this.type) {
+      throw new Error(`Value '${finalValue}' must be of type ${this.type.name}`);
+    }
+    this.setValue(finalValue);
     this.notifySubscribers(options);
   }
 
+  /**
+   * Gets the current value of the store.
+   *
+   * @returns {T} The current value.
+   */
   get(): T {
     return this.value;
   }
 
+  private setValue(value: T) {
+    this.value = value;
+  }
+
+  /**
+   * Subscribes to the store.
+   *
+   * @param {UpdateMethod} callback - The function to call when the store's value changes.
+   * @returns {UnsubscribeFunction} A function that unsubscribes the callback.
+   */
   subscribe(callback: UpdateMethod): UnsubscribeFunction {
     this.subscribers.add(callback);
-    callback(this.value); // Immediate call for initial value
+    callback(this.get()); // Immediate call for initial value
     return () => this.unsubscribe(callback); // Return an unsubscribe function
   }
 
+  /**
+   * Unsubscribes from the store.
+   *
+   * @param {UpdateMethod} callback - The function to unsubscribe.
+   */
   unsubscribe(callback: UpdateMethod) {
     this.subscribers.delete(callback);
   }
 
   private notifySubscribers(options: NotifySubscriberOptions) {
     Array.from(this.subscribers)
-    .filter(() => options.filter(this.value))
-    .forEach(callback => callback(this.value))
+    .filter(() => options.filter(this.get()))
+    .forEach(callback => callback(this.get()))
   }
 
   private async resolvePromise(newValue: Promise<T | CurrentValueCallback>, options: SetOptions) {
@@ -75,7 +106,7 @@ export class Store<T> {
       const resolvedValue = await newValue;
       this.set(resolvedValue, options);
     } catch (error) {
-      console.error('Failed to resolve promise:', error);
+      throw new Error('Failed to resolve promise:\n' + error);
     }
   }
 }

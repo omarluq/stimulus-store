@@ -47,9 +47,10 @@ export function useStore<T>(controller: StoreController<T>) {
   const unsubscribeFunctions: (() => void)[] = [];
 
   stores.forEach((store) => {
-    const storeName: string = store.name;
-    const camelizedName = camelize(storeName);
-    const onStoreUpdateMethodName = `on${camelize(storeName, true)}Update`;
+    const storeName: symbol = store.name;
+    const storeNameAsString: string = storeName.toString().slice(7, -1);
+    const camelizedName = camelize(storeNameAsString);
+    const onStoreUpdateMethodName = `on${camelize(storeNameAsString, true)}Update`;
     const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: T) => void;
 
     if (onStoreUpdateMethod) {
@@ -57,7 +58,7 @@ export function useStore<T>(controller: StoreController<T>) {
         onStoreUpdateMethod.call(controller, value);
       };
 
-      const methodName = `update${camelize(storeName, true)}`;
+      const methodName = `update${camelize(storeNameAsString, true)}`;
       controller[methodName] = updateMethod;
 
       unsubscribeFunctions.push(store.subscribe(updateMethod));
