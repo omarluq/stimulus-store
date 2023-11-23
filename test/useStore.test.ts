@@ -90,4 +90,17 @@ describe('useStore', () => {
     expect(mockController.testStoreValue).toBe(10);
     expect(mockController.testStore).toBe(testStore);
   });
+
+  it('should call the callback with the current value when a function is passed to set', () => {
+    const callback = jest.fn().mockReturnValue(10);
+    testStore.set(callback);
+    expect(callback).toHaveBeenCalledWith(0);
+    expect(testStore.get()).toBe(10);
+  });
+  
+  it('should update the store\'s value with the return value of the callback', () => {
+    const callback = jest.fn((currentValue) => currentValue + 5);
+    testStore.set(callback);
+    expect(testStore.get()).toBe(5);
+  });
 });
