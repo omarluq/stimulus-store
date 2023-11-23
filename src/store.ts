@@ -39,11 +39,12 @@ export class Store<T> {
     this.subscribers = new Set();
   }
 
-  set(newValue: T | CurrentValueCallback, options: SetOptions = { filter: () => true }) {
+  async set(newValue: T | CurrentValueCallback | Promise<T | CurrentValueCallback>, options: SetOptions = { filter: () => true }) {
   // Consider enriching the store value with some kind of typing similar to Stimulus values typing.
   // This would provide type safety and autocompletion benefits when working with the store value.
   // It would also make the code more self-documenting, as the types would provide information about what kind of values are expected.
   // This could be achieved by using TypeScript generics or by defining specific types for different kinds of store values.
+    if (newValue instanceof Promise) return this.resolvePromise(newValue, options);
     if (newValue === this.get()) return;
     this.value = typeof newValue === "function" ? (newValue as CurrentValueCallback)(this.value) : newValue;
     this.notifySubscribers(options);
@@ -67,5 +68,14 @@ export class Store<T> {
     Array.from(this.subscribers)
     .filter(() => options.filter(this.value))
     .forEach(callback => callback(this.value))
+  }
+
+  private async resolvePromise(newValue: Promise<T | CurrentValueCallback>, options: SetOptions) {
+    try {
+      const resolvedValue = await newValue;
+      this.set(resolvedValue, options);
+    } catch (error) {
+      console.error('Failed to resolve promise:', error);
+    }
   }
 }
