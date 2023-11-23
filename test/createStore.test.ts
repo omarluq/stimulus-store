@@ -15,4 +15,8 @@ describe('createStore', () => {
     expect(typeof store.get()).toBe('number');
     expect(store.name.toString()).toBe('Symbol(testStore)');
   });
+
+  it('should throw an error if an invalid type is provided', () => {
+    expect(() => createStore({ name: 'testStore', initialValue: 0, type: Set } as any)).toThrow('Invalid type: Set');
+  });
 });
