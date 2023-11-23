@@ -29,6 +29,7 @@
 
 import { Store } from './store';
 import type { StoreOptions } from './storeOptions';
+import { typeMap } from './storeValuesTypeMap';
 
 export function createStore<T>(options: StoreOptions<T>): Store<T> {
   const { name, type, initialValue } = options;
@@ -38,6 +39,11 @@ export function createStore<T>(options: StoreOptions<T>): Store<T> {
     throw new Error("Store name must be of Type string");
   } 
   const symbolName = Symbol(name);
+
+  const typeConstructor = typeMap[type.name];
+  if (typeof typeConstructor !== 'function') {
+    throw new Error(`Invalid type: ${type?.name}`);
+  }
 
   return new Store<T>(symbolName, initialValue, type);
 }
