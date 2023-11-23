@@ -26,19 +26,31 @@
 export class Store<T> {
   private value: T;
   private subscribers: Set<UpdateMethod>;
+  name: String;
 
-  constructor(initialValue: T) {
+  constructor(name: String, initialValue: T) {
     if (typeof initialValue === "undefined") {
       throw new Error("Store must be initialized with a value");
+    } else if (typeof name !== "string") {
+      throw new Error("Store name must be of Type String");
     }
+    this.name = name;
     this.value = initialValue;
     this.subscribers = new Set();
   }
 
   set(newValue: T, options: SetOptions = { filter: () => true }) {
-    if (newValue === this.value) return;
+  // Consider enriching the store value with some kind of typing similar to Stimulus values typing.
+  // This would provide type safety and autocompletion benefits when working with the store value.
+  // It would also make the code more self-documenting, as the types would provide information about what kind of values are expected.
+  // This could be achieved by using TypeScript generics or by defining specific types for different kinds of store values.
+    if (newValue === this.get()) return;
     this.value = typeof newValue === "function" ? newValue(this.value) : newValue;
     this.notifySubscribers(options);
+  }
+
+  get(): T {
+    return this.value;
   }
 
   subscribe(callback: UpdateMethod): UnsubscribeFunction {
