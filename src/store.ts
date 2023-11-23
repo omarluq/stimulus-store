@@ -39,13 +39,13 @@ export class Store<T> {
     this.subscribers = new Set();
   }
 
-  set(newValue: T, options: SetOptions = { filter: () => true }) {
+  set(newValue: T | CurrentValueCallback, options: SetOptions = { filter: () => true }) {
   // Consider enriching the store value with some kind of typing similar to Stimulus values typing.
   // This would provide type safety and autocompletion benefits when working with the store value.
   // It would also make the code more self-documenting, as the types would provide information about what kind of values are expected.
   // This could be achieved by using TypeScript generics or by defining specific types for different kinds of store values.
     if (newValue === this.get()) return;
-    this.value = typeof newValue === "function" ? newValue(this.value) : newValue;
+    this.value = typeof newValue === "function" ? (newValue as CurrentValueCallback)(this.value) : newValue;
     this.notifySubscribers(options);
   }
 

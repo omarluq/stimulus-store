@@ -50,4 +50,11 @@ describe('Store', () => {
     store.set(20, { filter: () => false });
     expect(mockCallback).not.toHaveBeenCalledWith(20);
   });
+
+  it('should call the callback with the current value when a function is passed to set', () => {
+    const callback = jest.fn().mockImplementation(currentValue => currentValue + 10);
+    store.set(callback);
+    expect(callback).toHaveBeenCalledWith(0);
+    expect(store.get()).toBe(10);
+  });
 });
