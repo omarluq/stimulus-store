@@ -81,9 +81,9 @@ Let's dive into a simple use case to see how Stimulus Store works. In this examp
 
 ```js
 // controllers/stores/counter.js
-import { Store } from "stimulus-store"; // Import the shared Store class
+import { createStore } from "stimulus-store";
 
-export const counterStore = new Store(0); // Initialize with an initial value of 0
+export const counterStore = createStore(name: 'counterStore', initialValue: 0, type: Number)
 ```
 
 ```js
@@ -93,8 +93,10 @@ import { useStore } from "stimulus-store"
 import { counterStore } from "./stores/counter";
 
 export default class extends Controller {
+  static stores = [counterStore];
+
   connect() {
-    useStore(this, [counterStore])
+    useStore(this)
   }
 
   increment() {
@@ -105,7 +107,7 @@ export default class extends Controller {
   decrement() {
     // set will also receive a callback
     // and will only notify on condition
-    counterStore.set((value)=>value-1, { filter: (value)=>value == 0 })
+    counterStore.set((value) => value - 1, { filter: (value) => value == 0 })
   }
 }
 ```
@@ -118,9 +120,10 @@ import { counterStore } from "./stores/counter"; // Import the counterStore
 
 export default class extends Controller {
   static targets = ["message"];
+  static stores = [counterStore];
 
   connect() {
-    useStore(this, [counterStore])
+    useStore(this)
   }
 
   display(value) {
