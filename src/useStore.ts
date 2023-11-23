@@ -42,18 +42,18 @@ import type { Store } from './store';
 import type { StoreController } from './storeController'; // Adjust the path as needed
 import { camelize } from './utils/camelize';
 
-export function useStore(controller: StoreController) {
-  const stores: Store<any>[] = controller.constructor.stores || [];
+export function useStore<T>(controller: StoreController<T>) {
+  const stores: Store<T>[] = controller.constructor.stores || [];
   const unsubscribeFunctions: (() => void)[] = [];
 
   stores.forEach((store) => {
     const storeName: string = store.name;
     const camelizedName = camelize(storeName);
     const onStoreUpdateMethodName = `on${camelize(storeName, true)}Update`;
-    const onStoreUpdateMethod: (value: any) => void = controller[onStoreUpdateMethodName];
+    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: T) => void;
 
     if (onStoreUpdateMethod) {
-      const updateMethod: (value: any) => void = value => {
+      const updateMethod: (value: T) => void = value => {
         onStoreUpdateMethod.call(controller, value);
       };
 

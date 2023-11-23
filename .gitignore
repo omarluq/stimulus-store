@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 package-lock.json
 yarn.lock
+results.xml
+.jest-stare

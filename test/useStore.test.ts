@@ -3,7 +3,7 @@ import { useStore } from '../src/useStore';
 import type { StoreController } from '../src/storeController';
 
 describe('useStore', () => {
-  let mockController: StoreController;
+  let mockController: StoreController<any>;
   let testStore: Store<number>;
 
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn(),
       // Add the other missing properties here...
-    } as unknown as StoreController;
+    } as unknown as StoreController<any>;
 
     useStore(mockController);
   });
@@ -72,7 +72,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn(),
       // Add the other missing properties here...
-    } as unknown as StoreController;
+    } as unknown as StoreController<any>;
     // Assume that the controllers have a method to update the store's value
     useStore(mockController2);
     mockController.updateTestStore = (value: any) => testStore.set(value);
