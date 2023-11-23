@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@types/jest": "^29.5.10",
     "jest": "^29.7.0",
     "prettier": "^3.1.0",
@@ -15,7 +16,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.2.2",
-    "@hotwired/stimulus": "^3.2.2"
+    "typescript": "^5.2.2"
   }
 }
