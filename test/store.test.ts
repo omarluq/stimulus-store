@@ -4,7 +4,7 @@ describe('Store', () => {
   let store: Store<number>;
 
   beforeEach(() => {
-    store = new Store('testStore', 0);
+    store = new Store(Symbol('testStore'), 0, Number);
   });
 
   it('should initialize with the correct value', () => {
@@ -56,5 +56,9 @@ describe('Store', () => {
     store.set(callback);
     expect(callback).toHaveBeenCalledWith(0);
     expect(store.get()).toBe(10);
+  });
+
+  it('should throw an error when setting a value of the wrong type', async () => {
+    await expect(Promise.resolve(store.set('wrong type' as any))).rejects.toThrow(`Value 'wrong type' must be of type ${Number.name}`);
   });
 });

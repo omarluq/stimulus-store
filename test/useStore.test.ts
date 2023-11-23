@@ -1,13 +1,15 @@
-import { Store } from '../src/store';
+import { createStore } from '../src/createStore';
 import { useStore } from '../src/useStore';
+import type { Store } from '../src/store';
 import type { StoreController } from '../src/storeController';
+
 
 describe('useStore', () => {
   let mockController: StoreController<any>;
-  let testStore: Store<number>;
+  let testStore: Store<any>;
 
   beforeEach(() => {
-    testStore = new Store('TestStore', 0);
+    testStore = createStore({ name: 'testStore', type: Number, initialValue: 0 });
     mockController = {
       constructor: {
         stores: [testStore]
