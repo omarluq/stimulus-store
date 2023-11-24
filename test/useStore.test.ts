@@ -4,11 +4,18 @@ import type { Store } from '../src/store';
 import type { StoreController } from '../src/storeController';
 
 
+
+
 describe('useStore', () => {
   let mockController: StoreController<any>;
   let testStore: Store<any>;
 
+  function expectStoreValueToBe(value: any) {
+    expect(testStore.get()).toBe(value);
+  }
+
   beforeEach(async () => {
+    console.warn = jest.fn();
     testStore = await createStore({ name: 'testStore', type: Number, initialValue: 0 });
     mockController = {
       constructor: {
@@ -26,6 +33,20 @@ describe('useStore', () => {
     useStore(mockController);
   });
 
+  it('should throw an error if useStore is called on a controller without a stores static property', () => {
+    const noStoresController = {
+      constructor: {},
+      onTestStoreUpdate: jest.fn(),
+      disconnect: jest.fn(),
+      context: jest.fn(),
+      application: jest.fn(),
+      scope: jest.fn(),
+      element: jest.fn(),
+      // Add the other missing properties here...
+    } as unknown as StoreController<any>;
+    expect(() => useStore(noStoresController)).toThrow(`Error: 'useStore' was called on a controller without a 'stores' static property.`);
+  });
+
   it('should subscribe to stores and call update methods on value changes', () => {
     testStore.set(5);
     expect(mockController.onTestStoreUpdate).toHaveBeenCalledWith(5);
@@ -37,7 +58,7 @@ describe('useStore', () => {
   });
 
   it('should allow direct access to store instances on the controller', () => {
-    expect(mockController.testStore).toBe(testStore);
+    expect(mockController.testStore).toEqual(testStore);
   });
 
   it('should clean up subscriptions when controller disconnects', () => {
@@ -49,10 +70,6 @@ describe('useStore', () => {
   it('should add a getter for the store value to the controller', () => {
     testStore.set(7);
     expect(mockController.testStoreValue).toBe(7);
-  });
-  
-  it('should add a getter for the store instance to the controller', () => {
-    expect(mockController.testStore).toBe(testStore);
   });
   
   it('should add an update method to the controller', () => {
@@ -84,13 +101,13 @@ describe('useStore', () => {
     mockController.updateTestStore(5);
     expect(mockController2.onTestStoreUpdate).toHaveBeenCalledWith(5);
     expect(mockController2.testStoreValue).toBe(5);
-    expect(mockController2.testStore).toBe(testStore);
+    expect(mockController2.testStore).toEqual(testStore);
   
     // Controller 2 updates the value and verifies that Controller 1 is notified
     mockController2.updateTestStore(10);
     expect(mockController.onTestStoreUpdate).toHaveBeenCalledWith(10);
     expect(mockController.testStoreValue).toBe(10);
-    expect(mockController.testStore).toBe(testStore);
+    expect(mockController.testStore).toEqual(testStore);
   });
 
   it('should call the callback with the current value when a function is passed to set', () => {
@@ -104,5 +121,35 @@ describe('useStore', () => {
     const callback = jest.fn((currentValue) => currentValue + 5);
     testStore.set(callback);
     expect(testStore.get()).toBe(5);
+  });
+
+  it('should add setStoreValue method to controller', () => {
+    const newValue: number = 5;
+    mockController.setTestStoreValue(newValue);
+    expectStoreValueToBe(newValue);
+  });
+
+  it('should handle callbacks in setStoreValue method', () => {
+    const newValue: number = 5;
+    mockController.setTestStoreValue((_prev: number) => newValue);
+    expectStoreValueToBe(newValue);
+  });
+
+  it('should handle promises in setStoreValue method', async () => {
+    const newValue = 5;
+    await mockController.setTestStoreValue(new Promise((resolve) => resolve(newValue)));
+    expectStoreValueToBe(newValue);
+  });
+  
+  
+  it('should warn when accessing store directly', () => {
+    mockController.testStore.get();
+    expect(console.warn).toHaveBeenCalledWith('Warning: You are accessing the store directly. Consider using the provided getter and setter methods instead.');
+  });
+
+  it('should not warn when using setStoreValue or accessing storeValue', () => {
+    mockController.setTestStoreValue(15);
+    mockController.testStoreValue;
+    expect(console.warn).not.toHaveBeenCalled();
   });
 });

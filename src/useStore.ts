@@ -46,6 +46,11 @@ export function useStore<T>(controller: StoreController<T>) {
   const stores: Store<T>[] = controller.constructor.stores || [];
   const unsubscribeFunctions: (() => void)[] = [];
 
+  // If 'stores' is undefined or empty, throw an error
+  if (!stores || stores.length === 0) {
+    throw new Error(`Error: 'useStore' was called on a controller without a 'stores' static property.`);
+  }
+
   stores.forEach((store) => {
     const storeName: symbol = store.name;
     const storeNameAsString: string = storeName.toString().slice(7, -1);
@@ -64,14 +69,34 @@ export function useStore<T>(controller: StoreController<T>) {
       unsubscribeFunctions.push(store.subscribe(updateMethod));
     }
 
+    // Add a helper method to set the store value
+    const setStoreValueMethodName = `set${camelize(storeNameAsString, true)}Value`;
+    controller[setStoreValueMethodName] = (value: T | Promise<T> | ((prev: T) => T)) => {
+      store.set(value);
+    };
+
     Object.defineProperty(controller, `${camelizedName}Value`, {
       get: () => store.get(),
       enumerable: true,
       configurable: true,
     });
 
+    // Wrap the store in a Proxy to intercept direct access
+    const storeProxy = new Proxy(store, {
+      get: function(target, prop, receiver) {
+        console.warn(`Warning: You are accessing the store directly. Consider using the provided getter and setter methods instead.`);
+        return Reflect.get(target, prop, receiver);
+      }
+    });
+
+
+    // Overwrite the value of the store in the static object to the safe proxy
+    const storeIndex = stores.indexOf(store);
+    stores[storeIndex] = storeProxy;
+
+
     Object.defineProperty(controller, camelizedName, {
-      get: () => store,
+      get: () => storeProxy,
       enumerable: true,
       configurable: true,
     });

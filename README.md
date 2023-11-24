@@ -100,14 +100,13 @@ export default class extends Controller {
   }
 
   increment() {
-    const newValue = counterStore.value + 1;
-    counterStore.set(newValue);
+    this.setCounterStoreValue(this.counterStoreValue + 1);
   }
 
   decrement() {
     // set will also receive a callback
     // and will only notify on condition
-    counterStore.set((value) => value - 1, { filter: (value) => value == 0 })
+    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value == 0 })
   }
 }
 ```
@@ -126,12 +125,8 @@ export default class extends Controller {
     useStore(this)
   }
 
-  display(value) {
-    this.messageTarget.textContent = `Display: ${value}`;
-  }
-
-  onCounterStoreUpdate(value) {
-    this.display(value);
+  onCounterStoreUpdate() {
+    this.messageTarget.textContent = `Display: ${this.counterStoreValue}`;
   }
 }
 ```
