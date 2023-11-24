@@ -8,8 +8,8 @@ describe('useStore', () => {
   let mockController: StoreController<any>;
   let testStore: Store<any>;
 
-  beforeEach(() => {
-    testStore = createStore({ name: 'testStore', type: Number, initialValue: 0 });
+  beforeEach(async () => {
+    testStore = await createStore({ name: 'testStore', type: Number, initialValue: 0 });
     mockController = {
       constructor: {
         stores: [testStore]
