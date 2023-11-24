@@ -34,14 +34,12 @@ export class Store<T> {
    * Creates a new store.
    *
    * @param {symbol} name - The name of the store.
-   * @param {T} initialValue - The initial value of the store.
    * @param {new (...args: unknown[]) => unknown} type - The type of the store's value.
    */
-  constructor(name: symbol, initialValue: T, type: new (...args: unknown[]) => unknown) {
+  constructor(name: symbol, type: new (...args: unknown[]) => unknown) {
     this.name = name;
     this.subscribers = new Set();
     this.type = type;
-    this.set(initialValue);
   }
 
   /**

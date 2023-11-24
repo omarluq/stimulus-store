@@ -4,11 +4,11 @@ describe('Store', () => {
   let store: Store<number>;
 
   beforeEach(() => {
-    store = new Store(Symbol('testStore'), 0, Number);
+    store = new Store(Symbol('testStore'), Number);
   });
 
   it('should initialize with the correct value', () => {
-    expect(store.get()).toBe(0);
+    expect(store.get()).toBeUndefined();
   });
 
   it('should update the value correctly', () => {
@@ -33,32 +33,42 @@ describe('Store', () => {
     expect(mockCallback).not.toHaveBeenCalledWith(15);
   });
 
-  it('should not notify subscribers when value is the same', () => {
+  it('should not notify subscribers when value is the same', async () => {
     const mockCallback = jest.fn();
+    
+    // First set: initial value
+    await store.set(0);
+    
+    // Subscribe to the store and invoke the callback
     store.subscribe(mockCallback);
-
-    // Set the value to the same value
-    // called only once cause the callback is invoked on subscription as well
-    store.set(0);
-    expect(mockCallback).not.toHaveBeenCalledWith(1);
+    
+    // Second set: change value to 1 and invoke the callback
+    await store.set(1);
+    
+    // Third set: attempt to set the same value (1), ignore the callback
+    await store.set(1);
+    
+    // Expect the callback to have been called twice: once for the subscription, and once for the second set
+    expect(mockCallback).toHaveBeenCalledTimes(2);
   });
 
-  it('should not notify subscribers when filter returns false', () => {
+  it('should not notify subscribers when filter returns false', async () => {
     const mockCallback = jest.fn();
     store.subscribe(mockCallback);
-
-    store.set(20, { filter: () => false });
+  
+    await store.set(20, { filter: () => false });
     expect(mockCallback).not.toHaveBeenCalledWith(20);
   });
 
   it('should call the callback with the current value when a function is passed to set', () => {
     const callback = jest.fn().mockImplementation(currentValue => currentValue + 10);
+    store.set(0);
     store.set(callback);
     expect(callback).toHaveBeenCalledWith(0);
     expect(store.get()).toBe(10);
   });
 
   it('should throw an error when setting a value of the wrong type', async () => {
-    await expect(Promise.resolve(store.set('wrong type' as any))).rejects.toThrow(`Value 'wrong type' must be of type ${Number.name}`);
+    await expect(store.set('wrong type' as any)).rejects.toThrow(`Value 'wrong type' must be of type ${Number.name}`);
   });
 });
