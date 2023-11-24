@@ -80,14 +80,10 @@ Let's dive into a simple use case to see how Stimulus Store works. In this examp
 ```
 
 ```js
-// controllers/stores.js
+// controllers/stores/counter.js
 import { createStore } from "stimulus-store";
 
-export let counterStore;
-
-(async function initializeStores() {
-  counterStore = await createStore({ name: 'counterStore', initialValue: 0, type: Number });
-})();
+export const counterStore = await createStore({ name: 'counterStore', initialValue: 0, type: Number });
 ```
 
 ```js
