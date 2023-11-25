@@ -9,7 +9,7 @@ import { typeMap } from '../../src/store/storeValuesTypeMap'
 describe('storeErrorHandlers', () => {
   describe('checkInitialValue', () => {
     it('throws an error if initialValue is undefined', () => {
-      expect(() => checkInitialValue(undefined)).toThrowError('Store must be initialized with a value')
+      expect(() => checkInitialValue(undefined)).toThrow('Store must be initialized with a value')
     })
 
     it('does not throw an error if initialValue is defined', () => {
@@ -19,7 +19,7 @@ describe('storeErrorHandlers', () => {
 
   describe('checkName', () => {
     it('throws an error if name is not a string', () => {
-      expect(() => checkName(123 as any)).toThrowError('Store name must be of Type string')
+      expect(() => checkName(123 as any)).toThrow('Store name must be of Type string')
     })
 
     it('does not throw an error if name is a string', () => {
@@ -29,7 +29,7 @@ describe('storeErrorHandlers', () => {
 
   describe('checkTypeConstructor', () => {
     it('throws an error if type is not a function', () => {
-      expect(() => checkTypeConstructor('InvalidType')).toThrowError('Invalid type: InvalidType')
+      expect(() => checkTypeConstructor('InvalidType')).toThrow('Invalid type: InvalidType')
     })
 
     it('does not throw an error if type is a function', () => {
@@ -41,11 +41,11 @@ describe('storeErrorHandlers', () => {
   describe('handleStoreSetError', () => {
     it('throws a new error with the same message if error is an instance of Error', () => {
       const error = new Error('Test error')
-      expect(() => handleStoreSetError(error)).toThrowError('Failed to create store: Test error')
+      expect(() => handleStoreSetError(error)).toThrow('Failed to create store: Test error')
     })
 
     it('throws a generic error if error is not an instance of Error', () => {
-      expect(() => handleStoreSetError('Test error')).toThrowError('An unknown error occurred while creating the store')
+      expect(() => handleStoreSetError('Test error')).toThrow('An unknown error occurred while creating the store')
     })
   })
 })

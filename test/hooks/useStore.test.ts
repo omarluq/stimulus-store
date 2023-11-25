@@ -42,7 +42,43 @@ describe('useStore', () => {
       // Add the other missing properties here...
     } as unknown as StoreController<any>
     expect(() => useStore(noStoresController)).toThrow(
-      `Error: 'useStore' was called on a controller without a 'stores' static property.`
+      `Error: 'useStore' was called on a controller without a 'stores' static property. The 'stores' property is undefined.`
+    )
+  })
+
+  it('should throw an error if useStore is called on a controller with an empty stores static property', () => {
+    const emptyStoresController = {
+      constructor: {
+        stores: []
+      },
+      onTestStoreUpdate: jest.fn(),
+      disconnect: jest.fn(),
+      context: jest.fn(),
+      application: jest.fn(),
+      scope: jest.fn(),
+      element: jest.fn()
+      // Add the other missing properties here...
+    } as unknown as StoreController<any>
+    expect(() => useStore(emptyStoresController)).toThrow(
+      `Error: 'useStore' was called on a controller with an empty 'stores' static property. The 'stores' array should contain at least one store.`
+    )
+  })
+
+  it('should throw an error if useStore is called on a controller with a stores static property that is not an array', () => {
+    const notArrayStoresController = {
+      constructor: {
+        stores: 'not an array'
+      },
+      onTestStoreUpdate: jest.fn(),
+      disconnect: jest.fn(),
+      context: jest.fn(),
+      application: jest.fn(),
+      scope: jest.fn(),
+      element: jest.fn()
+      // Add the other missing properties here...
+    } as unknown as StoreController<any>
+    expect(() => useStore(notArrayStoresController)).toThrow(
+      `Error: 'useStore' was called on a controller with a 'stores' static property that is not an array.`
     )
   })
 

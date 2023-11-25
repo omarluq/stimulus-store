@@ -3,7 +3,7 @@ import { checkValue, handlePromiseError } from '../../src/errors/storeErrorHandl
 describe('storeErrorHandlers', () => {
   describe('checkValue', () => {
     it('throws an error if value is not of the correct type', () => {
-      expect(() => checkValue('test', Number)).toThrowError("Value 'test' must be of type Number")
+      expect(() => checkValue('test', Number)).toThrow("Value 'test' must be of type Number")
     })
 
     it('does not throw an error if value is of the correct type', () => {

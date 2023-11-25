@@ -44,13 +44,13 @@ import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
  */
 
 export function useStore<T>(controller: StoreController<T>) {
-  const stores: Store<T>[] = controller.constructor.stores || []
+  const stores: Store<T>[] | undefined = controller.constructor?.stores
   const unsubscribeFunctions: (() => void)[] = []
 
   // If 'stores' is undefined or empty, throw an error
   checkStores(stores)
 
-  stores.forEach(store => {
+  stores!.forEach(store => {
     const storeName: symbol = store.name
     const storeNameAsString: string = storeName.toString().slice(7, -1)
     const camelizedName: string = camelize(storeNameAsString)
@@ -94,8 +94,8 @@ export function useStore<T>(controller: StoreController<T>) {
     })
 
     // Overwrite the value of the store in the static object to the safe proxy
-    const storeIndex = stores.indexOf(store)
-    stores[storeIndex] = storeProxy
+    const storeIndex = stores!.indexOf(store)
+    stores![storeIndex] = storeProxy
 
     Object.defineProperty(controller, camelizedName, {
       get: () => storeProxy,
