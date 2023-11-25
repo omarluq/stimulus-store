@@ -144,12 +144,22 @@ describe('useStore', () => {
   
   it('should warn when accessing store directly', () => {
     mockController.testStore.get();
-    expect(console.warn).toHaveBeenCalledWith('Warning: You are accessing the store directly. Consider using the provided getter and setter methods instead.');
+    expect(console.warn).toHaveBeenCalledWith(`Warning: You are accessing the 'testStore' instance directly. Consider using 'onTestStoreUpdate' and 'testStoreValue' instead.`);;
   });
 
   it('should not warn when using setStoreValue or accessing storeValue', () => {
     mockController.setTestStoreValue(15);
     mockController.testStoreValue;
     expect(console.warn).not.toHaveBeenCalled();
+  });
+
+  it('should log a warning only once when store.get is accessed directly from the controller', async () => {
+    mockController.testStore.get();
+    expect(console.warn).toHaveBeenCalledTimes(1);
+  });
+
+  it('should log a warning only once when store.set is accessed directly from the controller', async () => {
+    mockController.testStore.set(1);
+    expect(console.warn).toHaveBeenCalledTimes(1);
   });
 });
