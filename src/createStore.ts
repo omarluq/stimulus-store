@@ -29,31 +29,21 @@
 
 import { Store } from './store';
 import type { StoreOptions } from './storeOptions';
-import { typeMap } from './storeValuesTypeMap';
+import { checkInitialValue, checkName, checkTypeConstructor, handleStoreSetError } from './createStoreErrorHandlers';
+
 
 export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>>{
   const { name, type, initialValue } = options;
-  if (typeof initialValue === "undefined") {
-    throw new Error("Store must be initialized with a value");
-  } else if (typeof name !== "string") {
-    throw new Error("Store name must be of Type string");
-  } 
+  checkInitialValue(initialValue);
+  checkName(name);
   const symbolName = Symbol(name);
-
-  const typeConstructor = typeMap[type.name];
-  if (typeof typeConstructor !== 'function') {
-    throw new Error(`Invalid type: ${type?.name}`);
-  }
+  checkTypeConstructor(type?.name);
   
   const store: Store<T> = new Store<T>(symbolName, type);
   try {
     await store.set(initialValue);
     return store;
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error(`Failed to create store: ${error.message}`);
-    } else {
-      throw new Error('An unknown error occurred while creating the store');
-    }
+    return handleStoreSetError(error);
   }
 }

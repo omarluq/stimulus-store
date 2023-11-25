@@ -24,6 +24,8 @@
   export const counterStore = new Store(0);
  */
 
+import { checkValue, handlePromiseError } from './storeErrorHandlers';
+
 export class Store<T> {
   name: symbol;
   private value!: T;
@@ -52,9 +54,7 @@ export class Store<T> {
     if (newValue instanceof Promise) return this.resolvePromise(newValue, options);
     if (newValue === this.get()) return;
     const finalValue: T = typeof newValue === "function" ? (newValue as CurrentValueCallback)(this.get()) : newValue;
-    if (Object.getPrototypeOf(finalValue).constructor !== this.type) {
-      throw new Error(`Value '${finalValue}' must be of type ${this.type.name}`);
-    }
+    checkValue(finalValue, this.type);
     this.setValue(finalValue);
     this.notifySubscribers(options);
   }
@@ -104,7 +104,7 @@ export class Store<T> {
       const resolvedValue = await newValue;
       this.set(resolvedValue, options);
     } catch (error) {
-      throw new Error('Failed to resolve promise:\n' + error);
+      handlePromiseError(error);
     }
   }
 }

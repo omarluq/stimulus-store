@@ -41,15 +41,16 @@
 import type { Store } from './store';
 import type { StoreController } from './storeController'; // Adjust the path as needed
 import { camelize } from './utils/camelize';
+import { checkStores } from './useStoreErrorHandlers';
+import { warnDirectAccess } from './useStoreWarningHandlers';
+
 
 export function useStore<T>(controller: StoreController<T>) {
   const stores: Store<T>[] = controller.constructor.stores || [];
   const unsubscribeFunctions: (() => void)[] = [];
 
   // If 'stores' is undefined or empty, throw an error
-  if (!stores || stores.length === 0) {
-    throw new Error(`Error: 'useStore' was called on a controller without a 'stores' static property.`);
-  }
+  checkStores(stores);
 
   stores.forEach((store) => {
     const storeName: symbol = store.name;
@@ -88,10 +89,7 @@ export function useStore<T>(controller: StoreController<T>) {
     // Wrap the store in a Proxy to intercept direct access
     const storeProxy = new Proxy(store, {
       get: function(target, prop, receiver) {
-        if (!isWarned) {
-          console.warn(`Warning: You are accessing the '${camelizedName}' instance directly. Consider using '${onStoreUpdateMethodName}' and '${storeGetterMethodName}' instead.`);
-          isWarned = true;
-        }
+        isWarned = warnDirectAccess(camelizedName, isWarned);
         return Reflect.get(target, prop, receiver);
       }
     });
