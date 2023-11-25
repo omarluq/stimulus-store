@@ -1,12 +1,13 @@
+import type { Store } from '../store/store'
+import type { StoreController } from '../store/storeController' // Adjust the path as needed
+import { camelize } from '../utils/camelize'
+import { checkStores } from '../errors/useStoreErrorHandlers'
+import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
+
 /**
  * useStore Function
- *
  * The useStore function simplifies the process of subscribing to and handling updates from multiple store instances
  * within a Stimulus controller. It also allows direct access to store values on the controller.
- *
- * @param {Object} controller - The Stimulus controller instance that wants to subscribe to the stores.
- * @template T - The type of data stored in the stores.
- *
  * How It Works:
  * 1. Retrieves the stores from the controller's constructor.
  * 2. Iterates over the stores.
@@ -25,24 +26,22 @@
  *
  * export default class extends Controller {
  *  static stores = [myStore];
+ *
  *   connect() {
  *     // Use the useStore function to subscribe to specific stores
  *     useStore(this);
  *   }
  *
  *   // Implement specific update methods for each store
- *   onMyStoreUpdate(value) {
+ *   onMyStoreUpdate {
  *     // Handle updates for MyStore
- *     console.log("MyStore updated:", value);
+ *     console.log("MyStore updated:", this.myStoreValue);
  *   }
  * }
  * ```
+ * @param {Object} controller - The Stimulus controller instance that wants to subscribe to the stores.
+ * @template T - The type of data stored in the stores.
  */
-import type { Store } from '../store/store'
-import type { StoreController } from '../store/storeController' // Adjust the path as needed
-import { camelize } from '../utils/camelize'
-import { checkStores } from '../errors/useStoreErrorHandlers'
-import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
 
 export function useStore<T>(controller: StoreController<T>) {
   const stores: Store<T>[] = controller.constructor.stores || []
