@@ -1,6 +1,8 @@
 import typescript from 'rollup-plugin-typescript2'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
+import analyze from 'rollup-plugin-analyzer'
+import sizes from 'rollup-plugin-sizes'
 
 export default {
   input: 'src/index.ts', // Entry point to your library
@@ -12,6 +14,8 @@ export default {
   plugins: [
     typescript(), // TypeScript support
     commonjs(), // CommonJS support
-    resolve() // Node.js module resolution
+    resolve(), // Node.js module resolution
+    analyze(),
+    sizes({ details: true })
   ]
 }
