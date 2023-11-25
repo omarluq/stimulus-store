@@ -38,80 +38,79 @@
  * }
  * ```
  */
-import type { Store } from './store';
-import type { StoreController } from './storeController'; // Adjust the path as needed
-import { camelize } from './utils/camelize';
-import { checkStores } from './useStoreErrorHandlers';
-import { warnDirectAccess } from './useStoreWarningHandlers';
-
+import type { Store } from './store'
+import type { StoreController } from './storeController' // Adjust the path as needed
+import { camelize } from './utils/camelize'
+import { checkStores } from './useStoreErrorHandlers'
+import { warnDirectAccess } from './useStoreWarningHandlers'
 
 export function useStore<T>(controller: StoreController<T>) {
-  const stores: Store<T>[] = controller.constructor.stores || [];
-  const unsubscribeFunctions: (() => void)[] = [];
+  const stores: Store<T>[] = controller.constructor.stores || []
+  const unsubscribeFunctions: (() => void)[] = []
 
   // If 'stores' is undefined or empty, throw an error
-  checkStores(stores);
+  checkStores(stores)
 
-  stores.forEach((store) => {
-    const storeName: symbol = store.name;
-    const storeNameAsString: string = storeName.toString().slice(7, -1);
-    const camelizedName = camelize(storeNameAsString);
-    const onStoreUpdateMethodName = `on${camelize(storeNameAsString, true)}Update`;
-    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: T) => void;
+  stores.forEach(store => {
+    const storeName: symbol = store.name
+    const storeNameAsString: string = storeName.toString().slice(7, -1)
+    const camelizedName = camelize(storeNameAsString)
+    const onStoreUpdateMethodName = `on${camelize(storeNameAsString, true)}Update`
+    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: T) => void
 
     if (onStoreUpdateMethod) {
       const updateMethod: (value: T) => void = value => {
-        onStoreUpdateMethod.call(controller, value);
-      };
+        onStoreUpdateMethod.call(controller, value)
+      }
 
-      const methodName = `update${camelize(storeNameAsString, true)}`;
-      controller[methodName] = updateMethod;
+      const methodName = `update${camelize(storeNameAsString, true)}`
+      controller[methodName] = updateMethod
 
-      unsubscribeFunctions.push(store.subscribe(updateMethod));
+      unsubscribeFunctions.push(store.subscribe(updateMethod))
     }
 
     // Add a helper method to set the store value
-    const setStoreValueMethodName = `set${camelize(storeNameAsString, true)}Value`;
+    const setStoreValueMethodName = `set${camelize(storeNameAsString, true)}Value`
     controller[setStoreValueMethodName] = (value: T | Promise<T> | ((prev: T) => T)) => {
-      store.set(value);
-    };
+      store.set(value)
+    }
 
     const storeGetterMethodName: string = `${camelizedName}Value`
 
     Object.defineProperty(controller, storeGetterMethodName, {
       get: () => store.get(),
       enumerable: true,
-      configurable: true,
-    });
+      configurable: true
+    })
 
-    let isWarned: boolean = false;
+    let isWarned: boolean = false
 
     // Wrap the store in a Proxy to intercept direct access
     const storeProxy = new Proxy(store, {
-      get: function(target, prop, receiver) {
-        isWarned = warnDirectAccess(camelizedName, isWarned);
-        return Reflect.get(target, prop, receiver);
+      get: function (target, prop, receiver) {
+        isWarned = warnDirectAccess(camelizedName, isWarned)
+        return Reflect.get(target, prop, receiver)
       }
-    });
+    })
 
     // Overwrite the value of the store in the static object to the safe proxy
-    const storeIndex = stores.indexOf(store);
-    stores[storeIndex] = storeProxy;
+    const storeIndex = stores.indexOf(store)
+    stores[storeIndex] = storeProxy
 
     Object.defineProperty(controller, camelizedName, {
       get: () => storeProxy,
       enumerable: true,
-      configurable: true,
-    });
-  });
+      configurable: true
+    })
+  })
 
-  const originalDisconnect = controller.disconnect.bind(controller);
+  const originalDisconnect = controller.disconnect.bind(controller)
   controller.disconnect = () => {
     unsubscribeFunctions.forEach(unsubscribe => {
       if (unsubscribe) {
-        unsubscribe();
+        unsubscribe()
       }
-    });
-    originalDisconnect();
-  };
+    })
+    originalDisconnect()
+  }
 }

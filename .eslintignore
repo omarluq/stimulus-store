@@ -2,6 +2,7 @@ test/
 public/
 dist/
 global-types.d.ts
+.prettierignore
 *.config.js
 *.config.json
 *.config.ts

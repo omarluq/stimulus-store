@@ -14,8 +14,10 @@ jobs:
       - run: yarn install --frozen-lockfile
       - name: Build
         run: yarn build
-      - name: Lint
+      - name: EsLint
         run: yarn lint
+      - name: Prettier
+        run: yarn prettier:check
       - name: Test
         run: yarn test
       - name: Upload test report

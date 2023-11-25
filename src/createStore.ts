@@ -1,5 +1,5 @@
 /**
- * The createStore function is a factory function that creates and returns a new instance of the Store class. 
+ * The createStore function is a factory function that creates and returns a new instance of the Store class.
  * It takes an options object as a parameter, which should include the name, initialValue, and type for the new store.
  *
  * Here's a technical breakdown of how it works:
@@ -27,23 +27,22 @@
  * // Now you can use countStore in your components.
  */
 
-import { Store } from './store';
-import type { StoreOptions } from './storeOptions';
-import { checkInitialValue, checkName, checkTypeConstructor, handleStoreSetError } from './createStoreErrorHandlers';
+import { Store } from './store'
+import type { StoreOptions } from './storeOptions'
+import { checkInitialValue, checkName, checkTypeConstructor, handleStoreSetError } from './createStoreErrorHandlers'
 
+export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>> {
+  const { name, type, initialValue } = options
+  checkInitialValue(initialValue)
+  checkName(name)
+  const symbolName = Symbol(name)
+  checkTypeConstructor(type?.name)
 
-export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>>{
-  const { name, type, initialValue } = options;
-  checkInitialValue(initialValue);
-  checkName(name);
-  const symbolName = Symbol(name);
-  checkTypeConstructor(type?.name);
-  
-  const store: Store<T> = new Store<T>(symbolName, type);
+  const store: Store<T> = new Store<T>(symbolName, type)
   try {
-    await store.set(initialValue);
-    return store;
+    await store.set(initialValue)
+    return store
   } catch (error) {
-    return handleStoreSetError(error);
+    return handleStoreSetError(error)
   }
 }

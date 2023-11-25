@@ -24,13 +24,13 @@
   export const counterStore = new Store(0);
  */
 
-import { checkValue, handlePromiseError } from './storeErrorHandlers';
+import { checkValue, handlePromiseError } from './storeErrorHandlers'
 
 export class Store<T> {
-  name: symbol;
-  private value!: T;
-  private subscribers: Set<UpdateMethod>;
-  private type: new (...args: unknown[]) => unknown;
+  name: symbol
+  private value!: T
+  private subscribers: Set<UpdateMethod>
+  private type: new (...args: unknown[]) => unknown
 
   /**
    * Creates a new store.
@@ -39,9 +39,9 @@ export class Store<T> {
    * @param {new (...args: unknown[]) => unknown} type - The type of the store's value.
    */
   constructor(name: symbol, type: new (...args: unknown[]) => unknown) {
-    this.name = name;
-    this.subscribers = new Set();
-    this.type = type;
+    this.name = name
+    this.subscribers = new Set()
+    this.type = type
   }
 
   /**
@@ -50,13 +50,16 @@ export class Store<T> {
    * @param {T | CurrentValueCallback | Promise<T | CurrentValueCallback>} newValue - The new value.
    * @param {SetOptions} [options={ filter: () => true }] - The options for setting the value.
    */
-  async set(newValue: T | CurrentValueCallback | Promise<T | CurrentValueCallback>, options: SetOptions = { filter: () => true }) {
-    if (newValue instanceof Promise) return this.resolvePromise(newValue, options);
-    if (newValue === this.get()) return;
-    const finalValue: T = typeof newValue === "function" ? (newValue as CurrentValueCallback)(this.get()) : newValue;
-    checkValue(finalValue, this.type);
-    this.setValue(finalValue);
-    this.notifySubscribers(options);
+  async set(
+    newValue: T | CurrentValueCallback | Promise<T | CurrentValueCallback>,
+    options: SetOptions = { filter: () => true }
+  ) {
+    if (newValue instanceof Promise) return this.resolvePromise(newValue, options)
+    if (newValue === this.get()) return
+    const finalValue: T = typeof newValue === 'function' ? (newValue as CurrentValueCallback)(this.get()) : newValue
+    checkValue(finalValue, this.type)
+    this.setValue(finalValue)
+    this.notifySubscribers(options)
   }
 
   /**
@@ -65,11 +68,11 @@ export class Store<T> {
    * @returns {T} The current value.
    */
   get(): T {
-    return this.value;
+    return this.value
   }
 
   private setValue(value: T) {
-    this.value = value;
+    this.value = value
   }
 
   /**
@@ -79,9 +82,9 @@ export class Store<T> {
    * @returns {UnsubscribeFunction} A function that unsubscribes the callback.
    */
   subscribe(callback: UpdateMethod): UnsubscribeFunction {
-    this.subscribers.add(callback);
-    callback(this.get()); // Immediate call for initial value
-    return () => this.unsubscribe(callback); // Return an unsubscribe function
+    this.subscribers.add(callback)
+    callback(this.get()) // Immediate call for initial value
+    return () => this.unsubscribe(callback) // Return an unsubscribe function
   }
 
   /**
@@ -90,21 +93,21 @@ export class Store<T> {
    * @param {UpdateMethod} callback - The function to unsubscribe.
    */
   unsubscribe(callback: UpdateMethod) {
-    this.subscribers.delete(callback);
+    this.subscribers.delete(callback)
   }
 
   private notifySubscribers(options: NotifySubscriberOptions) {
     Array.from(this.subscribers)
-    .filter(() => options.filter(this.get()))
-    .forEach(callback => callback(this.get()))
+      .filter(() => options.filter(this.get()))
+      .forEach(callback => callback(this.get()))
   }
 
   private async resolvePromise(newValue: Promise<T | CurrentValueCallback>, options: SetOptions) {
     try {
-      const resolvedValue = await newValue;
-      this.set(resolvedValue, options);
+      const resolvedValue = await newValue
+      this.set(resolvedValue, options)
     } catch (error) {
-      handlePromiseError(error);
+      handlePromiseError(error)
     }
   }
 }
