@@ -139,24 +139,81 @@ export default class extends Controller {
 
 In this example, we've created two controllers: `counter_controller.js` and `display_controller.js`. Both controllers share a common store defined in `controllers/stores/counter.js` to manage the counter value, allowing them to communicate seamlessly.
 
-### MIT License
+## `createStore`
 
-Copyright (c) 2023 Omar Luqman
+The `createStore` function is used to create a new store. A store is an atomic class where you can keep state that needs to be shared across different parts of your application. 
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+When you call `createStore`, you pass in an object with the following required properties:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+- `name`: A unique name for the store.
+- `initialValue`: The initial value for the store's state.
+- `type`: The type of the store's state. This can be `Number`, `String`, `Array`, `Object`, `Boolean`.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+
+```javascript
+import { createStore } from 'stimulus-store';
+
+const counterStore = await createStore({
+  name: 'counterStore',
+  initialValue: 0,
+  type: Number
+});
+```
+<small>Note that `createStore` is an asynchronous function, and therefore returns a Promise. This means that you need to use the `await` keyword when calling `createStore`. In JavaScript modules, you can use `await` at the top level of the module. This is known as "top-level await".</small>
+
+
+## `useStore`
+
+In the Stimulus controller, the `static stores` array is used to specify which stores this controller should subscribe to. Each item in the array should be a store that was created using `createStore`.
+
+When you call `useStore(this)` in the `connect` method, the `useStore` hook will subscriber the controller to all the stores specified in the `static stores` array. This means that the controller will be able to access and modify the state in these stores, and it will be notified when the state in these stores changes.
+
+```js
+import { Controller } from 'stimulus';
+import { useStore } from 'stimulus-store';
+import { counterStore } from './stores/counter';
+
+export default class extends Controller {
+  static stores = [counterStore]
+
+  connect() {
+    useStore(this);
+  }
+}
+```
+
+The `useStore` hook provides several helpers that you can use to interact with the store:
+- `<storeName>Value`: This property gives you the current value of the store's state.
+- `set<StoreName>Value`: This function allows you to update the store's state. You can pass in a new value directly, or a function that returns the new value.
+- `on<StoreName>Update`: This function is called whenever the store's state changes. You can override this function in your controller to react to state changes. Additionally, it can accept a callback function or a Promise that resolves to the new value. You can also pass in an options object with a filter function. This function takes the new value of the store and returns a boolean indicating whether or not to notify the controller of the change.
+
+```js
+import { Controller } from 'stimulus';
+import { useStore } from 'stimulus-store';
+import { counterStore } from './stores/counter';
+
+export default class extends Controller {
+  static stores = [counterStore]
+
+  connect() {
+    useStore(this);
+  }
+
+  increment() {
+    this.setCounterStoreValue(this.counterStoreValue + 1);
+  }
+
+  decrement() {
+    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value == 0 })
+  }
+
+  onCounterStoreUpdate() {
+    console.log('Counter store updated:', this.counterStoreValue);
+  }
+}
+```
+<sub>Note: While you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers `<storeName>Value`, `set<StoreName>Value` and on<storeName>Update to interact with the store's state.</sub>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
