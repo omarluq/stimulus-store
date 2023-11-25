@@ -184,9 +184,9 @@ export default class extends Controller {
 
 The `useStore` hook provides several helpers that you can use to interact with the store:
 - `<storeName>Value`: This property gives you the current value of the store's state.
-- `set<StoreName>Value`: This function allows you to update the store's state. You can pass in a new value directly, or a function that returns the new value.
-- `on<StoreName>Update`: This function is called whenever the store's state changes. You can override this function in your controller to react to state changes. Additionally, it can accept a callback function or a Promise that resolves to the new value. You can also pass in an options object with a filter function. This function takes the new value of the store and returns a boolean indicating whether or not to notify the controller of the change.
+- `set<StoreName>Value`: This function allows you to update the store's state. You can pass in a new value directly, Additionally, You can pass a callback function or a Promise that resolves to the new value. You can also pass in an options object with a filter function. This function takes the new value of the store and returns a boolean indicating whether or not to notify the controller of the change.
 
+- `on<StoreName>Update`: This function is called whenever the store's state changes. You can override this function in your controller to react to state changes.
 ```js
 import { Controller } from 'stimulus';
 import { useStore } from 'stimulus-store';
