@@ -10,9 +10,7 @@ export default {
     name: 'StimulusStore' // Global variable name if using UMD format
   },
   plugins: [
-    typescript({
-      tsconfig: './tsconfig.rollup.json' // Specify the Rollup-specific TypeScript config
-    }), // TypeScript support
+    typescript(), // TypeScript support
     commonjs(), // CommonJS support
     resolve() // Node.js module resolution
   ]
