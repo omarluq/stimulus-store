@@ -2,7 +2,7 @@
   "name": "stimulus-store",
   "version": "0.0.1-beta",
   "description": "Lightweight state management for Stimulus.js",
-  "main": "dist/stimulus-store.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/omarluq/stimulus-store.git"
@@ -12,7 +12,7 @@
   },
   "homepage": "https://github.com/omarluq/stimulus-store#readme",
   "files": [
-    "dist/stimulus-store.js",
+    "dist/*.js",
     "CHANGELOG.md"
   ],
   "husky": {
@@ -28,7 +28,7 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "code-size": "npx size-limit",
-    "gzip-size": "gzip-size ./dist/stimulus-store.js",
+    "gzip-size": "gzip-size ./dist/*.js",
     "changelog": "git-chglog -o CHANGELOG.md",
     "husky:prepare": "husky install"
   },
@@ -54,6 +54,7 @@
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@hotwired/stimulus": "^3.2.2",
+    "@rollup/plugin-terser": "^0.4.4",
     "@size-limit/preset-small-lib": "^11.0.0",
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
@@ -80,7 +81,7 @@
   },
   "size-limit": [
     {
-      "path": "./dist/stimulus-store.js"
+      "path": "./dist/index.js"
     }
   ],
   "private": false
