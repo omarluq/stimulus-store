@@ -17,8 +17,11 @@
     "stimulus",
     "store"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Omar Luq <omaralanii@outllok.com>",
+  "contributors": [
+    "Tomas Caraccia"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@size-limit/preset-small-lib": "^11.0.0",
