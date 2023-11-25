@@ -18,7 +18,7 @@ describe('Store', () => {
 
   it('should notify subscribers when value changes', () => {
     const mockCallback = jest.fn()
-    store.subscribe(mockCallback)
+    store.getSubscription().subscribe(mockCallback)
 
     store.set(10)
     expect(mockCallback).toHaveBeenCalledWith(10)
@@ -26,7 +26,7 @@ describe('Store', () => {
 
   it('should stop notifying unsubscribed callbacks', () => {
     const mockCallback = jest.fn()
-    const unsubscribe = store.subscribe(mockCallback)
+    const unsubscribe = store.getSubscription().subscribe(mockCallback)
 
     unsubscribe()
     store.set(15)
@@ -40,7 +40,7 @@ describe('Store', () => {
     await store.set(0)
 
     // Subscribe to the store and invoke the callback
-    store.subscribe(mockCallback)
+    store.getSubscription().subscribe(mockCallback)
 
     // Second set: change value to 1 and invoke the callback
     await store.set(1)
@@ -54,7 +54,7 @@ describe('Store', () => {
 
   it('should not notify subscribers when filter returns false', async () => {
     const mockCallback = jest.fn()
-    store.subscribe(mockCallback)
+    store.getSubscription().subscribe(mockCallback)
 
     await store.set(20, { filter: () => false })
     expect(mockCallback).not.toHaveBeenCalledWith(20)

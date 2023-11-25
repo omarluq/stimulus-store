@@ -61,8 +61,16 @@ describe('useStore', () => {
   })
 
   it('should clean up subscriptions when controller disconnects', () => {
-    const unsubscribe = jest.spyOn(testStore, 'unsubscribe')
+    const unsubscribe = jest.fn()
+    jest.spyOn(testStore, 'getSubscription').mockReturnValue({
+      subscribe: () => unsubscribe
+    })
+
+    // Call useStore to trigger the subscription
+    useStore(mockController)
+
     mockController.disconnect()
+
     expect(unsubscribe).toHaveBeenCalled()
   })
 
