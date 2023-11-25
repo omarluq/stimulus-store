@@ -40,9 +40,10 @@ Stimulus Store is an ultra lightweight JavaScript library that simplifies state 
 
 ## Size Metrics
 
-- **Minified and Brotlied Size**: 1.22KB
+- **Original size**: 15.161KB
+- **Bundle size**: 13.954KB
 - **Gzipped Size**: 4.17KB
-- **Node Modules Size**: 620KB
+- **Minified and Brotlied Size**: 1.22KB
 
 ## Why Stimulus Store?
 
