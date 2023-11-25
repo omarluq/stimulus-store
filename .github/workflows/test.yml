@@ -18,6 +18,12 @@ jobs:
         run: yarn lint
       - name: Prettier
         run: yarn prettier:check
+      - name:  Install gzip-size-cli
+        run: yarn global add gzip-size-cli
+      - name: Check Gzipped Size
+        run: yarn run gzip-size
+      - name: Check Minified and Brotlied Code Size
+        run: yarn run code-size
       - name: Test
         run: yarn test
       - name: Upload test report
