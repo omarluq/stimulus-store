@@ -75,25 +75,30 @@ export function useStore<T>(controller: StoreController<T>) {
       store.set(value);
     };
 
-    Object.defineProperty(controller, `${camelizedName}Value`, {
+    const storeGetterMethodName: string = `${camelizedName}Value`
+
+    Object.defineProperty(controller, storeGetterMethodName, {
       get: () => store.get(),
       enumerable: true,
       configurable: true,
     });
 
+    let isWarned: boolean = false;
+
     // Wrap the store in a Proxy to intercept direct access
     const storeProxy = new Proxy(store, {
       get: function(target, prop, receiver) {
-        console.warn(`Warning: You are accessing the store directly. Consider using the provided getter and setter methods instead.`);
+        if (!isWarned) {
+          console.warn(`Warning: You are accessing the '${camelizedName}' instance directly. Consider using '${onStoreUpdateMethodName}' and '${storeGetterMethodName}' instead.`);
+          isWarned = true;
+        }
         return Reflect.get(target, prop, receiver);
       }
     });
 
-
     // Overwrite the value of the store in the static object to the safe proxy
     const storeIndex = stores.indexOf(store);
     stores[storeIndex] = storeProxy;
-
 
     Object.defineProperty(controller, camelizedName, {
       get: () => storeProxy,
