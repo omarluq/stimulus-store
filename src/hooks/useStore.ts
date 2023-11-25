@@ -38,11 +38,11 @@
  * }
  * ```
  */
-import type { Store } from './store'
-import type { StoreController } from './storeController' // Adjust the path as needed
-import { camelize } from './utils/camelize'
-import { checkStores } from './useStoreErrorHandlers'
-import { warnDirectAccess } from './useStoreWarningHandlers'
+import type { Store } from '../store/store'
+import type { StoreController } from '../store/storeController' // Adjust the path as needed
+import { camelize } from '../utils/camelize'
+import { checkStores } from '../errors/useStoreErrorHandlers'
+import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
 
 export function useStore<T>(controller: StoreController<T>) {
   const stores: Store<T>[] = controller.constructor.stores || []

@@ -1,4 +1,4 @@
-import { camelize } from '../src/utils/camelize'
+import { camelize } from '../../src/utils/camelize'
 
 describe('camelize', () => {
   it.each([

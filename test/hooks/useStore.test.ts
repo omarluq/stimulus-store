@@ -1,7 +1,7 @@
-import { createStore } from '../src/createStore'
-import { useStore } from '../src/useStore'
-import type { Store } from '../src/store'
-import type { StoreController } from '../src/storeController'
+import { createStore } from '../../src/store/createStore'
+import { useStore } from '../../src/hooks/useStore'
+import type { Store } from '../../src/store/store'
+import type { StoreController } from '../../src/store/storeController'
 
 describe('useStore', () => {
   let mockController: StoreController<any>

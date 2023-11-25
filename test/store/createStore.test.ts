@@ -1,4 +1,4 @@
-import { createStore } from '../src/createStore'
+import { createStore } from '../../src/store/createStore'
 
 describe('createStore', () => {
   it('should throw an error if no initial value is provided', async () => {

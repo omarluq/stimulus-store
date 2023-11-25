@@ -1,4 +1,4 @@
-import { checkStores } from '../src/useStoreErrorHandlers'
+import { checkStores } from '../../src/errors/useStoreErrorHandlers'
 
 describe('useStoreErrorHandlers', () => {
   describe('checkStores', () => {

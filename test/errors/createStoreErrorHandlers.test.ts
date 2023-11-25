@@ -3,8 +3,8 @@ import {
   checkName,
   checkTypeConstructor,
   handleStoreSetError
-} from '../src/createStoreErrorHandlers'
-import { typeMap } from '../src/storeValuesTypeMap'
+} from '../../src/errors/createStoreErrorHandlers'
+import { typeMap } from '../../src/store/storeValuesTypeMap'
 
 describe('storeErrorHandlers', () => {
   describe('checkInitialValue', () => {

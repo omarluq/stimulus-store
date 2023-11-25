@@ -29,7 +29,12 @@
 
 import { Store } from './store'
 import type { StoreOptions } from './storeOptions'
-import { checkInitialValue, checkName, checkTypeConstructor, handleStoreSetError } from './createStoreErrorHandlers'
+import {
+  checkInitialValue,
+  checkName,
+  checkTypeConstructor,
+  handleStoreSetError
+} from '../errors/createStoreErrorHandlers'
 
 export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>> {
   const { name, type, initialValue } = options
