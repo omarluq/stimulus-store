@@ -40,8 +40,8 @@ export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>
   const { name, type, initialValue } = options
   checkInitialValue(initialValue)
   checkName(name)
-  const symbolName = Symbol(name)
   checkTypeConstructor(type?.name)
+  const symbolName = Symbol(name)
 
   const store: Store<T> = new Store<T>(symbolName, type)
   try {

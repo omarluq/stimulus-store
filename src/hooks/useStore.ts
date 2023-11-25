@@ -53,9 +53,10 @@ export function useStore<T>(controller: StoreController<T>) {
   stores.forEach(store => {
     const storeName: symbol = store.name
     const storeNameAsString: string = storeName.toString().slice(7, -1)
-    const camelizedName = camelize(storeNameAsString)
-    const onStoreUpdateMethodName = `on${camelize(storeNameAsString, true)}Update`
+    const camelizedName: string = camelize(storeNameAsString)
+    const onStoreUpdateMethodName: string = `on${camelize(storeNameAsString, true)}Update`
     const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: T) => void
+    const subscription: Subscription = store.getSubscription()
 
     if (onStoreUpdateMethod) {
       const updateMethod: (value: T) => void = value => {
@@ -65,7 +66,7 @@ export function useStore<T>(controller: StoreController<T>) {
       const methodName = `update${camelize(storeNameAsString, true)}`
       controller[methodName] = updateMethod
 
-      unsubscribeFunctions.push(store.subscribe(updateMethod))
+      unsubscribeFunctions.push(subscription.subscribe(updateMethod))
     }
 
     // Add a helper method to set the store value

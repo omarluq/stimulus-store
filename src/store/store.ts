@@ -18,7 +18,7 @@ import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
  */
 
 export class Store<T> {
-  name: symbol
+  readonly name: symbol
   private value!: T
   private subscribers: Set<UpdateMethod>
   private type: new (...args: unknown[]) => unknown
@@ -72,7 +72,7 @@ export class Store<T> {
    * @param {UpdateMethod} callback - The function to call when the store's value changes.
    * @returns {UnsubscribeFunction} A function that unsubscribes the callback.
    */
-  subscribe(callback: UpdateMethod): UnsubscribeFunction {
+  private subscribe(callback: UpdateMethod): UnsubscribeFunction {
     this.subscribers.add(callback)
     callback(this.get()) // Immediate call for initial value
     return () => this.unsubscribe(callback) // Return an unsubscribe function
@@ -83,8 +83,19 @@ export class Store<T> {
    *
    * @param {UpdateMethod} callback - The function to unsubscribe.
    */
-  unsubscribe(callback: UpdateMethod) {
+  private unsubscribe(callback: UpdateMethod) {
     this.subscribers.delete(callback)
+  }
+
+  /**
+   * Gets a subscription object with subscribe, when invoked subscribe returns an unsubscribe function.
+   *
+   * @returns {Subscription} A subscription object.
+   */
+  public getSubscription(): Subscription {
+    return {
+      subscribe: (callback: UpdateMethod) => this.subscribe(callback)
+    }
   }
 
   private notifySubscribers(options: NotifySubscriberOptions) {

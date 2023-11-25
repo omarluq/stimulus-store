@@ -6,3 +6,6 @@ declare type SetOptions = {
 }
 declare type NotifySubscriberOptions = SetOptions
 declare type CurrentValueCallback = (currentValue: T) => T
+interface Subscription {
+  subscribe: (callback: UpdateMethod) => UnsubscribeFunction;
+}
