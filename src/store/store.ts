@@ -1,3 +1,5 @@
+import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
+
 /**
  * @template T The type of the value that the store holds.
  * Store Class Explanation:
@@ -9,22 +11,11 @@
  * - Generic Class: Can work with different types of data (specified when creating an instance).
  * - Constructor: Sets the initial value of the store.
  * - `set` Method: Updates the value and notifies subscribers.
+ * - `get` Method: Gets the current value.
  * - `subscribe` Method: Subscribes to updates and calls a callback function when data changes.
  * - `unsubscribe` Method: Removes a subscription.
  * - `notifySubscribers` Method: Notifies subscribers when data changes.
- * Example Store: Counter Store
- *
- * This is an example of a store that uses the `stimulus-store` library. It creates a shared
- * counter store with an initial value of 0.
-  Import the Store class from the stimulus-store library
-  import { Store } from "stimulus-store";
-
-  Create a counterStore instance with an initial value of 0
-
-  export const counterStore = new Store(0);
  */
-
-import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
 
 export class Store<T> {
   name: symbol
