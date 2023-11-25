@@ -1,0 +1,14 @@
+node_modules
+*.log
+src
+test
+public
+.jest-stare
+.github
+*.md
+*.json
+*.lock
+*.yml
+*.config.*
+.chglog/
+.husky/

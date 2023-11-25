@@ -6,3 +6,5 @@ global-types.d.ts
 *.config.js
 *.config.json
 *.config.ts
+.chglog/
+.husky/
