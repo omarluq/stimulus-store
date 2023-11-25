@@ -112,7 +112,7 @@ export default class extends Controller {
   decrement() {
     // set will also receive a callback
     // and will only notify on condition
-    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value == 0 })
+    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value === 0 })
   }
 }
 ```
@@ -159,7 +159,7 @@ const counterStore = await createStore({
   type: Number
 });
 ```
-<small>Note that `createStore` is an asynchronous function, and therefore returns a Promise. This means that you need to use the `await` keyword when calling `createStore`. In JavaScript modules, you can use `await` at the top level of the module. This is known as "top-level await".</small>
+<sub>Note that `createStore` is an asynchronous function, and therefore returns a Promise. This means that you need to use the `await` keyword when calling `createStore`. In JavaScript modules, you can use `await` at the top level of the module. This is known as "top-level await".</sub>
 
 
 ## `useStore`
@@ -183,8 +183,8 @@ export default class extends Controller {
 ```
 
 The `useStore` hook provides several helpers that you can use to interact with the store:
-- `<storeName>Value`: This property gives you the current value of the store's state.
-- `set<StoreName>Value`: This function allows you to update the store's state. You can pass in a new value directly, Additionally, You can pass a callback function or a Promise that resolves to the new value. You can also pass in an options object with a filter function. This function takes the new value of the store and returns a boolean indicating whether or not to notify the controller of the change.
+- `this.<storeName>Value`: This property gives you the current value of the store's state.
+- `this.set<StoreName>Value`: This function allows you to update the store's state. You can pass in a new value directly, Additionally, You can pass a callback function or a Promise that resolves to the new value. You can also pass in an options object with a filter function. This function takes the new value of the store and returns a boolean indicating whether or not to notify the controller of the change.
 
 - `on<StoreName>Update`: This function is called whenever the store's state changes. You can override this function in your controller to react to state changes.
 ```js
@@ -204,7 +204,7 @@ export default class extends Controller {
   }
 
   decrement() {
-    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value == 0 })
+    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value === 0 })
   }
 
   onCounterStoreUpdate() {
@@ -212,7 +212,7 @@ export default class extends Controller {
   }
 }
 ```
-<sub>Note: While you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers `<storeName>Value`, `set<StoreName>Value` and on<storeName>Update to interact with the store's state.</sub>
+<sub>Note that while you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers this.`<storeName>Value`, `this.set<StoreName>Value` and `on<storeName>Update` to interact with the store's state.</sub>
 
 ## License
 
