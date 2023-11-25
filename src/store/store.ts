@@ -24,7 +24,7 @@
   export const counterStore = new Store(0);
  */
 
-import { checkValue, handlePromiseError } from './storeErrorHandlers'
+import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
 
 export class Store<T> {
   name: symbol

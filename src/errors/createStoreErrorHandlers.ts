@@ -1,4 +1,4 @@
-import { typeMap } from './storeValuesTypeMap'
+import { typeMap } from '../store/storeValuesTypeMap'
 
 /**
  * Checks if the initial value is defined.

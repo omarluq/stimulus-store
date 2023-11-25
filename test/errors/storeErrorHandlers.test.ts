@@ -1,4 +1,4 @@
-import { checkValue, handlePromiseError } from '../src/storeErrorHandlers'
+import { checkValue, handlePromiseError } from '../../src/errors/storeErrorHandlers'
 
 describe('storeErrorHandlers', () => {
   describe('checkValue', () => {

@@ -1,4 +1,4 @@
-import { warnDirectAccess } from '../src/useStoreWarningHandlers'
+import { warnDirectAccess } from '../../src/errors/useStoreWarningHandlers'
 
 describe('useStoreWarningHandlers', () => {
   describe('warnDirectAccess', () => {

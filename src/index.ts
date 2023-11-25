@@ -1,2 +1,2 @@
-export { useStore } from './useStore'
-export { createStore } from './createStore'
+export { useStore } from './hooks/useStore'
+export { createStore } from './store/createStore'
