@@ -36,7 +36,13 @@
 
 # Stimulus Store
 
-Stimulus Store is a lightweight JavaScript library that simplifies state management in your Stimulus-powered web applications. It provides a simple and intuitive way to create, manage, and share stateful data across different controllers using a common `Store` class.
+Stimulus Store is an ultra lightweight JavaScript library that simplifies state management in your Stimulus-powered web applications. Despite its minimal footprint, it offers a robust yet simple and intuitive way to create, manage, and share stateful data across different controllers using a unified, atomic `Store` class.
+
+## Size Metrics
+
+- **Minified and Brotlied Size**: 1.22KB
+- **Gzipped Size**: 4.17KB
+- **Node Modules Size**: 620KB
 
 ## Why Stimulus Store?
 
@@ -45,7 +51,7 @@ Stimulus is known for its simplicity and focus on enhancing your HTML with minim
 With Stimulus Store, you can:
 
 - Create and manage global state with ease.
-- Share state between different controllers effortlessly using a shared `Store` class.
+- Share state between different controllers effortlessly using a unified, atomic `Store` class.
 - Keep your codebase clean and maintainable.
 
 ## Installation
