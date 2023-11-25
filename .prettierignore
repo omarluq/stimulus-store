@@ -1,0 +1,13 @@
+# .prettierignore
+.github/
+node_modules/
+package.json
+package-lock.json
+README.md
+.gitignore
+dist/
+public/
+*.json
+global-types.d.ts
+.prettierignore
+.eslintignore

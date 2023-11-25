@@ -7,7 +7,9 @@
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest --reporters default jest-stare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
   },
   "keywords": [
     "stimulus",
