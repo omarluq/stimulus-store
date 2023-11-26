@@ -1,4 +1,5 @@
 import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
+import type { TypeKey } from './storeValuesTypeMap.d'
 
 /**
  * @template T The type of the value that the store holds.
@@ -21,15 +22,15 @@ export class Store<T> {
   readonly name: symbol
   private value!: T
   private subscribers: Set<UpdateMethod>
-  private type: new (...args: unknown[]) => unknown
+  private type: TypeKey
 
   /**
    * Creates a new store.
    *
    * @param {symbol} name - The name of the store.
-   * @param {new (...args: unknown[]) => unknown} type - The type of the store's value.
+   * @param {TypeKey} type - The type of the store's value.
    */
-  constructor(name: symbol, type: new (...args: unknown[]) => unknown) {
+  constructor(name: symbol, type: TypeKey) {
     this.name = name
     this.subscribers = new Set()
     this.type = type
