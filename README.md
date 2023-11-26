@@ -167,7 +167,7 @@ const counterStore = createStore({
 
 In the Stimulus controller, the `static stores` array is used to specify which stores this controller should subscribe to. Each item in the array should be a store that was created using `createStore`.
 
-When you call `useStore(this)` in the `connect` method, the `useStore` hook will subscriber the controller to all the stores specified in the `static stores` array. This means that the controller will be able to access and modify the state in these stores, and it will be notified when the state in these stores changes.
+When you call `useStore(this)` in the `connect` method, the `useStore` hook will subscribe the controller to all the stores specified in the `static stores` array. This means that the controller will be able to access and modify the state in these stores, and it will be notified when the state in these stores changes.
 
 ```js
 import { Controller } from 'stimulus';
@@ -213,7 +213,7 @@ export default class extends Controller {
   }
 }
 ```
-<sub>Note that while you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers this.`<storeName>Value`, `this.set<StoreName>Value` and `on<storeName>Update` to interact with the store's state.</sub>
+<sub>Note that while you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers this.`this.<storeName>Value`, `this.set<StoreName>Value` and `on<storeName>Update` to interact with the store's state.</sub>
 
 ## License
 
