@@ -1,5 +1,6 @@
 {
   "name": "stimulus-store",
+  "types": "dist/index.d.ts",
   "version": "0.0.1-beta",
   "description": "Lightweight state management for Stimulus.js",
   "main": "dist/index.js",
@@ -12,7 +13,7 @@
   },
   "homepage": "https://github.com/omarluq/stimulus-store#readme",
   "files": [
-    "dist/*.js",
+    "dist/",
     "CHANGELOG.md"
   ],
   "husky": {
@@ -28,7 +29,7 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "code-size": "npx size-limit",
-    "gzip-size": "gzip-size ./dist/*.js",
+    "gzip-size": "gzip-size ./dist/index.js",
     "changelog": "git-chglog -o CHANGELOG.md",
     "husky:prepare": "husky install"
   },
