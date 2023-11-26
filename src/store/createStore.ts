@@ -6,6 +6,7 @@ import {
   checkTypeConstructor,
   handleStoreSetError
 } from '../errors/createStoreErrorHandlers'
+import type { TypeKey } from './storeValuesTypeMap.d'
 
 /**
  * The createStore function is a factory function that creates and returns a new instance of the Store class.
@@ -28,7 +29,7 @@ import {
  * @param {StoreOptions<T>} options - The options for the store.
  * @param {string} options.name - The name of the store. This will be used to create a unique Symbol.
  * @param {T} options.initialValue - The initial value of the store. This must be provided.
- * @param {new (...args: unknown[]) => T} options.type - The type of the store's value. This is used for type checking [String, Number, Boolean, Array, Object].
+ * @param {TypeKey} options.type - The type of the store's value. This is used for type checking [String, Number, Boolean, Array, Object].
  *
  * @returns {Store<T>} The new store.
  *
@@ -37,7 +38,9 @@ import {
  */
 
 export function createStore<T>(options: StoreOptions<T>): Store<T> {
-  const { name, type, initialValue } = options
+  const name: string = options.name
+  const type: TypeKey = options.type
+  const initialValue: T = options.initialValue
   checkInitialValue(initialValue)
   checkName(name)
   checkTypeConstructor(type?.name)

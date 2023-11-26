@@ -1,11 +1,16 @@
+import type { TypeKey } from './storeValuesTypeMap.d'
+
 /**
- * A mapping from type names to their corresponding constructors.
- * - Allows type checking values in runtime.
+ * A mapping from type names to their corresponding constructor types.
+ * - Allows type checking values at runtime.
  * - Allows the use of the following types: String, Number, Array, Object, Boolean.
- * @type {Record<string, new (...args: unknown[]) => unknown>}
+ * - Each type has its own constructor type: StringConstructor, NumberConstructor, ArrayConstructor, ObjectConstructor, BooleanConstructor.
+ * - TypeKey is a union of all the constructor types.
+ * @type {Record<string, TypeKey>}
  *
  */
-export const typeMap: Record<string, new (...args: unknown[]) => unknown> = {
+
+export const typeMap: Record<string, TypeKey> = {
   String: String,
   Number: Number,
   Array: Array,
