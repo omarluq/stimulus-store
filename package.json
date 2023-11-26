@@ -1,6 +1,6 @@
 {
   "name": "stimulus-store",
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "version": "0.0.1-beta",
   "description": "Lightweight state management for Stimulus.js",
   "main": "dist/index.js",
