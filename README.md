@@ -92,7 +92,7 @@ Let's dive into a simple use case to see how Stimulus Store works. In this examp
 // controllers/stores/counter.js
 import { createStore } from "stimulus-store";
 
-export const counterStore = await createStore({ name: 'counterStore', initialValue: 0, type: Number });
+export const counterStore = createStore({ name: 'counterStore', initialValue: 0, type: Number });
 ```
 
 ```js
@@ -156,14 +156,12 @@ When you call `createStore`, you pass in an object with the following required p
 ```javascript
 import { createStore } from 'stimulus-store';
 
-const counterStore = await createStore({
+const counterStore = createStore({
   name: 'counterStore',
   initialValue: 0,
   type: Number
 });
 ```
-<sub>Note that `createStore` is an asynchronous function, and therefore returns a Promise. This means that you need to use the `await` keyword when calling `createStore`. In JavaScript modules, you can use `await` at the top level of the module. This is known as "top-level await".</sub>
-
 
 ## `useStore`
 

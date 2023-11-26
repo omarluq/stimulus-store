@@ -22,7 +22,7 @@ import {
  *
  * Usage Example:
  * ```javascript
- * const countStore = await createStore({ name: 'count', initialValue: 0, type: Number });
+ * const countStore = createStore({ name: 'count', initialValue: 0, type: Number });
  * ```
  *
  * @param {StoreOptions<T>} options - The options for the store.
@@ -36,7 +36,7 @@ import {
  * @throws {Error} If the name is not a string.
  */
 
-export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>> {
+export function createStore<T>(options: StoreOptions<T>): Store<T> {
   const { name, type, initialValue } = options
   checkInitialValue(initialValue)
   checkName(name)
@@ -44,10 +44,6 @@ export async function createStore<T>(options: StoreOptions<T>): Promise<Store<T>
   const symbolName = Symbol(name)
 
   const store: Store<T> = new Store<T>(symbolName, type)
-  try {
-    await store.set(initialValue)
-    return store
-  } catch (error) {
-    return handleStoreSetError(error)
-  }
+  store.set(initialValue).catch(error => handleStoreSetError(error))
+  return store
 }
