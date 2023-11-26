@@ -42,7 +42,7 @@ describe('useStore', () => {
       // Add the other missing properties here...
     } as unknown as StoreController<any>
     expect(() => useStore(noStoresController)).toThrow(
-      `Error: 'useStore' was called on a controller without a 'stores' static property. The 'stores' property is undefined.`
+      `'useStore' was called on a controller without a 'stores' static property. The 'stores' property is undefined.`
     )
   })
 
@@ -60,7 +60,7 @@ describe('useStore', () => {
       // Add the other missing properties here...
     } as unknown as StoreController<any>
     expect(() => useStore(emptyStoresController)).toThrow(
-      `Error: 'useStore' was called on a controller with an empty 'stores' static property. The 'stores' array should contain at least one store.`
+      `'useStore' was called on a controller with an empty 'stores' static property. The 'stores' array should contain at least one store.`
     )
   })
 
@@ -78,7 +78,7 @@ describe('useStore', () => {
       // Add the other missing properties here...
     } as unknown as StoreController<any>
     expect(() => useStore(notArrayStoresController)).toThrow(
-      `Error: 'useStore' was called on a controller with a 'stores' static property that is not an array.`
+      `'useStore' was called on a controller with a 'stores' static property that is not an array.`
     )
   })
 
