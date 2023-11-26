@@ -42,8 +42,20 @@ Stimulus Store is an ultra lightweight JavaScript library that simplifies state 
 
 - **Original size**: 15.603KB
 - **Bundle size**: 14.552KB
-- **Gzipped Size**: 1.32KB
-- **Minified and Brotlied Size**: 1.17KB
+- **Gzipped Size**: 1.31KB
+- **Minified and Brotlied Size**: 1.16KB
+
+To put the size of the Stimulus Store library into perspective, let's compare its size metrics with those of other popular state management libraries. Keep in mind that the comparison is based on general size metrics and may vary depending on the specific version and build of each library:
+
+- Redux: Redux is one of the most popular state management libraries for JavaScript applications, often used with React. The minified size of Redux (not including required dependencies like redux-thunk or react-redux) is around 16KB before gzip. After gzip, it's approximately 5KB. While still lightweight, Redux is significantly larger than Stimulus Store.
+
+- MobX: MobX is another popular choice for state management in JavaScript applications. The minified size of MobX is about 22KB, and its gzipped size is roughly 7KB.
+
+- Vuex (for Vue.js): Vuex is the state management library tailored for Vue.js. The minified and gzipped size of Vuex is around 3KB, which is larger than Stimulus Store but still maintains a small footprint.
+
+- Context API (React): With React's Context API and Hooks, state management can be handled without additional libraries. However, this is part of React itself, so the size comparison isn’t direct. React (including ReactDOM) is over 100KB minified and gzipped, but this includes much more than just state management.
+
+- Zustand: A smaller, simpler alternative for state management in React applications. Its size is about 7KB gzipped, which is larger than Stimulus Store but smaller compared to more feature-rich libraries like Redux or MobX.
 
 For more detailed analysis, see [BENCHMARKS.md](BENCHMARKS.md).
 
