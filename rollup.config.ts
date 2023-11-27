@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
 import analyze from 'rollup-plugin-analyzer'
 import sizes from 'rollup-plugin-sizes'
+import copy from 'rollup-plugin-copy'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -23,6 +24,10 @@ export default {
   ],
   plugins: [
     typescript({ tsconfig: './tsconfig.json' }), // TypeScript support
+    copy({
+      targets: [{ src: 'src/**/*.d.ts', dest: 'dist' }],
+      flatten: false
+    }),
     commonjs(), // CommonJS support
     resolve(), // Node.js module resolution
     production &&

@@ -6,7 +6,7 @@ import {
   checkTypeConstructor,
   handleStoreSetError
 } from '../errors/createStoreErrorHandlers'
-import type { TypeKey } from './storeValuesTypeMap.d'
+import type { TypeKey } from './typeKey'
 
 /**
  * The createStore function is a factory function that creates and returns a new instance of the Store class.

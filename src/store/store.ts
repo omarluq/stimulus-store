@@ -1,5 +1,5 @@
 import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
-import type { TypeKey } from './storeValuesTypeMap.d'
+import type { TypeKey } from './typeKey'
 
 /**
  * @template T The type of the value that the store holds.

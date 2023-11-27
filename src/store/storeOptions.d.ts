@@ -1,4 +1,4 @@
-import { TypeKey } from './storeValuesTypeMap.d'
+import { TypeKey } from './typeKey'
 
 /**
  * Interface for the options to create a store.
