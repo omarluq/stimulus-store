@@ -4,10 +4,9 @@
     "module": "ESNext", 
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "declaration": true,
-    "declarationDir": "./dist",
-    "outDir": "./dist",
+    "declarationDir": "dist",
+    "outDir": "dist",
     "allowSyntheticDefaultImports": true,
     "noEmit": false,
     "strict": true,
@@ -19,8 +18,7 @@
     "baseUrl": ".",
     "paths": {
       // your custom paths
-    },
-    "typeRoots": ["./node_modules/@types"]
+    }
   },
-  "include": ["src", "test", "global-types.d.ts"]
+  "include": ["src", "global-types.d.ts"]
 }
