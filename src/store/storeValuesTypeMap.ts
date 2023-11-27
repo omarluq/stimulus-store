@@ -1,4 +1,4 @@
-import type { TypeKey } from './storeValuesTypeMap.d'
+import type { TypeKey } from './typeKey'
 
 /**
  * A mapping from type names to their corresponding constructor types.
