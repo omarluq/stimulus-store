@@ -1,9 +1,10 @@
 {
   "name": "stimulus-store",
-  "types": "dist/src/index.d.ts",
   "version": "0.0.1-beta",
   "description": "Lightweight state management for Stimulus.js",
-  "main": "dist/index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/omarluq/stimulus-store.git"
@@ -29,7 +30,9 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "code-size": "npx size-limit",
-    "gzip-size": "gzip-size ./dist/index.js",
+    "gzip-size:cjs": "gzip-size ./dist/bundle.cjs.js",
+    "gzip-size:esm": "gzip-size ./dist/bundle.esm.js",
+    "gzip-size": "yarn run gzip-size:cjs && yarn run gzip-size:esm",
     "changelog": "git-chglog -o CHANGELOG.md",
     "husky:prepare": "husky install"
   },
@@ -58,6 +61,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@size-limit/preset-small-lib": "^11.0.0",
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
@@ -71,10 +75,10 @@
     "rollup": "^4.5.1",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-sizes": "^1.0.6",
-    "rollup-plugin-typescript2": "^0.36.0",
     "size-limit": "^11.0.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   },
   "jest-stare": {
@@ -82,7 +86,10 @@
   },
   "size-limit": [
     {
-      "path": "./dist/index.js"
+      "path": "./dist/bundle.cjs.js"
+    },
+    {
+      "path": "./dist/bundle.esm.js"
     }
   ],
   "private": false
