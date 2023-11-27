@@ -43,12 +43,12 @@ export class Store<T> {
    * @param {SetOptions} [options={ filter: () => true }] - The options for setting the value.
    */
   async set(
-    newValue: T | CurrentValueCallback | Promise<T | CurrentValueCallback>,
+    newValue: T | CurrentValueCallback<T> | Promise<T | CurrentValueCallback<T>>,
     options: SetOptions = { filter: () => true }
   ) {
     if (newValue instanceof Promise) return this.resolvePromise(newValue, options)
     if (newValue === this.get()) return
-    const finalValue: T = typeof newValue === 'function' ? (newValue as CurrentValueCallback)(this.get()) : newValue
+    const finalValue: T = typeof newValue === 'function' ? (newValue as CurrentValueCallback<T>)(this.get()) : newValue
     checkValue(finalValue, this.type)
     this.setValue(finalValue)
     this.notifySubscribers(options)
@@ -105,7 +105,7 @@ export class Store<T> {
       .forEach(callback => callback(this.get()))
   }
 
-  private async resolvePromise(newValue: Promise<T | CurrentValueCallback>, options: SetOptions) {
+  private async resolvePromise(newValue: Promise<T | CurrentValueCallback<T>>, options: SetOptions) {
     try {
       const resolvedValue = await newValue
       this.set(resolvedValue, options)

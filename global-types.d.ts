@@ -5,7 +5,7 @@ declare type SetOptions = {
   filter: (value: any) => boolean
 }
 declare type NotifySubscriberOptions = SetOptions
-declare type CurrentValueCallback = (currentValue: T) => T
+declare type CurrentValueCallback<T> = (currentValue: T) => T;
 interface Subscription {
   subscribe: (callback: UpdateMethod) => UnsubscribeFunction;
 }
