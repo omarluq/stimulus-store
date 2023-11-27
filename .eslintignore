@@ -1,5 +1,6 @@
 test/
 public/
+scripts/
 dist/
 global-types.d.ts
 .prettierignore

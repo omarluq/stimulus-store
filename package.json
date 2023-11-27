@@ -30,8 +30,8 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "code-size": "npx size-limit",
-    "gzip-size:cjs": "gzip-size ./dist/bundle.cjs.js",
-    "gzip-size:esm": "gzip-size ./dist/bundle.esm.js",
+    "gzip-size:cjs": "gzip-size ./dist/bundle.cjs.js | bash ./scripts/check-size.sh",
+    "gzip-size:esm": "gzip-size ./dist/bundle.esm.js | bash ./scripts/check-size.sh",
     "gzip-size": "yarn run gzip-size:cjs && yarn run gzip-size:esm",
     "changelog": "git-chglog -o CHANGELOG.md",
     "husky:prepare": "husky install"
@@ -86,10 +86,12 @@
   },
   "size-limit": [
     {
-      "path": "./dist/bundle.cjs.js"
+      "path": "./dist/bundle.cjs.js",
+      "limit": "1.09 KB"
     },
     {
-      "path": "./dist/bundle.esm.js"
+      "path": "./dist/bundle.esm.js",
+      "limit": "1.04 KB"
     }
   ],
   "private": false

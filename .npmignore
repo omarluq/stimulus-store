@@ -3,6 +3,7 @@ node_modules
 src
 test
 public
+scripts
 .jest-stare
 .github
 *.md
