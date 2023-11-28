@@ -1,11 +1,11 @@
 import { createStore } from '../../src/store/createStore'
 import { useStore } from '../../src/hooks/useStore'
 import type { Store } from '../../src/store/store'
-import type { StoreController } from '../../src/store/storeController'
+import type { StoreController } from '../../src/types/storeController'
 
 describe('useStore', () => {
-  let mockController: StoreController<any>
-  let testStore: Store<any>
+  let mockController: StoreController
+  let testStore: Store
 
   function expectStoreValueToBe(value: any) {
     expect(testStore.get()).toBe(value)
@@ -25,7 +25,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn()
       // Add the other missing properties here...
-    } as unknown as StoreController<any>
+    } as unknown as StoreController
 
     useStore(mockController)
   })
@@ -40,7 +40,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn()
       // Add the other missing properties here...
-    } as unknown as StoreController<any>
+    } as unknown as StoreController
     expect(() => useStore(noStoresController)).toThrow(
       `'useStore' was called on a controller without a 'stores' static property. The 'stores' property is undefined.`
     )
@@ -58,7 +58,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn()
       // Add the other missing properties here...
-    } as unknown as StoreController<any>
+    } as unknown as StoreController
     expect(() => useStore(emptyStoresController)).toThrow(
       `'useStore' was called on a controller with an empty 'stores' static property. The 'stores' array should contain at least one store.`
     )
@@ -76,7 +76,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn()
       // Add the other missing properties here...
-    } as unknown as StoreController<any>
+    } as unknown as StoreController
     expect(() => useStore(notArrayStoresController)).toThrow(
       `'useStore' was called on a controller with a 'stores' static property that is not an array.`
     )
@@ -133,7 +133,7 @@ describe('useStore', () => {
       scope: jest.fn(),
       element: jest.fn()
       // Add the other missing properties here...
-    } as unknown as StoreController<any>
+    } as unknown as StoreController
     // Assume that the controllers have a method to update the store's value
     useStore(mockController2)
     mockController.updateTestStore = (value: any) => testStore.set(value)

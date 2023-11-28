@@ -1,12 +1,13 @@
 import { Store } from './store'
-import type { StoreOptions } from './storeOptions'
+import type { StoreOptions } from '../types/storeOptions'
 import {
   checkInitialValue,
   checkName,
   checkTypeConstructor,
   handleStoreSetError
 } from '../errors/createStoreErrorHandlers'
-import type { TypeKey } from './typeKey'
+import type { TypeKey } from '../types/typeKey'
+import type { StoreValue } from '../types/storeValue'
 
 /**
  * The createStore function is a factory function that creates and returns a new instance of the Store class.
@@ -37,16 +38,16 @@ import type { TypeKey } from './typeKey'
  * @throws {Error} If the name is not a string.
  */
 
-export function createStore<T>(options: StoreOptions<T>): Store<T> {
+export function createStore(options: StoreOptions): Store {
   const name: string = options.name
   const type: TypeKey = options.type
-  const initialValue: T = options.initialValue
+  const initialValue: StoreValue = options.initialValue
   checkInitialValue(initialValue)
   checkName(name)
   checkTypeConstructor(type?.name)
   const symbolName = Symbol(name)
 
-  const store: Store<T> = new Store<T>(symbolName, type)
+  const store: Store = new Store(symbolName, type)
   store.set(initialValue).catch(error => handleStoreSetError(error))
   return store
 }

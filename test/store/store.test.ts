@@ -1,7 +1,7 @@
 import { Store } from '../../src/store/store'
 
 describe('Store', () => {
-  let store: Store<number>
+  let store: Store
 
   beforeEach(() => {
     store = new Store(Symbol('testStore'), Number)

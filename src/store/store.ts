@@ -1,5 +1,12 @@
 import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
-import type { TypeKey } from './typeKey'
+import type { TypeKey } from '../types/typeKey'
+import type { CurrentValueCallback } from '../types/currentValueCallback'
+import type { NotifySubscriberOptions } from '../types/notifySubscriberOptions'
+import type { SetOptions } from '../types/setOptions'
+import type { Subscription } from '../types/Subscription'
+import type { UnsubscribeFunction } from '../types/unsubscribeFunction'
+import type { UpdateMethod } from '../types/updateMethod'
+import type { StoreValue } from '../types/storeValue'
 
 /**
  * @template T The type of the value that the store holds.
@@ -18,9 +25,9 @@ import type { TypeKey } from './typeKey'
  * - `notifySubscribers` Method: Notifies subscribers when data changes.
  */
 
-export class Store<T> {
+export class Store {
   readonly name: symbol
-  private value!: T
+  private value!: StoreValue
   private subscribers: Set<UpdateMethod>
   private type: TypeKey
 
@@ -43,12 +50,13 @@ export class Store<T> {
    * @param {SetOptions} [options={ filter: () => true }] - The options for setting the value.
    */
   async set(
-    newValue: T | CurrentValueCallback<T> | Promise<T | CurrentValueCallback<T>>,
+    newValue: StoreValue | CurrentValueCallback | Promise<StoreValue | CurrentValueCallback>,
     options: SetOptions = { filter: () => true }
   ) {
     if (newValue instanceof Promise) return this.resolvePromise(newValue, options)
     if (newValue === this.get()) return
-    const finalValue: T = typeof newValue === 'function' ? (newValue as CurrentValueCallback<T>)(this.get()) : newValue
+    const finalValue: StoreValue =
+      typeof newValue === 'function' ? (newValue as CurrentValueCallback)(this.get()) : newValue
     checkValue(finalValue, this.type)
     this.setValue(finalValue)
     this.notifySubscribers(options)
@@ -57,13 +65,13 @@ export class Store<T> {
   /**
    * Gets the current value of the store.
    *
-   * @returns {T} The current value.
+   * @returns {StoreValue} The current value.
    */
-  get(): T {
+  get(): StoreValue {
     return this.value
   }
 
-  private setValue(value: T) {
+  private setValue(value: StoreValue) {
     this.value = value
   }
 
@@ -105,7 +113,7 @@ export class Store<T> {
       .forEach(callback => callback(this.get()))
   }
 
-  private async resolvePromise(newValue: Promise<T | CurrentValueCallback<T>>, options: SetOptions) {
+  private async resolvePromise(newValue: Promise<StoreValue | CurrentValueCallback>, options: SetOptions) {
     try {
       const resolvedValue = await newValue
       this.set(resolvedValue, options)

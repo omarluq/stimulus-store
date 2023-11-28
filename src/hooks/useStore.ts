@@ -1,5 +1,7 @@
 import type { Store } from '../store/store'
-import type { StoreController } from '../store/storeController' // Adjust the path as needed
+import type { StoreController } from '../types/storeController' // Adjust the path as needed
+import type { Subscription } from '../types/Subscription'
+import type { StoreValue } from '../types/storeValue'
 import { camelize } from '../utils/camelize'
 import { checkStores } from '../errors/useStoreErrorHandlers'
 import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
@@ -43,8 +45,8 @@ import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
  * @template T - The type of data stored in the stores.
  */
 
-export function useStore<T>(controller: StoreController<T>) {
-  const stores: Store<T>[] | undefined = controller.constructor?.stores
+export function useStore(controller: StoreController) {
+  const stores: Store[] | undefined = controller.constructor?.stores
   const unsubscribeFunctions: (() => void)[] = []
 
   // If 'stores' is undefined or empty, throw an error
@@ -55,11 +57,11 @@ export function useStore<T>(controller: StoreController<T>) {
     const storeNameAsString: string = storeName.toString().slice(7, -1)
     const camelizedName: string = camelize(storeNameAsString)
     const onStoreUpdateMethodName: string = `on${camelize(storeNameAsString, true)}Update`
-    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: T) => void
+    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: StoreValue) => void
     const subscription: Subscription = store.getSubscription()
 
     if (onStoreUpdateMethod) {
-      const updateMethod: (value: T) => void = value => {
+      const updateMethod: (value: StoreValue) => void = value => {
         onStoreUpdateMethod.call(controller, value)
       }
 
@@ -71,7 +73,9 @@ export function useStore<T>(controller: StoreController<T>) {
 
     // Add a helper method to set the store value
     const setStoreValueMethodName = `set${camelize(storeNameAsString, true)}Value`
-    controller[setStoreValueMethodName] = (value: T | Promise<T> | ((prev: T) => T)) => {
+    controller[setStoreValueMethodName] = (
+      value: StoreValue | Promise<StoreValue> | ((prev: StoreValue) => StoreValue)
+    ) => {
       store.set(value)
     }
 
