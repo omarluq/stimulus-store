@@ -85,7 +85,7 @@
     "typescript": "^5.2.2"
   },
   "jest-stare": {
-    "resultDir": "docs/.jest-stare"
+    "resultDir": "docs/jest-stare"
   },
   "size-limit": [
     {

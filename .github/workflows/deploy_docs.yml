@@ -1,0 +1,35 @@
+name: deploy-docs
+
+on:
+  workflow_run:
+    workflows: [test]  # Name of the initial workflow
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: test-report
+          path: docs/jest-stare
+
+      - name: Deploy Docs
+        run: |
+          git checkout --orphan netlify-deploy
+          rsync -av --progress docs/ ../temp-docs
+          find . -maxdepth 1 ! -name .git ! -name . -exec rm -rf {} \;
+          mv ../temp-docs/* .
+          rm -rf ../temp-docs
+          git add .
+          git config user.email "dependabot[bot]@users.noreply.github.com"
+          git config user.name "dependabot[bot]"
+          COMMIT_MESSAGE="deploy: (${GITHUB_SHA})"
+          git commit -m "$COMMIT_MESSAGE"
+          git push origin netlify-deploy -f
