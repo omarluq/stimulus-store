@@ -4,6 +4,7 @@ scripts/
 dist/
 global-types.d.ts
 .prettierignore
+.all-contributorsrc
 *.config.js
 *.config.json
 *.config.ts

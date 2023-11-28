@@ -4,6 +4,7 @@ src
 test
 public
 scripts
+.all-contributorsrc
 .jest-stare
 .github
 *.md

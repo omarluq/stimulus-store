@@ -5,6 +5,7 @@ scripts
 package.json
 package-lock.json
 *.md
+.all-contributorsrc
 .gitignore
 dist/
 public/
