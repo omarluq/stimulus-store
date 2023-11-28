@@ -6,7 +6,7 @@ docs
 public
 scripts
 .all-contributorsrc
-docs/.jest-stare
+docs/jest-stare
 .github
 *.md
 *.json

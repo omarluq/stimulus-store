@@ -1,4 +1,4 @@
-name: Run Tests
+name: test
 
 on: [push]
 
@@ -26,15 +26,8 @@ jobs:
         run: yarn run code-size
       - name: Test
         run: yarn test
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
       - name: Upload test report
-        if: github.ref != 'refs/heads/main'
         uses: actions/upload-artifact@v3
         with:
           name: test-report
-          path: ./docs/.jest-stare/*
+          path: ./docs/jest-stare/*
