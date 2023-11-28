@@ -29,5 +29,5 @@ jobs:
       - name: Upload test report
         uses: actions/upload-artifact@v3
         with:
-          name: test-report
+          name: jest-stare
           path: ./docs/jest-stare/*
