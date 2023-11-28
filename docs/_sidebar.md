@@ -1,0 +1,11 @@
+- [📖 Introduction](README.md)
+- [🔄 Changelog](CHANGELOG.md)
+- [📊 Benchmarks](BENCHMARKS.md)
+- [📝 Contributing](CONTRIBUTING.md)
+- [📘 Code Of Conduct](CODE_OF_CONDUCT.md)
+- [✅ Latest Test Run](./jest-stare.md)
+- [🛡️ Security](SECURITY.md)
+- [©️ License](LICENSE.md)
+
+[![GitHub](https://img.shields.io/github/stars/omarluq/stimulus-store?style=social)](https://github.com/omarluq/stimulus-store)
+[![NPM](https://img.shields.io/npm/v/stimulus-store)](https://www.npmjs.com/package/stimulus-store)

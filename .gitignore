@@ -24,7 +24,5 @@ dist-ssr
 *.sw?
 package-lock.json
 yarn.lock
-.jest-stare
-
-# Packed
 *.tgz
+docs/.jest-stare

@@ -1,4 +1,4 @@
-<img src="./public/stimulus_store_logo.png" alt="Stimulus Store Logo" width="100"/> 
+<img src="images/stimulus_store_logo.png" alt="Stimulus Store Logo" width="100"/> 
 
 [![All Contributors](https://img.shields.io/github/all-contributors/omarluq/stimulus-store?color=blue)](#contributors)
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/omarluq/stimulus-store?color=blue)](https://github.com/omarluq/stimulus-store)
@@ -30,7 +30,7 @@
 [![Dependabot](https://badgen.net/github/dependabot/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+author%3Aapp%2Fdependabot-preview)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Made with Love](https://img.shields.io/badge/Made%20with-Love-ff69b4.svg)](https://github.com/omarluq/stimulus-store)
-
+  
 
 # Stimulus Store
 
@@ -199,29 +199,29 @@ The `useStore` hook provides several helpers that you can use to interact with t
 
 - `on<StoreName>Update`: This function is called whenever the store's state changes. You can override this function in your controller to react to state changes.
 ```js
-import { Controller } from 'stimulus';
-import { useStore } from 'stimulus-store';
-import { counterStore } from './stores/counter';
+  import { Controller } from 'stimulus';
+  import { useStore } from 'stimulus-store';
+  import { counterStore } from './stores/counter';
 
-export default class extends Controller {
-  static stores = [counterStore]
+  export default class extends Controller {
+    static stores = [counterStore]
 
-  connect() {
-    useStore(this);
+    connect() {
+      useStore(this);
+    }
+
+    increment() {
+      this.setCounterStoreValue(this.counterStoreValue + 1);
+    }
+
+    decrement() {
+      this.setCounterStoreValue((value) => value - 1, { filter: (value) => value === 0 })
+    }
+
+    onCounterStoreUpdate() {
+      console.log('Counter store updated:', this.counterStoreValue);
+    }
   }
-
-  increment() {
-    this.setCounterStoreValue(this.counterStoreValue + 1);
-  }
-
-  decrement() {
-    this.setCounterStoreValue((value) => value - 1, { filter: (value) => value === 0 })
-  }
-
-  onCounterStoreUpdate() {
-    console.log('Counter store updated:', this.counterStoreValue);
-  }
-}
 ```
 <sub>Note that while you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers `this.<storeName>Value`, `this.set<StoreName>Value` and `on<storeName>Update` to interact with the store's state.</sub>
 
