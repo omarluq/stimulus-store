@@ -1,5 +1,8 @@
 <img src="./public/stimulus_store_logo.png" alt="Stimulus Store Logo" width="100"/> 
 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store)
 [![npm version](https://badge.fury.io/js/stimulus-store.svg)](https://badge.fury.io/js/stimulus-store)
 [![All Contributors](https://img.shields.io/github/all-contributors/omarluq/stimulus-store?color=blue&style=plastic)](#contributors)
@@ -224,16 +227,38 @@ export default class extends Controller {
 ```
 <sub>Note that while you can technically access `this.<storeName>` inside the controller or `Controller.<storeName>`, this is highly discouraged and will trigger a warning. Stores are considered an atomic unit and an implementation detail. The controller should not make direct calls to it. Instead, use the provided helpers `this.<storeName>Value`, `this.set<StoreName>Value` and `on<storeName>Update` to interact with the store's state.</sub>
 
-## Contributors
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tcarac"><img src="https://avatars.githubusercontent.com/u/64477810?v=4?s=100" width="100px;" alt="Tomas Caraccia"/><br /><sub><b>Tomas Caraccia</b></sub></a><br /><a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Code">💻</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Tests">⚠️</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Documentation">📖</a> <a href="#maintenance-tcarac" title="Maintenance">🚧</a> <a href="https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+reviewed-by%3Atcarac" title="Reviewed Pull Requests">👀</a> <a href="#question-tcarac" title="Answering Questions">💬</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://omarluq.github.io/portfolio/"><img src="https://avatars.githubusercontent.com/u/84993125?v=4?s=100" width="100px;" alt="Omar Luq "/><br /><sub><b>Omar Luq </b></sub></a><br /><a href="https://github.com/omarluq/stimulus-store/commits?author=omarluq" title="Code">💻</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=omarluq" title="Tests">⚠️</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=omarluq" title="Documentation">📖</a> <a href="#maintenance-omarluq" title="Maintenance">🚧</a> <a href="https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+reviewed-by%3Aomarluq" title="Reviewed Pull Requests">👀</a> <a href="#question-omarluq" title="Answering Questions">💬</a></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td align="center" size="13px" colspan="7">
+        <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
+          <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
+        </img>
+      </td>
+    </tr>
+  </tfoot>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 
 ## License
 
