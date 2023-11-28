@@ -1,4 +1,4 @@
-import type { TypeKey } from './typeKey'
+import type { TypeKey } from '../types/typeKey'
 
 /**
  * A mapping from type names to their corresponding constructor types.

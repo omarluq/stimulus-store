@@ -1,12 +1,12 @@
 import type { Controller } from '@hotwired/stimulus'
-import type { Store } from './store'
+import type { Store } from '../store/store'
 
 /**
  * Interface for a StoreController.
  * @template T The type of the store's value.
  * @extends {Controller}
  */
-export interface StoreController<T> extends Controller {
+export interface StoreController extends Controller {
   /**
    * Allows any additional properties.
    */
@@ -20,6 +20,6 @@ export interface StoreController<T> extends Controller {
     /**
      * An optional array of stores.
      */
-    stores?: Store<T>[]
+    stores?: Store[]
   }
 }

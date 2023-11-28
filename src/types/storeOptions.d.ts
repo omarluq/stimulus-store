@@ -1,10 +1,11 @@
 import { TypeKey } from './typeKey'
+import type { StoreValue } from './storeValue'
 
 /**
  * Interface for the options to create a store.
  * @template T The type of the store's initial value.
  */
-export interface StoreOptions<T> {
+export interface StoreOptions {
   /**
    * The name of the store.
    */
@@ -18,5 +19,5 @@ export interface StoreOptions<T> {
   /**
    * The initial value of the store.
    */
-  initialValue: T
+  initialValue: StoreValue
 }

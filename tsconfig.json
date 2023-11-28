@@ -20,5 +20,5 @@
       // your custom paths
     }
   },
-  "include": ["src", "global-types.d.ts"]
+  "include": ["src"]
 }
