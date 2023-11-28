@@ -2,10 +2,11 @@ node_modules
 *.log
 src
 test
+docs
 public
 scripts
 .all-contributorsrc
-.jest-stare
+docs/.jest-stare
 .github
 *.md
 *.json

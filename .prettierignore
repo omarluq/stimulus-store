@@ -1,6 +1,7 @@
 .prettierignore
 .github/
 node_modules/
+docs
 scripts
 package.json
 package-lock.json

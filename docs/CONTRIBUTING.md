@@ -2,14 +2,6 @@
 
 Thank you for your interest in contributing to stimulus-store! We welcome contributions from the community to help make our project better. Before you get started, please take a moment to read this document to understand how you can contribute.
 
-## Table of Contents
-
-- [Contributing to stimulus-store](#contributing-to-stimulus-store)
-  - [Table of Contents](#table-of-contents)
-  - [How to Contribute](#how-to-contribute)
-  - [Reporting Issues](#reporting-issues)
-  - [Pull Requests](#pull-requests)
-
 ## How to Contribute
 
 To contribute to stimulus-store, follow these steps:

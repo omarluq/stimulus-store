@@ -28,6 +28,14 @@ export default {
       targets: [{ src: 'src/**/*.d.ts', dest: 'dist' }],
       flatten: false
     }),
+    copy({
+      targets: [
+        { src: 'docs/README.md', dest: 'dist' },
+        { src: 'docs/CHANGELOG.md', dest: 'dist' },
+        { src: 'docs/LICENSE.md', dest: 'dist' }
+      ],
+      flatten: true
+    }),
     commonjs(), // CommonJS support
     resolve(), // Node.js module resolution
     production &&
