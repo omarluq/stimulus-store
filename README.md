@@ -1,11 +1,8 @@
 <img src="./public/stimulus_store_logo.png" alt="Stimulus Store Logo" width="100"/> 
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store)
-[![npm version](https://badge.fury.io/js/stimulus-store.svg)](https://badge.fury.io/js/stimulus-store)
 [![All Contributors](https://img.shields.io/github/all-contributors/omarluq/stimulus-store?color=blue&style=plastic)](#contributors)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/omarluq/stimulus-store?color=blue)](https://github.com/omarluq/stimulus-store)
+[![npm version](https://badge.fury.io/js/stimulus-store.svg)](https://badge.fury.io/js/stimulus-store)
 [![GitHub issues](https://img.shields.io/github/issues/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/issues)
 [![GitHub forks](https://img.shields.io/github/forks/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/network)
 [![GitHub stars](https://img.shields.io/github/stars/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/stargazers)
@@ -23,7 +20,6 @@
 [![Closed Pull Requests](https://img.shields.io/github/issues-pr-closed-raw/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+is%3Aclosed)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/stimulus-store)](https://bundlephobia.com/result?p=stimulus-store)
-[![Contributors](https://img.shields.io/github/contributors/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/graphs/contributors)
 [![Commit Activity](https://img.shields.io/github/commit-activity/m/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/commits/main)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/omarluq/stimulus-store/graphs/commit-activity)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/omarluq/stimulus-store/maintainability)
