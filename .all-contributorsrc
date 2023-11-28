@@ -1,4 +1,28 @@
 {
   "projectName": "stimulus-store",
-  "projectOwner": "Omar Luq"
+  "projectOwner": "omarluq",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
+  "imageSize": 100,
+  "contributors": [
+    {
+      "login": "tcarac",
+      "name": "Tomas Caraccia",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64477810?v=4",
+      "profile": "https://github.com/tcarac",
+      "contributions": ["code", "test", "doc", "maintenance", "review", "question"]
+    },
+    {
+      "login": "omarluq",
+      "name": "Omar Luq ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/84993125?v=4",
+      "profile": "https://omarluq.github.io/portfolio/",
+      "contributions": ["code", "test", "doc", "maintenance", "review", "question"]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true,
+  "commitConvention": "angular"
 }
+
