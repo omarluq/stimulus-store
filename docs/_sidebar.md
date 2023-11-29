@@ -9,3 +9,4 @@
 
 [![GitHub](https://img.shields.io/github/stars/omarluq/stimulus-store?style=social)](https://github.com/omarluq/stimulus-store)
 [![NPM](https://img.shields.io/npm/v/stimulus-store)](https://www.npmjs.com/package/stimulus-store)
+[![Test Report](https://img.shields.io/badge/Test-Report-blue)](https://www.test-report.stimulus-store.com)
