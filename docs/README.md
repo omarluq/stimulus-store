@@ -1,4 +1,4 @@
-<img src="images/stimulus_store_logo.png" alt="Stimulus Store Logo" width="100"/> 
+<img src="images/stimulus_store_logo.png" alt="Stimulus Store Logo"/> 
 
 [![All Contributors](https://img.shields.io/github/all-contributors/omarluq/stimulus-store?color=blue)](#contributors)
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/omarluq/stimulus-store?color=blue)](https://github.com/omarluq/stimulus-store)
