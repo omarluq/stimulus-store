@@ -72,6 +72,7 @@
     "gzip-size": "^7.0.0",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "jest-stare": "^2.5.1",
     "prettier": "^3.1.0",
     "rollup": "^4.5.1",
@@ -85,7 +86,14 @@
     "typescript": "^5.2.2"
   },
   "jest-stare": {
-    "resultDir": "docs/jest-stare"
+    "resultDir": "docs/jest-stare",
+    "reportTitle": "Stimulus Store",
+    "reportHeadline": "Stimulus Store Test Report",
+    "reportSummary": true,
+    "coverageLink": "./coverage/lcov-report/index.html",
+    "additionalResultsProcessors": [
+      "jest-junit"
+    ]
   },
   "size-limit": [
     {

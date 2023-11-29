@@ -3,7 +3,6 @@
 - [📊 Benchmarks](BENCHMARKS.md)
 - [📝 Contributing](CONTRIBUTING.md)
 - [📘 Code Of Conduct](CODE_OF_CONDUCT.md)
-- [✅ Latest Test Run](./jest-stare.md)
 - [🛡️ Security](SECURITY.md)
 - [©️ License](LICENSE.md)
 
