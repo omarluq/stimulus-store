@@ -5,6 +5,7 @@
 [![npm version](https://badge.fury.io/js/stimulus-store.svg)](https://badge.fury.io/js/stimulus-store)
 [![GitHub issues](https://img.shields.io/github/issues/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/issues)
 [![GitHub forks](https://img.shields.io/github/forks/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/network)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f2b2e5e9-67f0-4e3f-b6b5-8e1310ea4ad7/deploy-status)](https://app.netlify.com/sites/stimulus-store/deploys)
 [![GitHub stars](https://img.shields.io/github/stars/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/stargazers)
 [![GitHub watchers](https://img.shields.io/github/watchers/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/watchers)
 [![TypeScript](https://img.shields.io/badge/-TypeScript-gray&logo=typescript)](https://github.com/omarluq/stimulus-store)

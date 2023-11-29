@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Stimulus Store</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="icon" type="image/png" href="images/stimulus_store_logo.png">
+  <meta property="og:image" content="images/stimulus_store_logo.png">
 </head>
 <body>
   <div id="app"></div>
@@ -16,8 +18,18 @@
       repo: 'https://github.com/omarluq/stimulus-store',
       loadSidebar: true,
       subMaxLevel: 4,
+      search: {
+        noData: {
+          '/': 'No results!'
+        },
+        paths: 'auto',
+        placeholder: {
+          '/': 'Search'
+        }
+      },
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 </body>
 </html>
