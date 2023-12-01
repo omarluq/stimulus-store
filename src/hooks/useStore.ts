@@ -90,6 +90,12 @@ export function useStore(controller: StoreController) {
       store.set(value)
     }
 
+    // Add a helper method to reset the store value
+    const resetStoreMethodName = `reset${camelize(storeNameAsString, true)}`
+    controller[resetStoreMethodName] = () => {
+      store.resetValue()
+    }
+
     const storeGetterMethodName: string = `${camelizedName}Value`
 
     Object.defineProperty(controller, storeGetterMethodName, {

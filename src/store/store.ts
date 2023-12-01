@@ -28,6 +28,7 @@ import type { UpdateMethod } from '../types/updateMethod'
 export class Store {
   readonly name: symbol
   private value!: StoreValue
+  private initialValue!: StoreValue
   private subscribers: Set<UpdateMethod>
   private type: TypeKey
 
@@ -64,6 +65,7 @@ export class Store {
         ? (newValue as CurrentValueCallback)(this.get())
         : newValue
     checkValue(finalValue, this.type)
+    this.setInitialValue(finalValue)
     this.setValue(finalValue)
     this.notifySubscribers(options)
   }
@@ -77,8 +79,19 @@ export class Store {
     return this.value
   }
 
-  private setValue(value: StoreValue) {
+  /**
+   * Resets the store to its initial value.
+   */
+  resetValue(): void {
+    this.setValue(this.initialValue)
+  }
+
+  private setValue(value: StoreValue): void {
     this.value = value
+  }
+
+  private setInitialValue(value: StoreValue): void {
+    if (this.value === undefined) this.initialValue = value
   }
 
   /**
