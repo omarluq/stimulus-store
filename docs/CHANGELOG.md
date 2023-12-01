@@ -1,8 +1,7 @@
 
 <a name="v0.0.1-beta.1"></a>
-## [v0.0.1-beta.1](https://github.com/omarluq/stimulus-store/compare/v0.0.1-beta...v0.0.1-beta.1)
+## [v0.0.1-beta.1](https://github.com/omarluq/stimulus-store/compare/v0.0.1-beta...v0.0.1-beta.1) 2023-11-27
 
-> 2023-11-27
 
 ### Bug Fixes
 
@@ -16,9 +15,8 @@
 
 
 <a name="v0.0.1-beta"></a>
-## v0.0.1-beta
+## v0.0.1-beta 2023-11-25
 
-> 2023-11-25
 
 ### Bug Fixes
 
