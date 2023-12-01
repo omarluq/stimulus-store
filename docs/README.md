@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<p align="center">
+<div align="center">
   
   [![GitHub package.json version](https://img.shields.io/github/package-json/v/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store)
   [![GitHub Actions](https://github.com/omarluq/stimulus-store/actions/workflows/test.yml/badge.svg)](https://github.com/omarluq/stimulus-store/actions/workflows/test.yml)
@@ -36,7 +36,7 @@
   [![Dependabot](https://badgen.net/github/dependabot/omarluq/stimulus-store)](https://dependabot.com)
   [![Made with Love](https://img.shields.io/badge/Made%20with-Love-ff69b4.svg)](https://github.com/omarluq/stimulus-store)
   
-</p>
+</div>
 
 </br>
 
