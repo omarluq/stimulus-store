@@ -1,0 +1,3 @@
+- uses: sarisia/actions-status-discord@v1
+  with:
+    webhook: ${{ secrets.DISCORD_WEBHOOK }}
