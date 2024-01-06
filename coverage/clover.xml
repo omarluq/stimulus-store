@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1704507605218" clover="3.2.0">
+  <project timestamp="1704507605218" name="All files">
+    <metrics statements="119" coveredstatements="118" conditionals="22" coveredconditionals="22" methods="35" coveredmethods="34" elements="176" coveredelements="174" complexity="0" loc="119" ncloc="119" packages="4" files="9" classes="9"/>
+    <package name="errors">
+      <metrics statements="32" coveredstatements="32" conditionals="10" coveredconditionals="10" methods="8" coveredmethods="8"/>
+      <file name="createStoreErrorHandlers.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/errors/createStoreErrorHandlers.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="30" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="29" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="31" count="28" type="stmt"/>
+        <line num="32" count="28" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+      <file name="storeErrorHandlers.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/errors/storeErrorHandlers.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="48" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+      </file>
+      <file name="useStoreErrorHandlers.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/errors/useStoreErrorHandlers.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="28" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="13" count="26" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="24" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="2" type="stmt"/>
+      </file>
+      <file name="useStoreWarningHandlers.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/errors/useStoreWarningHandlers.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="67" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="16" count="59" type="stmt"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="40" coveredstatements="40" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9"/>
+      <file name="useStore.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/hooks/useStore.ts">
+        <metrics statements="40" coveredstatements="40" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="9"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="24" type="stmt"/>
+        <line num="50" count="24" type="stmt"/>
+        <line num="53" count="24" type="stmt"/>
+        <line num="55" count="21" type="stmt"/>
+        <line num="56" count="21" type="stmt"/>
+        <line num="57" count="21" type="stmt"/>
+        <line num="58" count="21" type="stmt"/>
+        <line num="59" count="21" type="stmt"/>
+        <line num="60" count="21" type="stmt"/>
+        <line num="61" count="21" type="stmt"/>
+        <line num="63" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="64" count="21" type="stmt"/>
+        <line num="65" count="35" type="stmt"/>
+        <line num="68" count="21" type="stmt"/>
+        <line num="69" count="21" type="stmt"/>
+        <line num="71" count="21" type="stmt"/>
+        <line num="75" count="21" type="stmt"/>
+        <line num="76" count="21" type="stmt"/>
+        <line num="79" count="4" type="stmt"/>
+        <line num="82" count="21" type="stmt"/>
+        <line num="84" count="21" type="stmt"/>
+        <line num="85" count="5" type="stmt"/>
+        <line num="90" count="21" type="stmt"/>
+        <line num="93" count="21" type="stmt"/>
+        <line num="95" count="65" type="stmt"/>
+        <line num="96" count="65" type="stmt"/>
+        <line num="101" count="21" type="stmt"/>
+        <line num="102" count="21" type="stmt"/>
+        <line num="104" count="21" type="stmt"/>
+        <line num="105" count="6" type="stmt"/>
+        <line num="111" count="21" type="stmt"/>
+        <line num="112" count="21" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="115" count="2" type="stmt"/>
+        <line num="118" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="store">
+      <metrics statements="41" coveredstatements="40" conditionals="5" coveredconditionals="5" methods="16" coveredmethods="15"/>
+      <file name="createStore.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/store/createStore.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="28" type="stmt"/>
+        <line num="43" count="28" type="stmt"/>
+        <line num="44" count="28" type="stmt"/>
+        <line num="45" count="28" type="stmt"/>
+        <line num="46" count="27" type="stmt"/>
+        <line num="47" count="26" type="stmt"/>
+        <line num="48" count="25" type="stmt"/>
+        <line num="50" count="25" type="stmt"/>
+        <line num="51" count="25" type="stmt"/>
+        <line num="52" count="25" type="stmt"/>
+      </file>
+      <file name="store.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/store/store.ts">
+        <metrics statements="27" coveredstatements="26" conditionals="5" coveredconditionals="5" methods="14" coveredmethods="14"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="41" count="33" type="stmt"/>
+        <line num="42" count="33" type="stmt"/>
+        <line num="43" count="33" type="stmt"/>
+        <line num="54" count="16" type="cond" truecount="1" falsecount="0"/>
+        <line num="56" count="48" type="cond" truecount="1" falsecount="0"/>
+        <line num="57" count="47" type="cond" truecount="1" falsecount="0"/>
+        <line num="59" count="46" type="cond" truecount="2" falsecount="0"/>
+        <line num="60" count="46" type="stmt"/>
+        <line num="61" count="45" type="stmt"/>
+        <line num="62" count="45" type="stmt"/>
+        <line num="71" count="130" type="stmt"/>
+        <line num="75" count="45" type="stmt"/>
+        <line num="85" count="24" type="stmt"/>
+        <line num="86" count="24" type="stmt"/>
+        <line num="87" count="24" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="105" count="24" type="stmt"/>
+        <line num="106" count="24" type="stmt"/>
+        <line num="111" count="45" type="stmt"/>
+        <line num="112" count="17" type="stmt"/>
+        <line num="113" count="16" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+      </file>
+      <file name="storeValuesTypeMap.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/store/storeValuesTypeMap.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+      <file name="camelize.ts" path="/home/runner/work/stimulus-store/stimulus-store/src/utils/camelize.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="1" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="88" type="stmt"/>
+        <line num="3" count="88" type="stmt"/>
+        <line num="4" count="88" type="stmt"/>
+        <line num="5" count="176" type="cond" truecount="4" falsecount="0"/>
+        <line num="7" count="88" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
