@@ -16,9 +16,9 @@
   [![Closed Pull Requests](https://img.shields.io/github/issues-pr-closed-raw/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+is%3Aclosed)
   [![GitHub issues](https://img.shields.io/github/issues/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/issues)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/omarluq/stimulus-store)
-  [![GitHub stars](https://img.shields.io/github/stars/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/stargazers)
-  [![GitHub forks](https://img.shields.io/github/forks/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/network/members)
-  [![GitHub watchers](https://img.shields.io/github/watchers/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/watchers)
+  [![GitHub stars](https://img.shields.io/github/stars/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/stargazers)
+  [![GitHub forks](https://img.shields.io/github/forks/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/network/members)
+  [![GitHub watchers](https://img.shields.io/github/watchers/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/watchers)
   [![ESLint](https://img.shields.io/badge/-ESLint-4B32C3&logo=eslint)](https://eslint.org)
   [![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io)
   [![Type Definitions](https://img.shields.io/npm/types/stimulus-store)](https://www.typescriptlang.org)
@@ -35,6 +35,7 @@
   [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/omarluq/stimulus-store)
   [![Dependabot](https://badgen.net/github/dependabot/omarluq/stimulus-store)](https://dependabot.com)
   [![Made with Love](https://img.shields.io/badge/Made%20with-Love-ff69b4.svg)](https://github.com/omarluq/stimulus-store)
+  [![](https://dcbadge.vercel.app/api/server/ScU4JKgxaU?style=flat)](https://discord.gg/ScU4JKgxaU)
   
 </div>
 
