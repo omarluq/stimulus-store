@@ -72,7 +72,7 @@ yarn add stimulus-store
 Coming 🔜
 
 ## Documentation
-complete documentation on Stimulus Store, including guides, API details, and more can be found on [www.stimulus-store.com](www.stimulus-store.com).
+complete documentation on Stimulus Store, including guides, API details, and more can be found on [www.stimulus-store.com](https://www.stimulus-store.com).
 
 ## Contributors ✨
 
