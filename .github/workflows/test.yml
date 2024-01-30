@@ -17,7 +17,6 @@ jobs:
           run_install: |
             - recursive: true
               args: [--strict-peer-dependencies]
-      - run: pnpm install --frozen-lockfile
       - name: Build
         run: pnpm build
       - name: biome lint check
