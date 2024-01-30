@@ -1,12 +1,12 @@
 import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
-import type { TypeKey } from '../types/typeKey'
+import type { Subscription } from '../types/Subscription'
 import type { CurrentValueCallback } from '../types/currentValueCallback'
 import type { NotifySubscriberOptions } from '../types/notifySubscriberOptions'
 import type { SetOptions } from '../types/setOptions'
-import type { Subscription } from '../types/Subscription'
+import type { StoreValue } from '../types/storeValue'
+import type { TypeKey } from '../types/typeKey'
 import type { UnsubscribeFunction } from '../types/unsubscribeFunction'
 import type { UpdateMethod } from '../types/updateMethod'
-import type { StoreValue } from '../types/storeValue'
 
 /**
  * @template T The type of the value that the store holds.
@@ -50,13 +50,19 @@ export class Store {
    * @param {SetOptions} [options={ filter: () => true }] - The options for setting the value.
    */
   async set(
-    newValue: StoreValue | CurrentValueCallback | Promise<StoreValue | CurrentValueCallback>,
-    options: SetOptions = { filter: () => true }
+    newValue:
+      | StoreValue
+      | CurrentValueCallback
+      | Promise<StoreValue | CurrentValueCallback>,
+    options: SetOptions = { filter: () => true },
   ) {
-    if (newValue instanceof Promise) return this.resolvePromise(newValue, options)
+    if (newValue instanceof Promise)
+      return this.resolvePromise(newValue, options)
     if (newValue === this.get()) return
     const finalValue: StoreValue =
-      typeof newValue === 'function' ? (newValue as CurrentValueCallback)(this.get()) : newValue
+      typeof newValue === 'function'
+        ? (newValue as CurrentValueCallback)(this.get())
+        : newValue
     checkValue(finalValue, this.type)
     this.setValue(finalValue)
     this.notifySubscribers(options)
@@ -103,17 +109,20 @@ export class Store {
    */
   public getSubscription(): Subscription {
     return {
-      subscribe: (callback: UpdateMethod) => this.subscribe(callback)
+      subscribe: (callback: UpdateMethod) => this.subscribe(callback),
     }
   }
 
   private notifySubscribers(options: NotifySubscriberOptions) {
     Array.from(this.subscribers)
       .filter(() => options.filter(this.get()))
-      .forEach(callback => callback(this.get()))
+      .forEach((callback) => callback(this.get()))
   }
 
-  private async resolvePromise(newValue: Promise<StoreValue | CurrentValueCallback>, options: SetOptions) {
+  private async resolvePromise(
+    newValue: Promise<StoreValue | CurrentValueCallback>,
+    options: SetOptions,
+  ) {
     try {
       const resolvedValue = await newValue
       this.set(resolvedValue, options)

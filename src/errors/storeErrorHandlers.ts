@@ -4,7 +4,10 @@
  * @param {new (...args: unknown[]) => unknown} type - The type constructor for the expected type.
  * @throws {Error} If the value is not of the expected type.
  */
-export function checkValue(value: unknown, type: new (...args: unknown[]) => unknown): void {
+export function checkValue(
+  value: unknown,
+  type: new (...args: unknown[]) => unknown,
+): void {
   if (Object.getPrototypeOf(value).constructor !== type) {
     throw new Error(`Value '${value}' must be of type ${type.name}`)
   }
@@ -16,5 +19,5 @@ export function checkValue(value: unknown, type: new (...args: unknown[]) => unk
  * @throws {Error} A new error with a message indicating that the promise failed to resolve.
  */
 export function handlePromiseError(error: unknown): never {
-  throw new Error('Failed to resolve promise:\n' + error)
+  throw new Error(`Failed to resolve promise:\n${error}`)
 }

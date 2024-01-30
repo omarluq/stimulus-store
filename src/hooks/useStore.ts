@@ -1,10 +1,10 @@
-import type { Store } from '../store/store'
-import type { StoreController } from '../types/storeController' // Adjust the path as needed
-import type { Subscription } from '../types/Subscription'
-import type { StoreValue } from '../types/storeValue'
-import { camelize } from '../utils/camelize'
 import { checkStores } from '../errors/useStoreErrorHandlers'
 import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
+import type { Store } from '../store/store'
+import type { Subscription } from '../types/Subscription'
+import type { StoreController } from '../types/storeController' // Adjust the path as needed
+import type { StoreValue } from '../types/storeValue'
+import { camelize } from '../utils/camelize'
 
 /**
  * useStore Function
@@ -52,16 +52,21 @@ export function useStore(controller: StoreController) {
   // If 'stores' is undefined or empty, throw an error
   checkStores(stores)
 
-  stores!.forEach(store => {
+  stores?.forEach((store) => {
     const storeName: symbol = store.name
     const storeNameAsString: string = storeName.toString().slice(7, -1)
     const camelizedName: string = camelize(storeNameAsString)
-    const onStoreUpdateMethodName: string = `on${camelize(storeNameAsString, true)}Update`
-    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (value: StoreValue) => void
+    const onStoreUpdateMethodName: string = `on${camelize(
+      storeNameAsString,
+      true,
+    )}Update`
+    const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (
+      value: StoreValue,
+    ) => void
     const subscription: Subscription = store.getSubscription()
 
     if (onStoreUpdateMethod) {
-      const updateMethod: (value: StoreValue) => void = value => {
+      const updateMethod: (value: StoreValue) => void = (value) => {
         onStoreUpdateMethod.call(controller, value)
       }
 
@@ -72,9 +77,15 @@ export function useStore(controller: StoreController) {
     }
 
     // Add a helper method to set the store value
-    const setStoreValueMethodName = `set${camelize(storeNameAsString, true)}Value`
+    const setStoreValueMethodName = `set${camelize(
+      storeNameAsString,
+      true,
+    )}Value`
     controller[setStoreValueMethodName] = (
-      value: StoreValue | Promise<StoreValue> | ((prev: StoreValue) => StoreValue)
+      value:
+        | StoreValue
+        | Promise<StoreValue>
+        | ((prev: StoreValue) => StoreValue),
     ) => {
       store.set(value)
     }
@@ -84,33 +95,33 @@ export function useStore(controller: StoreController) {
     Object.defineProperty(controller, storeGetterMethodName, {
       get: () => store.get(),
       enumerable: true,
-      configurable: true
+      configurable: true,
     })
 
-    let isWarned: boolean = false
+    let isWarned = false
 
     // Wrap the store in a Proxy to intercept direct access
     const storeProxy = new Proxy(store, {
-      get: function (target, prop, receiver) {
+      get: (target, prop, receiver) => {
         isWarned = warnDirectAccess(camelizedName, isWarned)
         return Reflect.get(target, prop, receiver)
-      }
+      },
     })
 
     // Overwrite the value of the store in the static object to the safe proxy
-    const storeIndex = stores!.indexOf(store)
+    const storeIndex = stores?.indexOf(store)
     stores![storeIndex] = storeProxy
 
     Object.defineProperty(controller, camelizedName, {
       get: () => storeProxy,
       enumerable: true,
-      configurable: true
+      configurable: true,
     })
   })
 
   const originalDisconnect = controller.disconnect.bind(controller)
   controller.disconnect = () => {
-    unsubscribeFunctions.forEach(unsubscribe => {
+    unsubscribeFunctions.forEach((unsubscribe) => {
       if (unsubscribe) {
         unsubscribe()
       }
