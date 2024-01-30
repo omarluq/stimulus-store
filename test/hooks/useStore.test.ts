@@ -181,6 +181,12 @@ describe('useStore', () => {
     expectStoreValueToBe(newValue)
   })
 
+  it('should add resetStore method to controller', () => {
+    testStore.set(5)
+    mockController.resetTestStore()
+    expectStoreValueToBe(0)
+  })
+
   it('should handle promises in setStoreValue method', async () => {
     const newValue = 5
     await mockController.setTestStoreValue(

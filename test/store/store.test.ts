@@ -75,4 +75,15 @@ describe('Store', () => {
       `Value 'wrong type' must be of type ${Number.name}`,
     )
   })
+
+  it('should only set initial value if the value is defined', () => {
+    expect(store.get()).toBeUndefined()
+  })
+
+  it('should reset the state to the initial value', () => {
+    store.set(10) // the first set called is the initial value, this is abstracted away from the user when createStore is used
+    store.set(20)
+    store.resetValue()
+    expect(store.get()).toBe(10)
+  })
 })
