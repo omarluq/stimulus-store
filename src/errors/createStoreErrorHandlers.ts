@@ -43,7 +43,6 @@ export function checkTypeConstructor(type: string): void {
 export function handleStoreSetError(error: unknown): never {
   if (error instanceof Error) {
     throw new Error(`Failed to create store: ${error.message}`)
-  } else {
-    throw new Error('An unknown error occurred while creating the store')
   }
+  throw new Error('An unknown error occurred while creating the store')
 }

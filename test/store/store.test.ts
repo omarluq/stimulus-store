@@ -61,7 +61,9 @@ describe('Store', () => {
   })
 
   it('should call the callback with the current value when a function is passed to set', () => {
-    const callback = jest.fn().mockImplementation(currentValue => currentValue + 10)
+    const callback = jest
+      .fn()
+      .mockImplementation((currentValue) => currentValue + 10)
     store.set(0)
     store.set(callback)
     expect(callback).toHaveBeenCalledWith(0)
@@ -69,6 +71,8 @@ describe('Store', () => {
   })
 
   it('should throw an error when setting a value of the wrong type', async () => {
-    await expect(store.set('wrong type' as any)).rejects.toThrow(`Value 'wrong type' must be of type ${Number.name}`)
+    await expect(store.set('wrong type' as any)).rejects.toThrow(
+      `Value 'wrong type' must be of type ${Number.name}`,
+    )
   })
 })

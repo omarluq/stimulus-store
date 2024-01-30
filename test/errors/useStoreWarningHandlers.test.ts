@@ -15,7 +15,7 @@ describe('useStoreWarningHandlers', () => {
     it('calls console.warn and returns true if isWarned is false', () => {
       const result = warnDirectAccess('test', false)
       expect(consoleWarnSpy).toHaveBeenCalledWith(
-        "Warning: You are accessing the 'test' instance directly. Consider using 'onTestUpdate' and 'testValue' instead."
+        "Warning: You are accessing the 'test' instance directly. Consider using 'onTestUpdate' and 'testValue' instead.",
       )
       expect(result).toBe(true)
     })

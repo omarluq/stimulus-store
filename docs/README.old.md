@@ -17,8 +17,6 @@
 [![Top Language](https://img.shields.io/github/languages/top/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 [![npm downloads](https://img.shields.io/npm/dm/stimulus-store.svg)](https://www.npmjs.com/package/stimulus-store)
-[![ESLint](https://img.shields.io/badge/-ESLint-4B32C3&logo=eslint)](https://github.com/omarluq/stimulus-store)
-[![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![GitHub Actions](https://github.com/omarluq/stimulus-store/actions/workflows/test.yml/badge.svg)](https://github.com/omarluq/stimulus-store/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/commits/main)
 [![Pull Requests](https://img.shields.io/github/issues-pr/omarluq/stimulus-store)](https://github.com/omarluq/stimulus-store/pulls)

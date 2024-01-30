@@ -19,8 +19,6 @@
   [![GitHub stars](https://img.shields.io/github/stars/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/stargazers)
   [![GitHub forks](https://img.shields.io/github/forks/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/network/members)
   [![GitHub watchers](https://img.shields.io/github/watchers/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/watchers)
-  [![ESLint](https://img.shields.io/badge/-ESLint-4B32C3&logo=eslint)](https://eslint.org)
-  [![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io)
   [![Type Definitions](https://img.shields.io/npm/types/stimulus-store)](https://www.typescriptlang.org)
   [![jest](https://jestjs.io/img/jest-badge.svg)](https://jestjs.io/)
   [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/omarluq/stimulus-store/maintainability)

@@ -1,5 +1,5 @@
-import { createStore } from '../../src/store/createStore'
 import { useStore } from '../../src/hooks/useStore'
+import { createStore } from '../../src/store/createStore'
 import type { Store } from '../../src/store/store'
 import type { StoreController } from '../../src/types/storeController'
 
@@ -13,17 +13,21 @@ describe('useStore', () => {
 
   beforeEach(async () => {
     console.warn = jest.fn()
-    testStore = await createStore({ name: 'testStore', type: Number, initialValue: 0 })
+    testStore = await createStore({
+      name: 'testStore',
+      type: Number,
+      initialValue: 0,
+    })
     mockController = {
       constructor: {
-        stores: [testStore]
+        stores: [testStore],
       },
       onTestStoreUpdate: jest.fn(),
       disconnect: jest.fn(),
       context: jest.fn(),
       application: jest.fn(),
       scope: jest.fn(),
-      element: jest.fn()
+      element: jest.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
 
@@ -38,47 +42,47 @@ describe('useStore', () => {
       context: jest.fn(),
       application: jest.fn(),
       scope: jest.fn(),
-      element: jest.fn()
+      element: jest.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     expect(() => useStore(noStoresController)).toThrow(
-      `'useStore' was called on a controller without a 'stores' static property. The 'stores' property is undefined.`
+      `'useStore' was called on a controller without a 'stores' static property. The 'stores' property is undefined.`,
     )
   })
 
   it('should throw an error if useStore is called on a controller with an empty stores static property', () => {
     const emptyStoresController = {
       constructor: {
-        stores: []
+        stores: [],
       },
       onTestStoreUpdate: jest.fn(),
       disconnect: jest.fn(),
       context: jest.fn(),
       application: jest.fn(),
       scope: jest.fn(),
-      element: jest.fn()
+      element: jest.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     expect(() => useStore(emptyStoresController)).toThrow(
-      `'useStore' was called on a controller with an empty 'stores' static property. The 'stores' array should contain at least one store.`
+      `'useStore' was called on a controller with an empty 'stores' static property. The 'stores' array should contain at least one store.`,
     )
   })
 
   it('should throw an error if useStore is called on a controller with a stores static property that is not an array', () => {
     const notArrayStoresController = {
       constructor: {
-        stores: 'not an array'
+        stores: 'not an array',
       },
       onTestStoreUpdate: jest.fn(),
       disconnect: jest.fn(),
       context: jest.fn(),
       application: jest.fn(),
       scope: jest.fn(),
-      element: jest.fn()
+      element: jest.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     expect(() => useStore(notArrayStoresController)).toThrow(
-      `'useStore' was called on a controller with a 'stores' static property that is not an array.`
+      `'useStore' was called on a controller with a 'stores' static property that is not an array.`,
     )
   })
 
@@ -99,7 +103,7 @@ describe('useStore', () => {
   it('should clean up subscriptions when controller disconnects', () => {
     const unsubscribe = jest.fn()
     jest.spyOn(testStore, 'getSubscription').mockReturnValue({
-      subscribe: () => unsubscribe
+      subscribe: () => unsubscribe,
     })
 
     // Call useStore to trigger the subscription
@@ -124,14 +128,14 @@ describe('useStore', () => {
     // Create a second controller that will subscribe to the same store as the first controller
     const mockController2 = {
       constructor: {
-        stores: [testStore]
+        stores: [testStore],
       },
       onTestStoreUpdate: jest.fn(),
       disconnect: jest.fn(),
       context: jest.fn(),
       application: jest.fn(),
       scope: jest.fn(),
-      element: jest.fn()
+      element: jest.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     // Assume that the controllers have a method to update the store's value
@@ -160,7 +164,7 @@ describe('useStore', () => {
   })
 
   it("should update the store's value with the return value of the callback", () => {
-    const callback = jest.fn(currentValue => currentValue + 5)
+    const callback = jest.fn((currentValue) => currentValue + 5)
     testStore.set(callback)
     expect(testStore.get()).toBe(5)
   })
@@ -179,14 +183,16 @@ describe('useStore', () => {
 
   it('should handle promises in setStoreValue method', async () => {
     const newValue = 5
-    await mockController.setTestStoreValue(new Promise(resolve => resolve(newValue)))
+    await mockController.setTestStoreValue(
+      new Promise((resolve) => resolve(newValue)),
+    )
     expectStoreValueToBe(newValue)
   })
 
   it('should warn when accessing store directly', () => {
     mockController.testStore.get()
     expect(console.warn).toHaveBeenCalledWith(
-      `Warning: You are accessing the 'testStore' instance directly. Consider using 'onTestStoreUpdate' and 'testStoreValue' instead.`
+      `Warning: You are accessing the 'testStore' instance directly. Consider using 'onTestStoreUpdate' and 'testStoreValue' instead.`,
     )
   })
 

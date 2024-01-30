@@ -15,5 +15,5 @@ export const typeMap: Record<string, TypeKey> = {
   Number: Number,
   Array: Array,
   Object: Object,
-  Boolean: Boolean
+  Boolean: Boolean,
 }

@@ -1,3 +1,5 @@
 import type { StoreValue } from './storeValue'
 
-export declare type CurrentValueCallback = (currentValue: StoreValue) => StoreValue
+export declare type CurrentValueCallback = (
+  currentValue: StoreValue,
+) => StoreValue

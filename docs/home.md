@@ -43,12 +43,6 @@
     <img src="https://img.shields.io/github/watchers/omarluq/stimulus-store" alt="GitHub watchers" />
   </a>
   <!-- Development Standards Badges -->
-  <a style="text-decoration: none;" target="_blank" href="https://eslint.org">
-    <img src="https://img.shields.io/badge/-ESLint-4B32C3&logo=eslint" alt="ESLint" />
-  </a>
-  <a style="text-decoration: none;" target="_blank" href="https://prettier.io">
-    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="Prettier" />
-  </a>
   <a style="text-decoration: none;" target="_blank" href="https://www.typescriptlang.org">
     <img src="https://img.shields.io/npm/types/stimulus-store" alt="Type Definitions" />
   </a>

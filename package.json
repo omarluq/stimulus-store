@@ -24,14 +24,15 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest --reporters default jest-stare",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write .",
+    "lint": "biome lint .",
+    "lint:fix": "biome check --apply .",
+    "lint:fix:unsafe": "biome check --apply-unsafe .",
+    "format:check": "biome format .",
+    "format:write": "biome format --write .",
     "code-size": "npx size-limit",
     "gzip-size:cjs": "gzip-size ./dist/bundle.cjs.js | bash ./scripts/check-size.sh",
     "gzip-size:esm": "gzip-size ./dist/bundle.esm.js | bash ./scripts/check-size.sh",
-    "gzip-size": "yarn run gzip-size:cjs && yarn run gzip-size:esm",
+    "gzip-size": "pnpm run gzip-size:cjs && pnpm run gzip-size:esm",
     "changelog": "git-chglog -o docs/CHANGELOG.md",
     "husky:prepare": "husky install",
     "docs": "docsify serve docs"
@@ -55,6 +56,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@hotwired/stimulus": "^3.2.2",
@@ -65,16 +67,12 @@
     "@size-limit/preset-small-lib": "^11.0.0",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.0",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
-    "@typescript-eslint/parser": "^6.12.0",
     "all-contributors-cli": "^6.26.1",
-    "eslint": "^8.54.0",
     "gzip-size": "^7.0.0",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
     "jest-junit": "^16.0.0",
     "jest-stare": "^2.5.1",
-    "prettier": "^3.1.0",
     "rollup": "^4.5.1",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.5.0",
@@ -104,6 +102,5 @@
       "path": "./dist/bundle.esm.js",
       "limit": "1.04 KB"
     }
-  ],
-  "private": false
+  ]
 }

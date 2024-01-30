@@ -11,21 +11,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 21
-      - run: yarn install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - name: Build
-        run: yarn build
-      - name: EsLint
-        run: yarn lint
-      - name: Prettier
-        run: yarn prettier:check
+        run: pnpm build
+      - name: biome lint check
+        run: pnpm lint
+      - name: biome format check
+        run: pnpm format:check
       - name:  Install gzip-size-cli
-        run: yarn global add gzip-size-cli
+        run: pnpm global add gzip-size-cli
       - name: Check Gzipped Size
-        run: yarn run gzip-size
+        run: pnpm run gzip-size
       - name: Check Minified and Brotlied Code Size
-        run: yarn run code-size
+        run: pnpm run code-size
       - name: Test
-        run: yarn test
+        run: pnpm test
       - name: deploy test report
         if: ${{ github.ref == 'refs/heads/main' }}
         run: |
