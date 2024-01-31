@@ -16,4 +16,3 @@ docs/coverage
 *.yml
 *.config.*
 .chglog/
-.husky/
