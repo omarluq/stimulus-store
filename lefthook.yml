@@ -1,0 +1,17 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+#
+pre-commit:
+  parallel: true
+  follow: true
+  commands:
+    biome-lint:
+      run: pnpm lint
+    biome-format:
+      run: pnpm format:check
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: pnpm commitlint --edit

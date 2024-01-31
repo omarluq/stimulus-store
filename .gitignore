@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 pnpm-lock.yaml
+.husky/*
+!.husky/.keep
 
 # Editor directories and files
 .vscode/*
