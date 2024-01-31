@@ -1,6 +1,6 @@
 {
   "name": "stimulus-store",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightweight state management for Stimulus.js",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
