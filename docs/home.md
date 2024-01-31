@@ -62,14 +62,14 @@
   <a style="text-decoration: none;" target="_blank" href="https://npmjs.com/package/stimulus-store">
     <img src="https://img.shields.io/npm/dm/stimulus-store.svg" alt="npm downloads" />
   </a>
-  <a style="text-decoration: none;" target="_blank" href="https://bundlephobia.com/result?p=stimulus-store@0.0.1-beta.1">
-    <img src="https://img.shields.io/bundlephobia/minzip/stimulus-store@0.0.1-beta.1" alt="Bundle Size" />
+  <a style="text-decoration: none;" target="_blank" href="https://bundlephobia.com/result?p=stimulus-store@0.0.1">
+    <img src="https://img.shields.io/bundlephobia/minzip/stimulus-store@0.0.1" alt="Bundle Size" />
   </a>
-  <a style="text-decoration: none;" target="_blank" href="https://bundlephobia.com/result?p=stimulus-store@0.0.1-beta.1">
-    <img src="https://img.shields.io/bundlephobia/min/stimulus-store@0.0.1-beta.1" alt="Bundle Min" />
+  <a style="text-decoration: none;" target="_blank" href="https://bundlephobia.com/result?p=stimulus-store@0.0.1">
+    <img src="https://img.shields.io/bundlephobia/min/stimulus-store@0.0.1" alt="Bundle Min" />
   </a>
-  <a style="text-decoration: none;" target="_blank" href="https://bundlephobia.com/result?p=stimulus-store@0.0.1-beta.1">
-    <img src="https://badgen.net/bundlephobia/tree-shaking/stimulus-store@0.0.1-beta.1" alt="Tree-shaking size" />
+  <a style="text-decoration: none;" target="_blank" href="https://bundlephobia.com/result?p=stimulus-store@0.0.1">
+    <img src="https://badgen.net/bundlephobia/tree-shaking/stimulus-store@0.0.1" alt="Tree-shaking size" />
   </a>
   <!-- Miscellaneous Badges -->
   <a style="text-decoration: none;" target="_blank" href="https://github.com/omarluq/stimulus-store">

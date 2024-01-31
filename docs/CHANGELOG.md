@@ -1,4 +1,13 @@
 
+<a name="v0.0.1"></a>
+## [v0.0.1](https://github.com/omarluq/stimulus-store/compare/v0.0.1-beta.1...v0.0.1) 2024-01-30
+
+### Features
+
+* preserve initial value on store class and introduce `reset<StoreName>` function for controller
+* add docsify documentation site
+
+
 <a name="v0.0.1-beta.1"></a>
 ## [v0.0.1-beta.1](https://github.com/omarluq/stimulus-store/compare/v0.0.1-beta...v0.0.1-beta.1) 2023-11-27
 
