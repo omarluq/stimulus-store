@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/omarluq/stimulus-store#readme",
   "files": [
-    "dist/"
+    "dist/**/*"
   ],
   "husky": {
     "hooks": {
@@ -32,7 +32,10 @@
     "code-size": "npx size-limit",
     "changelog": "git-chglog -o docs/CHANGELOG.md",
     "husky:prepare": "husky install",
-    "docs": "docsify serve docs"
+    "docs": "docsify serve docs",
+    "prepack": "cp docs/README.md . && cp docs/CHANGELOG.md . && cp docs/LICENSE.md . && cp -r dist/* .",
+    "postpack": "git clean -f -d"
+    
   },
   "keywords": [
     "stimulus",
