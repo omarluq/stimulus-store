@@ -21,6 +21,7 @@
   [![GitHub watchers](https://img.shields.io/github/watchers/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/watchers)
   [![Type Definitions](https://img.shields.io/npm/types/stimulus-store)](https://www.typescriptlang.org)
   [![jest](https://jestjs.io/img/jest-badge.svg)](https://jestjs.io/)
+  [![BiomeJS](https://img.shields.io/badge/-BiomeJs-60A5FA?logo=biome&logoColor=white)](https://biomejs.dev)
   [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/omarluq/stimulus-store/maintainability)
   [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/omarluq/stimulus-store/test_coverage)
   [![npm version](https://badge.fury.io/js/stimulus-store.svg)](https://npmjs.com/package/stimulus-store)
