@@ -51,39 +51,6 @@ Here's an example:
   }
 ```
 
-## Reacting to a Store Value Updates
-
-When a store's state is updated, all subscribed controllers are automatically notified. You can implement a method named `on<StoreName>Update` in your controller to handle these updates. This method will be called with the store's new state, allowing you to respond accordingly.
-
-```js
-  import { Controller } from 'stimulus';
-  import { useStore } from 'stimulus-store';
-  import { counterStore } from './stores/counter';
-
-  export default class extends Controller {
-    static stores = [counterStore]
-
-    connect() {
-      useStore(this);
-    }
-
-    onCounterStoreUpdate() {
-      console.log('Counter store updated:', this.counterStoreValue);
-    }
-  }
-```
-In this version, `this.counterStoreValue` is used to access the store's value.
-
-- Passing the Store Value as an Argument:
-  ```js
-    onCounterStoreUpdate(value) {
-      console.log('Counter store updated:', value);
-    }
-  ```
-  In this alternate syntax, the store's value is passed as an argument to the `onCounterStoreUpdate` method.
-
-  Both approaches for handling store updates in your Stimulus controller are effective and will correctly display the current state of the store. The method you choose depends on your application's specific needs and your personal coding preferences.
-
 ## Updating a Store Value
 
 To update the state of a store, you can use the `this.set<StoreName>Value` method provided `useStore`. This method ensures that all subscribed controllers are notified of the change, maintaining the reactivity of your application.
@@ -129,3 +96,36 @@ You can also pass in an options object with a filter function. This function tak
 - **Predictability**: For complex states, consider using reducer functions or other state management patterns to keep updates predictable and manageable.
 - **Immutability**: Directly mutating the store state can lead to unpredictable behaviors. Always use the setter function.
 - **Over-updating**: Minimize the number of times you update the store to avoid unnecessary renders.
+
+## Reacting to a Store Value Updates
+
+When a store's state is updated, all subscribed controllers are automatically notified. You can implement a method named `on<StoreName>Update` in your controller to handle these updates. This method will be called with the store's new state, allowing you to respond accordingly.
+
+```js
+  import { Controller } from 'stimulus';
+  import { useStore } from 'stimulus-store';
+  import { counterStore } from './stores/counter';
+
+  export default class extends Controller {
+    static stores = [counterStore]
+
+    connect() {
+      useStore(this);
+    }
+
+    onCounterStoreUpdate() {
+      console.log('Counter store updated:', this.counterStoreValue);
+    }
+  }
+```
+In this version, `this.counterStoreValue` is used to access the store's value.
+
+- Passing the Store Value as an Argument:
+  ```js
+    onCounterStoreUpdate(value) {
+      console.log('Counter store updated:', value);
+    }
+  ```
+  In this alternate syntax, the store's value is passed as an argument to the `onCounterStoreUpdate` method.
+
+  Both approaches for handling store updates in your Stimulus controller are effective and will correctly display the current state of the store. The method you choose depends on your application's specific needs and your personal coding preferences.
