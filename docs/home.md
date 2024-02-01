@@ -55,6 +55,9 @@
   <a style="text-decoration: none;" target="_blank" href="https://codeclimate.com/github/omarluq/stimulus-store/test_coverage">
     <img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage" alt="Test Coverage" />
   </a>
+  <a style="text-decoration: none;" target="_blank" href="https://biomejs.dev">
+    <img src="https://img.shields.io/badge/-BiomeJs-60A5FA?logo=biome&logoColor=white" alt="Linting and Formatting" />
+  </a>
   <!-- Download and Package Size Badges -->
   <a style="text-decoration: none;" target="_blank" href="https://npmjs.com/package/stimulus-store">
     <img src="https://badge.fury.io/js/stimulus-store.svg" alt="npm version" />
