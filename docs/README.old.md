@@ -112,7 +112,7 @@ export const counterStore = createStore({ name: 'counterStore', initialValue: 0,
 
 ```js
 // controllers/counter_controller.js
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import { useStore } from "stimulus-store"
 import { counterStore } from "./stores/counter";
 
@@ -137,7 +137,7 @@ export default class extends Controller {
 
 ```js
 // controllers/display_controller.js
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import { useStore } from "stimulus-store"
 import { counterStore } from "./stores/counter"; // Import the counterStore
 
@@ -185,7 +185,7 @@ In the Stimulus controller, the `static stores` array is used to specify which s
 When you call `useStore(this)` in the `connect` method, the `useStore` hook will subscribe the controller to all the stores specified in the `static stores` array. This means that the controller will be able to access and modify the state in these stores, and it will be notified when the state in these stores changes.
 
 ```js
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 import { useStore } from 'stimulus-store';
 import { counterStore } from './stores/counter';
 
@@ -204,7 +204,7 @@ The `useStore` hook provides several helpers that you can use to interact with t
 
 - `on<StoreName>Update`: This function is called whenever the store's state changes. You can override this function in your controller to react to state changes.
 ```js
-  import { Controller } from 'stimulus';
+  import { Controller } from '@hotwired/stimulus';
   import { useStore } from 'stimulus-store';
   import { counterStore } from './stores/counter';
 

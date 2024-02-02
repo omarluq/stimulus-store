@@ -9,7 +9,7 @@ When you invoke `useStore(this)` within the connect method of a Stimulus control
 Here's an example:
 
 ```js
-  import { Controller } from 'stimulus';
+  import { Controller } from '@hotwired/stimulus';
   import { useStore } from 'stimulus-store';
   import { counterStore } from './stores/counter';
 
@@ -33,7 +33,7 @@ Here's an example:
 
 
 ```js
-  import { Controller } from 'stimulus';
+  import { Controller } from '@hotwired/stimulus';
   import { useStore } from 'stimulus-store';
   import { counterStore } from './stores/counter';
 
@@ -58,7 +58,7 @@ To update the state of a store, you can use the `this.set<StoreName>Value` metho
 Here's an example of how you can update a value in the counterStore:
 
 ```js
-  import { Controller } from 'stimulus';
+  import { Controller } from '@hotwired/stimulus';
   import { useStore } from 'stimulus-store';
   import { counterStore } from './stores/counter';
 
@@ -102,7 +102,7 @@ You can also pass in an options object with a filter function. This function tak
 When a store's state is updated, all subscribed controllers are automatically notified. You can implement a method named `on<StoreName>Update` in your controller to handle these updates. This method will be called with the store's new state, allowing you to respond accordingly.
 
 ```js
-  import { Controller } from 'stimulus';
+  import { Controller } from '@hotwired/stimulus';
   import { useStore } from 'stimulus-store';
   import { counterStore } from './stores/counter';
 

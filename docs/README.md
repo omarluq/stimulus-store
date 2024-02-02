@@ -42,7 +42,7 @@
 
 
 <p align="center">
-  <b>Ultra lightweight state management in your Stimulus powered web applications.</b>
+  <b>Ultra lightweight state management for your Stimulus powered web applications.</b>
 </p>
 
 </br>

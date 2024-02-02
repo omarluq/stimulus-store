@@ -22,7 +22,7 @@ import { camelize } from '../utils/camelize'
  *
  * Usage Example:
  * ```javascript
- * import { Controller } from "stimulus";
+ * import { Controller } from "@hotwired/stimulus";
  * import { useStore } from "stimulus-store";
  * import { myStore } from "./stores/myStore"; // Import your store class
  *
@@ -35,7 +35,7 @@ import { camelize } from '../utils/camelize'
  *   }
  *
  *   // Implement specific update methods for each store
- *   onMyStoreUpdate {
+ *   onMyStoreUpdate() {
  *     // Handle updates for MyStore
  *     console.log("MyStore updated:", this.myStoreValue);
  *   }
@@ -113,10 +113,6 @@ export function useStore(controller: StoreController) {
         return Reflect.get(target, prop, receiver)
       },
     })
-
-    // Overwrite the value of the store in the static object to the safe proxy
-    const storeIndex = stores?.indexOf(store)
-    stores![storeIndex] = storeProxy
 
     Object.defineProperty(controller, camelizedName, {
       get: () => storeProxy,

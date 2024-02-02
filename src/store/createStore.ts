@@ -44,7 +44,7 @@ export function createStore(options: StoreOptions): Store {
   const initialValue: StoreValue = options.initialValue
   checkInitialValue(initialValue)
   checkName(name)
-  checkTypeConstructor(type?.name)
+  checkTypeConstructor(type.name)
   const symbolName = Symbol(name)
 
   const store: Store = new Store(symbolName, type)
