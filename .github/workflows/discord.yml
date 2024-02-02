@@ -1,6 +1,9 @@
 name: New Push
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   notify:

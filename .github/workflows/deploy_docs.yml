@@ -2,9 +2,11 @@ name: deploy-docs
 
 on:
   workflow_run:
-    workflows: [test]  # Name of the initial workflow
+    workflows: [test]
     types:
       - completed
+    branches:
+      - main
 
 jobs:
   deploy:

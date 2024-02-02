@@ -24,7 +24,7 @@
     "lint:fix:unsafe": "biome check --apply-unsafe .",
     "format:check": "biome format .",
     "format:write": "biome format --write .",
-    "code-size": "npx size-limit",
+    "size": "size-limit",
     "changelog": "git-chglog -o docs/CHANGELOG.md",
     "docs": "docsify serve docs",
     "prepack": "cp docs/README.md . && cp docs/CHANGELOG.md . && cp docs/LICENSE.md . && cp -r dist/* .",
