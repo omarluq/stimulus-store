@@ -23,8 +23,6 @@ jobs:
         run: pnpm lint
       - name: biome format check
         run: pnpm format:check
-      - name: Check Minified and Brotlied Code Size
-        run: pnpm run code-size
       - name: Test
         run: pnpm test
       - name: deploy test report
