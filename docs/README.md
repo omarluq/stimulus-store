@@ -81,14 +81,14 @@ Coming 🔜
 ## Documentation
 complete documentation on Stimulus Store, including guides, API details, and more can be found on [www.stimulus-store.com](https://www.stimulus-store.com).
 
-## Contributors ✨
+<!-- ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
+<!-- <table>
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tcarac"><img src="https://avatars.githubusercontent.com/u/64477810?v=4?s=100" width="100px;" alt="Tomas Caraccia"/><br /><sub><b>Tomas Caraccia</b></sub></a><br /><a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Code">💻</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Tests">⚠️</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Documentation">📖</a> <a href="#maintenance-tcarac" title="Maintenance">🚧</a> <a href="https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+reviewed-by%3Atcarac" title="Reviewed Pull Requests">👀</a> <a href="#question-tcarac" title="Answering Questions">💬</a></td>
@@ -104,17 +104,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       </td>
     </tr>
   </tfoot>
-</table>
+</table> -->
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+<!-- This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome! -->
 
 
-</br>
+<!-- </br> -->
 
 ## License
 
