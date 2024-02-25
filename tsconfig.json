@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext", 
+    "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "esModuleInterop": true,
     "declaration": true,
@@ -17,8 +17,9 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      // your custom paths
+      "types": ["src/index.d.ts"]
     }
   },
+  "files": ["src/index.d.ts"],
   "include": ["src"]
 }
