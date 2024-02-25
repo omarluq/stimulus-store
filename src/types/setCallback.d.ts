@@ -1,3 +1,3 @@
-import type { StoreValue } from './storeValue'
+import type { StoreValue } from "./storeValue";
 
-declare type SetCallback = (value: StoreValue) => StoreValue
+export declare type SetCallback = (value: StoreValue) => StoreValue;
