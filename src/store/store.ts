@@ -1,4 +1,3 @@
-import { checkValue, handlePromiseError } from "../errors/storeErrorHandlers";
 import {
   CurrentValueCallback,
   NotifySubscriberOptions,
@@ -8,7 +7,8 @@ import {
   TypeKey,
   UnsubscribeFunction,
   UpdateMethod,
-} from "types";
+} from 'types'
+import { checkValue, handlePromiseError } from '../errors/storeErrorHandlers'
 /**
  * @template T The type of the value that the store holds.
  * Store Class Explanation:
@@ -27,11 +27,11 @@ import {
  */
 
 export class Store {
-  readonly name: symbol;
-  private value!: StoreValue;
-  private initialValue!: StoreValue;
-  private subscribers: Set<UpdateMethod>;
-  private type: TypeKey;
+  readonly name: symbol
+  private value!: StoreValue
+  private initialValue!: StoreValue
+  private subscribers: Set<UpdateMethod>
+  private type: TypeKey
 
   /**
    * Creates a new store.
@@ -40,9 +40,9 @@ export class Store {
    * @param {TypeKey} type - The type of the store's value.
    */
   constructor(name: symbol, type: TypeKey) {
-    this.name = name;
-    this.subscribers = new Set();
-    this.type = type;
+    this.name = name
+    this.subscribers = new Set()
+    this.type = type
   }
 
   /**
@@ -59,16 +59,16 @@ export class Store {
     options: SetOptions = { filter: () => true },
   ) {
     if (newValue instanceof Promise)
-      return this.resolvePromise(newValue, options);
-    if (newValue === this.get()) return;
+      return this.resolvePromise(newValue, options)
+    if (newValue === this.get()) return
     const finalValue: StoreValue =
-      typeof newValue === "function"
+      typeof newValue === 'function'
         ? (newValue as CurrentValueCallback)(this.get())
-        : newValue;
-    checkValue(finalValue, this.type);
-    this.setInitialValue(finalValue);
-    this.setValue(finalValue);
-    this.notifySubscribers(options);
+        : newValue
+    checkValue(finalValue, this.type)
+    this.setInitialValue(finalValue)
+    this.setValue(finalValue)
+    this.notifySubscribers(options)
   }
 
   /**
@@ -77,22 +77,22 @@ export class Store {
    * @returns {StoreValue} The current value.
    */
   get(): StoreValue {
-    return this.value;
+    return this.value
   }
 
   /**
    * Resets the store to its initial value.
    */
   resetValue(): void {
-    this.setValue(this.initialValue);
+    this.setValue(this.initialValue)
   }
 
   private setValue(value: StoreValue): void {
-    this.value = value;
+    this.value = value
   }
 
   private setInitialValue(value: StoreValue): void {
-    if (this.value === undefined) this.initialValue = value;
+    if (this.value === undefined) this.initialValue = value
   }
 
   /**
@@ -102,9 +102,9 @@ export class Store {
    * @returns {UnsubscribeFunction} A function that unsubscribes the callback.
    */
   private subscribe(callback: UpdateMethod): UnsubscribeFunction {
-    this.subscribers.add(callback);
-    callback(this.get()); // Immediate call for initial value
-    return () => this.unsubscribe(callback); // Return an unsubscribe function
+    this.subscribers.add(callback)
+    callback(this.get()) // Immediate call for initial value
+    return () => this.unsubscribe(callback) // Return an unsubscribe function
   }
 
   /**
@@ -113,7 +113,7 @@ export class Store {
    * @param {UpdateMethod} callback - The function to unsubscribe.
    */
   private unsubscribe(callback: UpdateMethod) {
-    this.subscribers.delete(callback);
+    this.subscribers.delete(callback)
   }
 
   /**
@@ -124,13 +124,13 @@ export class Store {
   public getSubscription(): Subscription {
     return {
       subscribe: (callback: UpdateMethod) => this.subscribe(callback),
-    };
+    }
   }
 
   private notifySubscribers(options: NotifySubscriberOptions) {
     Array.from(this.subscribers)
       .filter(() => options.filter(this.get()))
-      .forEach((callback) => callback(this.get()));
+      .forEach((callback) => callback(this.get()))
   }
 
   private async resolvePromise(
@@ -138,10 +138,10 @@ export class Store {
     options: SetOptions,
   ) {
     try {
-      const resolvedValue = await newValue;
-      this.set(resolvedValue, options);
+      const resolvedValue = await newValue
+      this.set(resolvedValue, options)
     } catch (error) {
-      handlePromiseError(error);
+      handlePromiseError(error)
     }
   }
 }

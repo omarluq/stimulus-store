@@ -1,11 +1,8 @@
+import { StoreController, StoreValue, Subscription } from 'types'
 import { checkStores } from '../errors/useStoreErrorHandlers'
 import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
-import type { Store } from '../store/store'
-import type { Subscription } from '../types/Subscription'
-import type { StoreController } from '../types/storeController' // Adjust the path as needed
-import type { StoreValue } from '../types/storeValue'
+import { Store } from '../store/store'
 import { camelize } from '../utils/camelize'
-
 /**
  * useStore Function
  * The useStore function simplifies the process of subscribing to and handling updates from multiple store instances
