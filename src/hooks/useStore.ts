@@ -1,7 +1,7 @@
-import { StoreController, StoreValue, Subscription } from 'types'
+import type { StoreController, StoreValue, Subscription } from 'types'
 import { checkStores } from '../errors/useStoreErrorHandlers'
 import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
-import { Store } from '../store/store'
+import type { Store } from '../store/store'
 import { camelize } from '../utils/camelize'
 /**
  * useStore Function

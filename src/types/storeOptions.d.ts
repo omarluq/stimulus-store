@@ -1,5 +1,5 @@
 import type { StoreValue } from './storeValue'
-import { TypeKey } from './typeKey'
+import type { TypeKey } from './typeKey'
 
 /**
  * Interface for the options to create a store.
