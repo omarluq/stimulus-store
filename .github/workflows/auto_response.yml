@@ -1,0 +1,35 @@
+name: auto-response
+
+on: [pull_request_target, issues]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issue Comment
+        if: github.event_name == 'issues' && !github.event.issue.user.site_admin
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for raising an issue.\n\nWe will review it and get back to you as soon as possible! 🚀'
+            })
+
+      - name: PR Comment
+        if: github.event_name == 'pull_request' && !github.event.pull_request.user.site_admin
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            '👋 Hello there!\n\nThanks for taking the time to contribute to Stimulus Store.\n\nWe appreciate your effort and we will review your PR soon. Stay tuned! 🚀'
+            github.rest.pulls.createReview({
+              pull_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message,
+              event: 'COMMENT'
+            })
