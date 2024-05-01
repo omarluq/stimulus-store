@@ -1,0 +1,1234 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 9,
+  "numPassedTests": 62,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 9,
+  "numTotalTests": 62,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1714571610928,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 10,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615117,
+        "runtime": 3981,
+        "slow": false,
+        "start": 1714571611136
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/store/store.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 5,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should initialize with the correct value",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should initialize with the correct value"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should update the value correctly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update the value correctly"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should notify subscribers when value changes",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should notify subscribers when value changes"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should stop notifying unsubscribed callbacks",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should stop notifying unsubscribed callbacks"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should not notify subscribers when value is the same",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should not notify subscribers when value is the same"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should not notify subscribers when filter returns false",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should not notify subscribers when filter returns false"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should call the callback with the current value when a function is passed to set",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should call the callback with the current value when a function is passed to set"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 14,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should throw an error when setting a value of the wrong type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error when setting a value of the wrong type"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should only set initial value if the value is defined",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should only set initial value if the value is defined"
+        },
+        {
+          "ancestorTitles": [
+            "Store"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Store should reset the state to the initial value",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should reset the state to the initial value"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 9,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615124,
+        "runtime": 3962,
+        "slow": false,
+        "start": 1714571611162
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/store/createStore.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 19,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should throw an error if no initial value is provided",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error if no initial value is provided"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should throw an error if no initial name is provided",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error if no initial name is provided"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should create a new store with the provided name, initial value, and type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 3,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a new store with the provided name, initial value, and type"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should throw an error if an invalid type is provided",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error if an invalid type is provided"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should create a store with a number type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a store with a number type"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should create a store with a string type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a store with a string type"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should create a store with a boolean type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a store with a boolean type"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should create a store with an array type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a store with an array type"
+        },
+        {
+          "ancestorTitles": [
+            "createStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "createStore should create a store with an object type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should create a store with an object type"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615301,
+        "runtime": 139,
+        "slow": false,
+        "start": 1714571615162
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/errors/storeErrorHandlers.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkValue"
+          ],
+          "duration": 5,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkValue throws an error if value is not of the correct type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if value is not of the correct type"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkValue"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkValue does not throw an error if value is of the correct type",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not throw an error if value is of the correct type"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "handlePromiseError"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers handlePromiseError throws a new error with the same message if error is an instance of Error",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws a new error with the same message if error is an instance of Error"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "handlePromiseError"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers handlePromiseError throws a new error with the stringified error if error is not an instance of Error",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws a new error with the stringified error if error is not an instance of Error"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 8,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615355,
+        "runtime": 212,
+        "slow": false,
+        "start": 1714571615143
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/errors/createStoreErrorHandlers.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkInitialValue"
+          ],
+          "duration": 20,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkInitialValue throws an error if initialValue is undefined",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if initialValue is undefined"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkInitialValue"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkInitialValue does not throw an error if initialValue is defined",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not throw an error if initialValue is defined"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkName"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkName throws an error if name is not a string",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if name is not a string"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkName"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkName does not throw an error if name is a string",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not throw an error if name is a string"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkTypeConstructor"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkTypeConstructor throws an error if type is not a function",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if type is not a function"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "checkTypeConstructor"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers checkTypeConstructor does not throw an error if type is a function",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not throw an error if type is a function"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "handleStoreSetError"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers handleStoreSetError throws a new error with the same message if error is an instance of Error",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws a new error with the same message if error is an instance of Error"
+        },
+        {
+          "ancestorTitles": [
+            "storeErrorHandlers",
+            "handleStoreSetError"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "storeErrorHandlers handleStoreSetError throws a generic error if error is not an instance of Error",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws a generic error if error is not an instance of Error"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615461,
+        "runtime": 144,
+        "slow": false,
+        "start": 1714571615317
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/errors/useStoreErrorHandlers.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "useStoreErrorHandlers",
+            "checkStores"
+          ],
+          "duration": 5,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStoreErrorHandlers checkStores throws an error if stores is undefined",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if stores is undefined"
+        },
+        {
+          "ancestorTitles": [
+            "useStoreErrorHandlers",
+            "checkStores"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStoreErrorHandlers checkStores throws an error if stores is an empty array",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if stores is an empty array"
+        },
+        {
+          "ancestorTitles": [
+            "useStoreErrorHandlers",
+            "checkStores"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStoreErrorHandlers checkStores throws an error if stores is not an array",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "throws an error if stores is not an array"
+        },
+        {
+          "ancestorTitles": [
+            "useStoreErrorHandlers",
+            "checkStores"
+          ],
+          "duration": 3,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStoreErrorHandlers checkStores does not throw an error if stores is a non-empty array",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not throw an error if stores is a non-empty array"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 20,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615487,
+        "runtime": 4351,
+        "slow": false,
+        "start": 1714571611136
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/hooks/useStore.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 39,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should throw an error if useStore is called on a controller without a stores static property",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error if useStore is called on a controller without a stores static property"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should throw an error if useStore is called on a controller with an empty stores static property",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error if useStore is called on a controller with an empty stores static property"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should throw an error if useStore is called on a controller with a stores static property that is not an array",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should throw an error if useStore is called on a controller with a stores static property that is not an array"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should subscribe to stores and call update methods on value changes",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should subscribe to stores and call update methods on value changes"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should allow direct access to store values on the controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should allow direct access to store values on the controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should allow direct access to store instances on the controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should allow direct access to store instances on the controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should clean up subscriptions when controller disconnects",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should clean up subscriptions when controller disconnects"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should add a getter for the store value to the controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should add a getter for the store value to the controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should add an update method to the controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should add an update method to the controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 2,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should notify each controller when the shared store's value is updated by any controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 6,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should notify each controller when the shared store's value is updated by any controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should call the callback with the current value when a function is passed to set",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should call the callback with the current value when a function is passed to set"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should update the store's value with the return value of the callback",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should update the store's value with the return value of the callback"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should add setStoreValue method to controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should add setStoreValue method to controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should handle callbacks in setStoreValue method",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should handle callbacks in setStoreValue method"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should add resetStore method to controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should add resetStore method to controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should handle promises in setStoreValue method",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should handle promises in setStoreValue method"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should warn when accessing store directly",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should warn when accessing store directly"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should not warn when using setStoreValue or accessing storeValue",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should not warn when using setStoreValue or accessing storeValue"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should log a warning only once when store.get is accessed directly from the controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should log a warning only once when store.get is accessed directly from the controller"
+        },
+        {
+          "ancestorTitles": [
+            "useStore"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStore should log a warning only once when store.set is accessed directly from the controller",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should log a warning only once when store.set is accessed directly from the controller"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615544,
+        "runtime": 164,
+        "slow": false,
+        "start": 1714571615380
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/errors/useStoreWarningHandlers.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "useStoreWarningHandlers",
+            "warnDirectAccess"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStoreWarningHandlers warnDirectAccess calls console.warn and returns true if isWarned is false",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "calls console.warn and returns true if isWarned is false"
+        },
+        {
+          "ancestorTitles": [
+            "useStoreWarningHandlers",
+            "warnDirectAccess"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "useStoreWarningHandlers warnDirectAccess does not call console.warn and returns the original isWarned value if isWarned is true",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not call console.warn and returns the original isWarned value if isWarned is true"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615600,
+        "runtime": 116,
+        "slow": false,
+        "start": 1714571615484
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/utils/camelize.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "camelize"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "camelize should correctly camelize testString",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should correctly camelize testString"
+        },
+        {
+          "ancestorTitles": [
+            "camelize"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "camelize should correctly camelize TestString",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should correctly camelize TestString"
+        },
+        {
+          "ancestorTitles": [
+            "camelize"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "camelize should correctly camelize testString",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should correctly camelize testString"
+        },
+        {
+          "ancestorTitles": [
+            "camelize"
+          ],
+          "duration": 0,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "camelize should correctly camelize TestString",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should correctly camelize TestString"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1714571615626,
+        "runtime": 109,
+        "slow": false,
+        "start": 1714571615517
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/home/runner/work/stimulus-store/stimulus-store/test/store/storeValuesTypeMap.test.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "typeMap"
+          ],
+          "duration": 1,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "typeMap should map type names to their corresponding constructors",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 5,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should map type names to their corresponding constructors"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}
