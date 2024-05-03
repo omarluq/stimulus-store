@@ -25,22 +25,3 @@ jobs:
         run: pnpm format:check
       - name: Test
         run: pnpm test
-      - name: deploy test report
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: |
-          git checkout --orphan netlify-deploy-test-report
-          rsync -av --progress docs/jest-stare/* ../tmp
-          find . -maxdepth 1 ! -name .git ! -name . -exec rm -rf {} \;
-          mv ../tmp/* .
-          rm -rf ../tmp
-          git add .
-          git config user.email "dependabot[bot]@users.noreply.github.com"
-          git config user.name "dependabot[bot]"
-          COMMIT_MESSAGE="deploy: (${GITHUB_SHA})"
-          git commit -m "$COMMIT_MESSAGE"
-          git push origin netlify-deploy-test-report -f
-      - name: Upload test report
-        uses: actions/upload-artifact@v3
-        with:
-          name: jest-stare
-          path: ./docs/jest-stare/*

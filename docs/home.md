@@ -46,9 +46,6 @@
   <a style="text-decoration: none;" target="_blank" href="https://www.typescriptlang.org">
     <img src="https://img.shields.io/npm/types/stimulus-store" alt="Type Definitions" />
   </a>
-  <a style="text-decoration: none;" target="_blank" href="https://jestjs.io/">
-    <img src="https://jestjs.io/img/jest-badge.svg" alt="jest" />
-  </a>
   <a style="text-decoration: none;" target="_blank" href="https://codeclimate.com/github/omarluq/stimulus-store/maintainability">
     <img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" alt="Maintainability" />
   </a>
@@ -94,13 +91,11 @@
 
 </br>
 
-
 <p align="center">
   <b>Ultra lightweight state management in your Stimulus powered web applications.</b>
 </p>
 
 </br>
-
 
 - **Create and manage global state with ease.** 🔄
 - **Share state between different controllers effortlessly using a unified, atomic `Store` class.** 🔀
