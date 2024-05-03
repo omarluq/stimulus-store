@@ -17,7 +17,7 @@ describe('Store', () => {
   })
 
   it('should notify subscribers when value changes', () => {
-    const mockCallback = jest.fn()
+    const mockCallback = vi.fn()
     store.getSubscription().subscribe(mockCallback)
 
     store.set(10)
@@ -25,7 +25,7 @@ describe('Store', () => {
   })
 
   it('should stop notifying unsubscribed callbacks', () => {
-    const mockCallback = jest.fn()
+    const mockCallback = vi.fn()
     const unsubscribe = store.getSubscription().subscribe(mockCallback)
 
     unsubscribe()
@@ -34,7 +34,7 @@ describe('Store', () => {
   })
 
   it('should not notify subscribers when value is the same', async () => {
-    const mockCallback = jest.fn()
+    const mockCallback = vi.fn()
 
     // First set: initial value
     await store.set(0)
@@ -53,7 +53,7 @@ describe('Store', () => {
   })
 
   it('should not notify subscribers when filter returns false', async () => {
-    const mockCallback = jest.fn()
+    const mockCallback = vi.fn()
     store.getSubscription().subscribe(mockCallback)
 
     await store.set(20, { filter: () => false })
@@ -61,7 +61,7 @@ describe('Store', () => {
   })
 
   it('should call the callback with the current value when a function is passed to set', () => {
-    const callback = jest
+    const callback = vi
       .fn()
       .mockImplementation((currentValue) => currentValue + 10)
     store.set(0)

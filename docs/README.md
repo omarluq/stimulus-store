@@ -4,7 +4,6 @@
   </a>
 </div>
 
-
 <p align="center">
   <a target="_blank" href="https://www.stimulus-store.com" alt="Stimulus Store Documentation site">
     <img src="images/stimulus_store_logo.png" alt="Stimulus Store Logo"/> 
@@ -27,7 +26,6 @@
   [![GitHub forks](https://img.shields.io/github/forks/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/network/members)
   [![GitHub watchers](https://img.shields.io/github/watchers/omarluq/stimulus-store?style=flat)](https://github.com/omarluq/stimulus-store/watchers)
   [![Type Definitions](https://img.shields.io/npm/types/stimulus-store)](https://www.typescriptlang.org)
-  [![jest](https://jestjs.io/img/jest-badge.svg)](https://jestjs.io/)
   [![BiomeJS](https://img.shields.io/badge/-BiomeJs-60A5FA?logo=biome&logoColor=white)](https://biomejs.dev)
   [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/omarluq/stimulus-store/maintainability)
   [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/omarluq/stimulus-store/test_coverage)
@@ -47,13 +45,11 @@
 
 </br>
 
-
 <p align="center">
   <b>Ultra lightweight state management for your Stimulus powered web applications.</b>
 </p>
 
 </br>
-
 
 - **Create and manage global state with ease.** 🔄
 - **Share state between different controllers effortlessly using a unified, atomic `Store` class.** 🔀
@@ -76,9 +72,11 @@ yarn add stimulus-store
 ```
 
 ### UMD
+
 Coming 🔜
 
 ## Documentation
+
 complete documentation on Stimulus Store, including guides, API details, and more can be found on [www.stimulus-store.com](https://www.stimulus-store.com).
 
 ## Contributors ✨
@@ -112,7 +110,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
 
 </br>
 

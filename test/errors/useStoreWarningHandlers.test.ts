@@ -2,10 +2,10 @@ import { warnDirectAccess } from '../../src/errors/useStoreWarningHandlers'
 
 describe('useStoreWarningHandlers', () => {
   describe('warnDirectAccess', () => {
-    let consoleWarnSpy: jest.SpyInstance
+    let consoleWarnSpy: vi.SpyInstance
 
     beforeEach(() => {
-      consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation()
+      consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation()
     })
 
     afterEach(() => {

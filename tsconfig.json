@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "types": ["src/index.d.ts"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "files": ["src/index.d.ts"],
   "include": ["src"]

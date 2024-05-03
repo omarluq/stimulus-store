@@ -12,7 +12,7 @@ describe('useStore', () => {
   }
 
   beforeEach(async () => {
-    console.warn = jest.fn()
+    console.warn = vi.fn()
     testStore = await createStore({
       name: 'testStore',
       type: Number,
@@ -22,12 +22,12 @@ describe('useStore', () => {
       constructor: {
         stores: [testStore],
       },
-      onTestStoreUpdate: jest.fn(),
-      disconnect: jest.fn(),
-      context: jest.fn(),
-      application: jest.fn(),
-      scope: jest.fn(),
-      element: jest.fn(),
+      onTestStoreUpdate: vi.fn(),
+      disconnect: vi.fn(),
+      context: vi.fn(),
+      application: vi.fn(),
+      scope: vi.fn(),
+      element: vi.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
 
@@ -37,12 +37,12 @@ describe('useStore', () => {
   it('should throw an error if useStore is called on a controller without a stores static property', () => {
     const noStoresController = {
       constructor: {},
-      onTestStoreUpdate: jest.fn(),
-      disconnect: jest.fn(),
-      context: jest.fn(),
-      application: jest.fn(),
-      scope: jest.fn(),
-      element: jest.fn(),
+      onTestStoreUpdate: vi.fn(),
+      disconnect: vi.fn(),
+      context: vi.fn(),
+      application: vi.fn(),
+      scope: vi.fn(),
+      element: vi.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     expect(() => useStore(noStoresController)).toThrow(
@@ -55,12 +55,12 @@ describe('useStore', () => {
       constructor: {
         stores: [],
       },
-      onTestStoreUpdate: jest.fn(),
-      disconnect: jest.fn(),
-      context: jest.fn(),
-      application: jest.fn(),
-      scope: jest.fn(),
-      element: jest.fn(),
+      onTestStoreUpdate: vi.fn(),
+      disconnect: vi.fn(),
+      context: vi.fn(),
+      application: vi.fn(),
+      scope: vi.fn(),
+      element: vi.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     expect(() => useStore(emptyStoresController)).toThrow(
@@ -73,12 +73,12 @@ describe('useStore', () => {
       constructor: {
         stores: 'not an array',
       },
-      onTestStoreUpdate: jest.fn(),
-      disconnect: jest.fn(),
-      context: jest.fn(),
-      application: jest.fn(),
-      scope: jest.fn(),
-      element: jest.fn(),
+      onTestStoreUpdate: vi.fn(),
+      disconnect: vi.fn(),
+      context: vi.fn(),
+      application: vi.fn(),
+      scope: vi.fn(),
+      element: vi.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     expect(() => useStore(notArrayStoresController)).toThrow(
@@ -101,8 +101,8 @@ describe('useStore', () => {
   })
 
   it('should clean up subscriptions when controller disconnects', () => {
-    const unsubscribe = jest.fn()
-    jest.spyOn(testStore, 'getSubscription').mockReturnValue({
+    const unsubscribe = vi.fn()
+    vi.spyOn(testStore, 'getSubscription').mockReturnValue({
       subscribe: () => unsubscribe,
     })
 
@@ -130,12 +130,12 @@ describe('useStore', () => {
       constructor: {
         stores: [testStore],
       },
-      onTestStoreUpdate: jest.fn(),
-      disconnect: jest.fn(),
-      context: jest.fn(),
-      application: jest.fn(),
-      scope: jest.fn(),
-      element: jest.fn(),
+      onTestStoreUpdate: vi.fn(),
+      disconnect: vi.fn(),
+      context: vi.fn(),
+      application: vi.fn(),
+      scope: vi.fn(),
+      element: vi.fn(),
       // Add the other missing properties here...
     } as unknown as StoreController
     // Assume that the controllers have a method to update the store's value
@@ -157,14 +157,14 @@ describe('useStore', () => {
   })
 
   it('should call the callback with the current value when a function is passed to set', () => {
-    const callback = jest.fn().mockReturnValue(10)
+    const callback = vi.fn().mockReturnValue(10)
     testStore.set(callback)
     expect(callback).toHaveBeenCalledWith(0)
     expect(testStore.get()).toBe(10)
   })
 
   it("should update the store's value with the return value of the callback", () => {
-    const callback = jest.fn((currentValue) => currentValue + 5)
+    const callback = vi.fn((currentValue) => currentValue + 5)
     testStore.set(callback)
     expect(testStore.get()).toBe(5)
   })
