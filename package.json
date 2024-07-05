@@ -83,6 +83,10 @@
     {
       "path": "./dist/bundle.esm.js",
       "limit": "1.2 KB"
+    },
+    {
+      "path": "./dist/bundle.umd.js",
+      "limit": "1.25 KB"
     }
   ]
 }
