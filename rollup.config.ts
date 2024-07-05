@@ -20,6 +20,12 @@ export default {
       file: 'dist/bundle.esm.js',
       format: 'esm', // ES Module format
       sourcemap: true
+    },
+    {
+      file: 'dist/bundle.umd.js',
+      name: 'StimulusStore',
+      format: 'umd',
+      sourcemap: true
     }
   ],
   plugins: [
@@ -31,13 +37,13 @@ export default {
     commonjs(), // CommonJS support
     resolve(), // Node.js module resolution
     production &&
-      terser({
-        // Terser for minification in production
-        output: { comments: false },
-        compress: {
-          drop_console: true // Remove console logs in production
-        }
-      }),
+    terser({
+      // Terser for minification in production
+      output: { comments: false },
+      compress: {
+        drop_console: true // Remove console logs in production
+      }
+    }),
     analyze(), // Bundle analysis
     sizes() // Size analysis
   ]
