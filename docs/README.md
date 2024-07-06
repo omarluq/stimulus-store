@@ -87,7 +87,7 @@ If you prefer not to use a build system, you can load `stimulus-store` in a `<sc
         const application = Stimulus.Application.start();
 
         const helloStore = StimulusStore.createStore({
-          name: "myStore",
+          name: "helloStore",
           type: String,
           initialValue: "Hello World!",
         });
