@@ -60,7 +60,7 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@size-limit/preset-small-lib": "^11.0.2",
     "@size-limit/time": "^11.0.2",
-    "@types/node": "^20.10.0",
+    "@types/node": "^22.0.0",
     "@vitest/coverage-istanbul": "^1.6.0",
     "@vitest/ui": "^1.6.0",
     "all-contributors-cli": "^6.26.1",
