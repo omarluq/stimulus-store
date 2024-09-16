@@ -50,7 +50,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.9.0",
+    "@biomejs/biome": "1.9.1",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "@hotwired/stimulus": "^3.2.2",
