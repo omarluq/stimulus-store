@@ -1,9 +1,3 @@
-<div align="center">
-  <a target="_blank" href="https://www.change.org/p/sign-and-share-this-urgent-petition-calling-for-a-ceasefirenow-in-gaza-and-israel" alt="Cease Fire in Gaza Now!">
-    <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-support.svg" alt="Stimulus Store Logo"/>
-  </a>
-</div>
-
 <p align="center">
   <a target="_blank" href="https://www.stimulus-store.com" alt="Stimulus Store Documentation site">
     <img src="images/stimulus_store_logo.png" alt="Stimulus Store Logo"/>
