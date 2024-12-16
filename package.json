@@ -55,7 +55,7 @@
     "@commitlint/config-conventional": "^19.0.3",
     "@hotwired/stimulus": "^3.2.2",
     "@rollup/plugin-commonjs": "^28.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.0",
     "@size-limit/preset-small-lib": "^11.0.2",
