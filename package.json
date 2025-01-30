@@ -62,7 +62,7 @@
     "@size-limit/time": "^11.0.2",
     "@types/node": "^22.0.0",
     "@vitest/coverage-istanbul": "^1.6.0",
-    "@vitest/ui": "^1.6.0",
+    "@vitest/ui": "^3.0.4",
     "all-contributors-cli": "^6.26.1",
     "lefthook": "^1.6.1",
     "rollup": "^4.5.1",
