@@ -25,3 +25,5 @@ jobs:
         run: pnpm format:check
       - name: Test
         run: pnpm test
+      - name: Size limit
+        run: pnpm size
