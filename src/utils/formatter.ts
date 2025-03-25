@@ -1,4 +1,4 @@
-export function camelize(str: string, firstCharUppercase = false): string {
+function format(str: string, firstCharUppercase = false): string {
   const pattern1: RegExp = /(?:^\w|[A-Z]|\b\w)/g
   const pattern2: RegExp = /\s+/g
   const result: string = str
@@ -9,4 +9,12 @@ export function camelize(str: string, firstCharUppercase = false): string {
     )
     .replace(pattern2, '')
   return result
+}
+
+export function pascalize(str: string): string {
+  return format(str, true)
+}
+
+export function camelize(str: string): string {
+  return format(str)
 }

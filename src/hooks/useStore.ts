@@ -2,7 +2,7 @@ import type { StoreController, StoreValue, Subscription } from 'types'
 import { checkStores } from '../errors/useStoreErrorHandlers'
 import { warnDirectAccess } from '../errors/useStoreWarningHandlers'
 import type { Store } from '../store/store'
-import { camelize } from '../utils/camelize'
+import { camelize, pascalize } from '../utils/formatter'
 /**
  * useStore Function
  * The useStore function simplifies the process of subscribing to and handling updates from multiple store instances
@@ -53,10 +53,8 @@ export function useStore(controller: StoreController) {
     const storeName: symbol = store.name
     const storeNameAsString: string = storeName.toString().slice(7, -1)
     const camelizedName: string = camelize(storeNameAsString)
-    const onStoreUpdateMethodName: string = `on${camelize(
-      storeNameAsString,
-      true,
-    )}Update`
+    const pascalizedName: string = pascalize(storeNameAsString)
+    const onStoreUpdateMethodName: string = `on${pascalizedName}Update`
     const onStoreUpdateMethod = controller[onStoreUpdateMethodName] as (
       value: StoreValue,
     ) => void
@@ -67,17 +65,14 @@ export function useStore(controller: StoreController) {
         onStoreUpdateMethod.call(controller, value)
       }
 
-      const methodName = `update${camelize(storeNameAsString, true)}`
+      const methodName = `update${pascalizedName}`
       controller[methodName] = updateMethod
 
       unsubscribeFunctions.push(subscription.subscribe(updateMethod))
     }
 
     // Add a helper method to set the store value
-    const setStoreValueMethodName = `set${camelize(
-      storeNameAsString,
-      true,
-    )}Value`
+    const setStoreValueMethodName = `set${pascalizedName}Value`
     controller[setStoreValueMethodName] = (
       value:
         | StoreValue
@@ -88,7 +83,7 @@ export function useStore(controller: StoreController) {
     }
 
     // Add a helper method to reset the store value
-    const resetStoreMethodName = `reset${camelize(storeNameAsString, true)}`
+    const resetStoreMethodName = `reset${pascalizedName}`
     controller[resetStoreMethodName] = () => {
       store.resetValue()
     }
