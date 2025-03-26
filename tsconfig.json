@@ -2,12 +2,14 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020"],
     "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist",
     "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "remove",
+    "stripInternal": true,
     "noEmit": false,
     "strict": true,
     "noUnusedLocals": true,
@@ -22,5 +24,6 @@
     "types": ["vitest/globals"]
   },
   "files": ["src/index.d.ts"],
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts"]
 }

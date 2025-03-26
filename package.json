@@ -4,7 +4,13 @@
   "description": "Lightweight state management for Stimulus.js",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
+  "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    "import": "./dist/bundle.esm.js",
+    "require": "./dist/bundle.cjs.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/omarluq/stimulus-store.git"
@@ -69,6 +75,7 @@
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-sizes": "^1.1.0",
+    "rollup-plugin-visualizer": "^5.14.0",
     "size-limit": "^11.2.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
