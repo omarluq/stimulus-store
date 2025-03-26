@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import analyze from "rollup-plugin-analyzer";
+import { visualizer } from "rollup-plugin-visualizer";
 import sizes from "rollup-plugin-sizes";
 import copy from "rollup-plugin-copy";
 
@@ -10,6 +11,9 @@ const production = !process.env.ROLLUP_WATCH;
 
 export default {
   input: "src/index.ts", // Entry point
+  treeshake: {
+    moduleSideEffects: false,
+  },
   output: [
     {
       file: "dist/bundle.cjs.js",
@@ -34,17 +38,22 @@ export default {
       targets: [{ src: "src/**/*.d.ts", dest: "dist" }],
       flatten: false,
     }),
-    commonjs(), // CommonJS support
     resolve(), // Node.js module resolution
+    commonjs(), // CommonJS support
     production &&
       terser({
         // Terser for minification in production
         output: { comments: false },
         compress: {
-          drop_console: true, // Remove console logs in production
+          drop_console: true,
+          drop_debugger: true,
+          passes: 2,
+          toplevel: true,
+          unsafe: true,
         },
       }),
     analyze(), // Bundle analysis
     sizes({ details: true }), // Size analysis
+    visualizer(),
   ],
 };
