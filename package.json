@@ -64,6 +64,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@size-limit/file": "^11.2.0",
     "@size-limit/preset-small-lib": "^11.2.0",
     "@size-limit/time": "^11.2.0",
     "@types/node": "^22.13.13",
