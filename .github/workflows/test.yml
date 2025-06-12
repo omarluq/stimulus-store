@@ -1,11 +1,8 @@
 name: test
-
 on: [push]
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,8 +12,7 @@ jobs:
         with:
           version: 8
           run_install: |
-            - recursive: true
-              args: [--strict-peer-dependencies]
+            - args: [--strict-peer-dependencies]
       - name: Build
         run: pnpm build
       - name: biome lint check
