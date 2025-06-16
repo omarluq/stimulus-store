@@ -22,7 +22,7 @@ importers:
         version: 3.2.2
       '@rollup/plugin-commonjs':
         specifier: ^28.0.3
-        version: 28.0.3(rollup@4.43.0)
+        version: 28.0.5(rollup@4.43.0)
       '@rollup/plugin-node-resolve':
         specifier: ^16.0.1
         version: 16.0.1(rollup@4.43.0)
@@ -497,8 +497,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@rollup/plugin-commonjs@28.0.3':
-    resolution: {integrity: sha512-pyltgilam1QPdn+Zd9gaCfOLcnjMEJ9gV+bTw6/r73INdvzf1ah9zLIJBm+kW7R6IUFIQ1YO+VqZtYxZNWFPEQ==}
+  '@rollup/plugin-commonjs@28.0.5':
+    resolution: {integrity: sha512-lytLp2JgAMwqJY6ve3OSROXr2XuEYHjnsQN3hmnxC+w11dI91LuUw4Yc1kk2FqKXeMG8psoFejFgK+znoij0cg==}
     engines: {node: '>=16.0.0 || 14 >= 14.17'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -2745,7 +2745,7 @@ snapshots:
       - bare-buffer
       - supports-color
 
-  '@rollup/plugin-commonjs@28.0.3(rollup@4.43.0)':
+  '@rollup/plugin-commonjs@28.0.5(rollup@4.43.0)':
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.43.0)
       commondir: 1.0.1
