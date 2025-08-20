@@ -1,0 +1,3 @@
+# Usage
+
+Inspired by [StimulusUse](https://stimulus-use.github.io/stimulus-use/#/), Stimulus Store is designed to promote a modular and composable approach to state management in Stimulus applications. By leveraging `createStore` and `useStore`, you can create isolated state containers (stores) and interact with them in a reactive manner. This design promotes cleaner and more maintainable code by separating state management concerns from Stimulus controllers while providing a powerful API to interact with various application states in a unified and streamlined manner.
