@@ -110,40 +110,6 @@ If you prefer not to use a build system, you can load `stimulus-store` in a `<sc
 
 complete documentation on Stimulus Store, including guides, API details, and more can be found on [www.stimulus-store.com](https://www.stimulus-store.com).
 
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tcarac"><img src="https://avatars.githubusercontent.com/u/64477810?v=4?s=100" width="100px;" alt="Tomas Caraccia"/><br /><sub><b>Tomas Caraccia</b></sub></a><br /><a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Code">💻</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Tests">⚠️</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=tcarac" title="Documentation">📖</a> <a href="#maintenance-tcarac" title="Maintenance">🚧</a> <a href="https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+reviewed-by%3Atcarac" title="Reviewed Pull Requests">👀</a> <a href="#question-tcarac" title="Answering Questions">💬</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://omarluq.github.io/portfolio/"><img src="https://avatars.githubusercontent.com/u/84993125?v=4?s=100" width="100px;" alt="Omar Luq "/><br /><sub><b>Omar Luq </b></sub></a><br /><a href="https://github.com/omarluq/stimulus-store/commits?author=omarluq" title="Code">💻</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=omarluq" title="Tests">⚠️</a> <a href="https://github.com/omarluq/stimulus-store/commits?author=omarluq" title="Documentation">📖</a> <a href="#maintenance-omarluq" title="Maintenance">🚧</a> <a href="https://github.com/omarluq/stimulus-store/pulls?q=is%3Apr+reviewed-by%3Aomarluq" title="Reviewed Pull Requests">👀</a> <a href="#question-omarluq" title="Answering Questions">💬</a></td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td align="center" size="13px" colspan="7">
-        <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
-          <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
-        </img>
-      </td>
-    </tr>
-  </tfoot>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-</br>
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
