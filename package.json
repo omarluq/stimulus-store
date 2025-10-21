@@ -70,7 +70,7 @@
     "@vitest/coverage-istanbul": "^3.2.3",
     "@vitest/ui": "^3.2.3",
     "all-contributors-cli": "^6.26.1",
-    "lefthook": "^1.11.13",
+    "lefthook": "^2.0.0",
     "rollup": "^4.43.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.5.0",
